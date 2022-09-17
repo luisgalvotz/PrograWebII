@@ -1,7 +1,7 @@
-const User = require('../models/usuarioSchema');
+const Usuario = require('../models/usuarioSchema');
 
 exports.usuario_crear = async(req, res) => {
-    const {body : user} = req;
+    const {body : usuario} = req;
 
     const usuarioDB = new Usuario(usuario);
 

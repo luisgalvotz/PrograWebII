@@ -5,8 +5,7 @@ const UsuarioSchema = mongoose.Schema({
         type: String,
         required: true,
         minlength: 4,
-        maxlenght: 80,
-        estatus: "activo"
+        maxlenght: 80
     },
     telefono: {
         type: Number,
@@ -20,8 +19,7 @@ const UsuarioSchema = mongoose.Schema({
         maxlenght: 80
     },
     fechaNacimiento: {
-        type: Date,
-        required: true
+        type: Date
     },
     contrasenia: {
         type: String,
