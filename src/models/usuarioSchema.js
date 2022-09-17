@@ -29,18 +29,19 @@ const UsuarioSchema = mongoose.Schema({
         type: String,
         required: [true, 'Favor de ingresar la fecha de nacimiento']
     },
-    contrasenia: {
+    contrasena: {
         type: String,
         required: true,
         minlength: [4, 'Favor de usar minimo 4 caracteres -contraseña'],
         maxlenght: [20, 'Favor de usar maximo 20 caracteres -contraseña'],
     },
     fotografia: {
-        type: String
+        type: String,
+        required:[true, 'Favor de ingresar la fotografia']
     },
     estatus: {
         type: String,
-        default: "alta"
+        default: "activo"
     }
 });
 

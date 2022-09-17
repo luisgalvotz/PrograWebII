@@ -4,19 +4,19 @@ const ArticuloSchema = mongoose.Schema({
     titulo: {
         type: String,
         required: true,
-        minlength: 1,
+        minlength: 5,
         maxlenght: 50
     },
     descripcion: {
         type: String,
         required: true,
-        minlength: 1,
-        maxlenght: 1000
+        minlength: 4,
+        maxlenght: 400
     },
     notas: {
         type: String,
         required: true,
-        maxlenght: 500
+        maxlenght: 400
     },
     idUsuario: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -25,20 +25,13 @@ const ArticuloSchema = mongoose.Schema({
     imagenes: {
         type: String
     },
-    tipo: {
-        type: String,
-        required: true,
-    },
     etiquetas: {
         type: Array,
-        required: true,
-        
-        minlength: 1,
-        maxlenght: 100
+        required: true
     },
     estatus: {
         type: String,
-        default: "alta"
+        default: "activo"
     }
 });
 

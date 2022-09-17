@@ -7,21 +7,7 @@ exports.usuario_crear = async(req, res) => {
     //en este caso es lo que vamos a pedir para llenar el usuario
 
     const usuarioDB = new Usuario(usuario); //crear un usuario con todos los parametros del schema
-    //const err = await usuarioDB.validate();
-
-    /*
-    if (err){
-        res.send({message: err})
-    }
-    else{
-       // await usuarioDB.save().catch((err) => console.log("Error", err)); //lo guarda en la base
-       await usuarioDB.save();
-        res.send({
-            message: "Usuario creado",
-            data: usuarioDB
-        });
-    } */
-   
+  
     try {
         await usuarioDB.save();
         res.send({
