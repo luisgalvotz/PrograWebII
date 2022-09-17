@@ -11,7 +11,7 @@ const usuario_router = require('./src/routes/usuarioRouter');
 const articulo_router = require('./src/routes/articuloRouter');
 const articuloVenta_router = require('./src/routes/articuloVentaRouter');
 const articuloIntercambio_router = require('./src/routes/articuloIntercambioRouter');
-//const ofertaIntercambio_router = require('./src/routes/ofertaIntercambioRouter');
+const ofertaIntercambio_router = require('./src/routes/ofertaIntercambioRouter');
 
 app.use(bodyParser.json());
 

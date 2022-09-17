@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const articuloVenta_controller = require('../controllers/articuloController');
+const articuloIntercambio_controller = require('../controllers/articuloController');
 
 //USUARIO RUTAS
-/*
-router.post("/agregarArticulo", articuloVenta_controller.articulo_agregar); //AGREGAR ARTICULO A LISTA DE VENTAS
-router.get("/articulosVenta", articuloVenta_controller.articuloVenta_getAll); //TRAER TODOS LOS ARTICULOS DE VENTA
-router.post("/comprarArticulo", articuloVenta_controller.articulo_comprar); //COMPRAR UN ARTICULO
-router.post("/reporteVentas", articuloVenta_controller.articuloVenta_reporte); //REPORTE DE CUANTAS VENTAS HAN HABIDO POR MESES DEL AÑO
-*/
+
+//router.post("/agregarArticuloIntercambio", articuloIntercambio_controller.articuloIntercambio_agregar); //AGREGAR ARTICULO A LISTA DE INTERCAMBIOS
+//router.get("/articulosIntercambio", articuloIntercambio_controller.articuloIntercambio_getAll); //TRAER TODOS LOS ARTICULOS DE INTERCAMBIO
+//router.post("/reporteIntercambios", articuloIntercambio_controller.articuloIntercambio_reporte); //REPORTE DE INTERCAMBIOS
+
 
 module.exports = router;
