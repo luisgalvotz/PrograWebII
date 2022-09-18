@@ -5,15 +5,15 @@ const ArticulosIntercambioSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "articulos"
     }],
-    deseos: {
+    sugerencias: {
         type: String,
         minlength: 4,
-        maxlenght: 1000,
+        maxlenght: 400,
         required: true
     },
     estatus: {
         type: String,
-        default: "alta"
+        default: "activo"
     }
 });
 

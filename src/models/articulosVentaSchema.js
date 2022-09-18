@@ -6,7 +6,7 @@ const ArticulosVentaSchema = mongoose.Schema({
         ref: "articulos"
     }],
     precio: {
-        type: Double,
+        type: Number,
         required: true
     },
     estatus: {

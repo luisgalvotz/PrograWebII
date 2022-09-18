@@ -6,8 +6,8 @@ const OfertaSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "articuloIntercambios"
     }],
-    imagen: {
-        type: String,
+    imagenes: {
+        type: Array,
         required: true
     },
     titulo: {
@@ -20,15 +20,15 @@ const OfertaSchema = mongoose.Schema({
         type: String,
         required: true,
         minlength: 4,
-        maxlenght: 1000
+        maxlenght: 400
     },
-    idAceptante: [{
+    idUsuario: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "usuarios"
     }],
-    idOferente: [{
+    idArticulo: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "usuarios"
+        ref: "articuloIntercambios"
     }],
     estatus: {
         type: String,
