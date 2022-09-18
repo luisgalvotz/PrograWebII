@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
 const ArticulosVentaSchema = mongoose.Schema({
-    idArticulo: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "articulos"
-    }],
     precio: {
         type: Number,
         required: true
     },
     estatus: {
         type: String,
-        default: "alta"
-    }
+        default: "activo"
+    },
+    id_articulo: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "articulos"
+    }]
 });
 
 const ArticuloVenta = mongoose.model("articuloVentas", ArticulosVentaSchema);

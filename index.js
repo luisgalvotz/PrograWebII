@@ -6,12 +6,11 @@ const port = 3000;
 require('./src/models/connection');
 
 //CONEXIONES A LOS ROUTERS
-const user_router = require('./src/routes/userRouter');
 const usuario_router = require('./src/routes/usuarioRouter');
 const articulo_router = require('./src/routes/articuloRouter');
 const articuloVenta_router = require('./src/routes/articuloVentaRouter');
 const articuloIntercambio_router = require('./src/routes/articuloIntercambioRouter');
-const ofertaIntercambio_router = require('./src/routes/ofertaIntercambioRouter');
+const ofertaIntercambio_router = require('./src/routes/ofertasIntercambioRouter');
 const resenas_router = require('./src/routes/resenasRouter');
 
 app.use(bodyParser.json());
@@ -20,9 +19,6 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
     res.send("Api is running");
 }); 
-
-//ruta user
-app.use('/api', user_router);
 
 // USUARIOS 
 app.use('/usuario', usuario_router);

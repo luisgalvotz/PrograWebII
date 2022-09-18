@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const ofertaIntercambio_controller = require('../controllers/ofertaController');
+const ofertaIntercambio_controller = require('../controllers/ofertasIntercambioController');
 
 //OFERTAS RUTAS
 //router.post("/agregarOferta", ofertaIntercambio_controller.oferta_agregar); //AGREGAR OFERTA A LISTA

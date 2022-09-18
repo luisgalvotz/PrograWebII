@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const UsuarioSchema = mongoose.Schema({
+    tipo: {
+        type: String,
+        required: true,
+        default: "B"
+    },
     nombre: {
         type: String,
         required: [true, 'Falta llenar campo nombre'],
@@ -18,16 +23,16 @@ const UsuarioSchema = mongoose.Schema({
             message: props => `${props.value} is not a valid phone number!`
           }
     },
+    fecha_nac: {
+        type: Date,
+        required: [true, 'Favor de ingresar la fecha de nacimiento']
+    },
     email: {
         type: String,
         required: [true,'Favor de ingresar el email'],
         minlength: [4, 'Favor de usar minimo 4 caracteres -email'],
         maxlenght: [80, 'Favor de usar maximo 8 caracteres -email'],
         match: [/.+\@.+\..+/, 'Por favor ingrese un correo válido']
-    },
-    fechaNacimiento: {
-        type: String,
-        required: [true, 'Favor de ingresar la fecha de nacimiento']
     },
     contrasena: {
         type: String,

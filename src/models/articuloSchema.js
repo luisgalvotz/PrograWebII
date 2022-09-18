@@ -18,10 +18,6 @@ const ArticuloSchema = mongoose.Schema({
         required: [true, 'Favor llenar campo notas'],
         maxlenght: [400, 'Favor de usar maximo 400 caracteres -notas']
     },
-    idUsuario: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "usuarios"
-    },
     imagenes: [{
         type: String
     }],
@@ -32,6 +28,10 @@ const ArticuloSchema = mongoose.Schema({
     estatus: {
         type: String,
         default: "activo"
+    },
+    id_usuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "usuarios"
     }
 });
 
