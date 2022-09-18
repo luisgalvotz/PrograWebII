@@ -12,6 +12,7 @@ const articulo_router = require('./src/routes/articuloRouter');
 const articuloVenta_router = require('./src/routes/articuloVentaRouter');
 const articuloIntercambio_router = require('./src/routes/articuloIntercambioRouter');
 const ofertaIntercambio_router = require('./src/routes/ofertaIntercambioRouter');
+const resenas_router = require('./src/routes/resenasRouter');
 
 app.use(bodyParser.json());
 
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
 app.use('/api', user_router);
 
 // USUARIOS 
-app.use('/usuario',usuario_router);
+app.use('/usuario', usuario_router);
 
 //ARTICULOS
 //app.use('/articulo',articulo_router);
@@ -34,6 +35,8 @@ app.use('/usuario',usuario_router);
 //OFERTAS
 //app.use('/oferta',oferta_router);
 
+//RESEÑAS
+app.use('/resenas', resenas_router);
 
 app.listen(port, () => {
     console.log(`La aplicación se está ejecutando en el puerto: ${port}`)
