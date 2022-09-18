@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const ResenaSchema = mongoose.Schema({
     contenido: {
         type: String,
-        required: true,
-        minlength: 4,
-        maxlenght: 400
+        required: [true, 'No puede dejar el campo vacío'],
+        minlength: [4, 'Favor de usar mínimo 4 caracteres'],
+        maxlenght: [400, 'Favor de usar máximo 400 caracteres'],
     },
     estrellas: {
         type: Number,
-        required: true,
+        required: [true, 'Favor de dejar una calificación'],
         min: 1,
         max: 5
     },

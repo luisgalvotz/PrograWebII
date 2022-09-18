@@ -43,7 +43,20 @@ exports.resenas_promedio = async(req, res) => {
 };
 
 exports.resenas_reporte = async(req, res) => {
-    const data = await Resena.find();
+    const data = await Resena.aggregate([
+        {
+            $group: {
+                _id: "$id_vendedor",
+                cantidad: { $count: {} },
+                promedio: { $avg: "$estrellas" }
+            }
+        }, 
+        { 
+            $sort : {
+                "promedio" : -1
+            }
+        }
+    ]);
 
     res.send(data);
 };
