@@ -3,32 +3,32 @@ const mongoose = require('mongoose');
 const ArticuloSchema = mongoose.Schema({
     titulo: {
         type: String,
-        required: true,
-        minlength: 5,
-        maxlenght: 50
+        required: [true, 'Favor llenar campo titulo'],
+        minlength: [5, 'Favor de usar minimo 5 caracteres -titulo'],
+        maxlenght: [50, 'Favor de usar maximo 50 caracteres -titulo']
     },
     descripcion: {
         type: String,
-        required: true,
-        minlength: 4,
-        maxlenght: 400
+        required: [true, 'Favor llenar campo descripcion'],
+        minlength: [4, 'Favor de usar minimo 4 caracteres -descripcion'],
+        maxlenght: [400, 'Favor de usar maximo 400 caracteres -descripcion'],
     },
     notas: {
         type: String,
-        required: true,
-        maxlenght: 400
+        required: [true, 'Favor llenar campo notas'],
+        maxlenght: [400, 'Favor de usar maximo 400 caracteres -notas']
     },
-    idUsuario: [{
+    idUsuario: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "usuarios"
-    }],
-    imagenes: {
+    },
+    imagenes: [{
         type: String
-    },
-    etiquetas: {
-        type: Array,
-        required: true
-    },
+    }],
+    etiquetas: [{
+        type: String,
+        required: [true, 'Favor llenar campo etiquetas']
+    }],
     estatus: {
         type: String,
         default: "activo"
