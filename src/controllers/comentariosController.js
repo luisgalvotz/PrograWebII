@@ -26,10 +26,10 @@ exports.comentarios_ver = async(req, res) => {
 };
 
 exports.comentarios_revisar = async(req, res) => {
-    const {body : id} = req;
+    const {body : _id} = req;
 
     const data = await Comentarios.updateOne(
-        {_id : id}, 
+        {_id : _id}, 
         {estatus: "revisado"}
     );
 
@@ -43,7 +43,7 @@ exports.comentarios_reporte = async(req, res) => {
     const data = await Comentarios.aggregate([
         {
             $group: {
-                _id: { year: "$fecha.year", month: "$fecha.month" }, 
+                _id: { year: { $year: "$fecha" }, month: { $month: "$fecha" } }, 
                 cantidad: { $count: {} }
             }
         }, 

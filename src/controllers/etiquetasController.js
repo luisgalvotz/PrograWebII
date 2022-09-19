@@ -26,10 +26,10 @@ exports.etiquetas_ver = async(req, res) => {
 };
 
 exports.etiquetas_eliminar = async(req, res) => {
-    const {body : id} = req;
+    const {body : _id} = req;
 
     const data = await Etiquetas.updateOne(
-        {_id : id}, 
+        {_id : _id}, 
         {estatus: "baja"}
     );
 
@@ -46,10 +46,18 @@ exports.etiquetas_reporte = async(req, res) => {
         }, 
         {
             $group: {
-                _id: "$etiquetas", 
+                _id: "$etiquetas",
                 cantidad: { $count: {} }
             }
-        }, 
+        },
+        {
+            $lookup: {
+                from: 'etiquetas',
+                localField: '_id',
+                foreignField: '_id',
+                as: 'etiqueta'
+            }
+        },
         { 
             $sort : {
                 "cantidad" : -1
