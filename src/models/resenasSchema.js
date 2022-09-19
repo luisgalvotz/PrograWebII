@@ -15,11 +15,11 @@ const ResenaSchema = mongoose.Schema({
     },
     id_vendedor: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "users"
+        ref: "usuarios"
     },
     id_usuario: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "users"
+        ref: "usuarios"
     }
 });
 
