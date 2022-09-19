@@ -1,5 +1,7 @@
 const Articulo = require('../models/articuloSchema');
 const ArticuloVenta = require('../models/articulosVentaSchema');
+const ArticuloIntercambio = require('../models/articulosIntercambioSchema');
+
 //CREAR ARTICULO 
 exports.articulo_crear = async (req, res) => {
     const {body : articulo} = req;
@@ -135,3 +137,64 @@ exports.articuloVenta_getAll = async (req, res) => {
   
     
   };
+
+  //FALTA REPORTE 
+
+
+  //ARTICULOS EN INTERCAMBIO
+  exports.articuloIntercambio_agregar = async (req, res) => {
+    const {body : articulo} = req;
+
+    const articuloDB = new ArticuloIntercambio(articulo);
+
+    try {
+        await articuloDB.save();
+
+        res.send({
+            message: "Articulo de intercambio creado",
+            data: articuloDB
+        });
+
+    } catch(err) {
+        res.send("No se pudo crear el articulo");
+    }
+
+};
+
+//MOSTRAR LOS QUE SON EXCLUSIVOS DE INTERCAMBIO
+
+exports.articuloIntercambio_getAll = async (req, res) => {
+    const {params: {id}} = req;
+ 
+//va a traer la info de ese id de articulo
+   const data = await ArticuloIntercambio.find({id_articulo : id , estatus: "activo"}  )
+        .populate({path : "id_articulo", select: "titulo"});
+
+
+    if (data){
+        res.send({message: "todos los articulos intercambio",data});
+    }else{
+        res.send("No hay articulos");
+    }
+  
+  };
+
+  //MOSTRAR INFO INDIVIDUAL DE ARTICULO DE INTERCAMBIO
+
+ exports.articuloIntercambio_getById = async (req, res) => {
+    const { params: { id }} = req; //AQUI SACA EL PARAMETRO DEL REQUEST
+    //id del articulo que hizo click que es el id del articuloVenta
+  
+    try {
+        const data = await ArticuloIntercambio.findOne({ _id: id, estatus: "activo", })
+        .populate({path : "id_articulo"});
+        res.send(data);
+
+    }catch(err){
+        res.send('No se encontro el articulo');
+    }
+  
+    
+  };
+
+  //REPORTE DE TRUEQUES
