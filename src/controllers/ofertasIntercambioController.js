@@ -33,7 +33,7 @@ exports.oferta_aceptar = async (req, res) => {
       let ofertaDB = await Oferta.find({ _id: oferta._id }); //busca la oferta por el id
       if (ofertaDB) {
         //const { estatus } = articulo;
-        const data = await Articulo.updateOne(
+        const data = await Oferta.updateOne(
           { _id: oferta._id }, 
           { estatus : "aceptado" } 
         );
@@ -60,7 +60,7 @@ exports.oferta_aceptar = async (req, res) => {
       let ofertaDB = await Oferta.find({ _id: oferta._id }); //busca la oferta por el id
       if (ofertaDB) {
         //const { estatus } = articulo;
-        const data = await Articulo.updateOne(
+        const data = await Oferta.updateOne(
           { _id: oferta._id }, 
           { estatus : "denegado" } 
         );
@@ -82,8 +82,8 @@ exports.oferta_aceptar = async (req, res) => {
   exports.oferta_getAll = async (req, res) => {
     const {params: {id}} = req; //id del usuario logueado
  
-                                    
-   const data = await Oferta.find({id_usuario : id }  ) //FILTRAR POR USUARIO LOGUEADO Y SUS OFERTAS
+                 try {                   
+   const data = await Oferta.find({id_usuario : id , estatus : "pendiente"}  ) //FILTRAR POR USUARIO LOGUEADO Y SUS OFERTAS
         .populate({path : "id_usuario"});
 
     if (data){
@@ -91,6 +91,11 @@ exports.oferta_aceptar = async (req, res) => {
     }else{
         res.send("No hay ofertas");
     }
+  }catch (err){
+    res.send({ msg: "Error en la oferta" });
+        console.log(err);
+
+  }
   
   };
 

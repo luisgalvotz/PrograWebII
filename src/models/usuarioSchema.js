@@ -24,7 +24,7 @@ const UsuarioSchema = mongoose.Schema({
           }
     },
     fecha_nac: {
-        type: Date,
+        type: String,
         required: [true, 'Favor de ingresar la fecha de nacimiento']
     },
     email: {

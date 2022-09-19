@@ -106,11 +106,12 @@ exports.articulo_getAll = async (req, res) => {
 
 //MOSTRAR TODOS LOS ARTICULOS EN GENERAL DE VENTAS
 exports.articuloVenta_getAll = async (req, res) => {
-    const {params: {id}} = req;
- 
-//va a traer la info de ese id de articulo
-   const data = await ArticuloVenta.find({id_articulo : id , estatus: "activo"}  )
-        .populate({path : "id_articulo", select: "titulo"});
+    
+  // const data = await ArticuloVenta.find({id_articulo : id , estatus: "activo"}  )
+    //    .populate({path : "id_articulo", select: "titulo"});
+
+      const data = await ArticuloVenta.find({ estatus: "activo"}  ).
+      populate({path : "id_articulo", select: "titulo"});
 
 
     if (data){
@@ -164,10 +165,10 @@ exports.articuloVenta_getAll = async (req, res) => {
 //MOSTRAR LOS QUE SON EXCLUSIVOS DE INTERCAMBIO
 
 exports.articuloIntercambio_getAll = async (req, res) => {
-    const {params: {id}} = req;
+    //const {params: {id}} = req;
  
 //va a traer la info de ese id de articulo
-   const data = await ArticuloIntercambio.find({id_articulo : id , estatus: "activo"}  )
+   const data = await ArticuloIntercambio.find({estatus: "activo"}  )
         .populate({path : "id_articulo", select: "titulo"});
 
 

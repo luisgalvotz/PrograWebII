@@ -29,7 +29,7 @@ exports.usuario_getById = async (req, res) => {
   
     
     try {
-        const data = await Usuario.findOne({ _id: id });
+        const data = await Usuario.findOne({ _id: id, estatus : "activo" });
         res.send(data);
 
     }catch(err){
@@ -77,7 +77,7 @@ exports.usuario_getById = async (req, res) => {
         //const { nombre, telefono, contrasena,fotografia } = usuario;
         const data = await Usuario.updateOne(
           { _id: usuario._id }, //filtro
-          { estatus  } //los que se les dara update 
+          { estatus : "baja" } //los que se les dara update 
         );
         res.send({ msg: "Usuario dado de baja" });
       }else{
