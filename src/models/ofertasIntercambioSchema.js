@@ -22,18 +22,18 @@ const OfertasIntercambioSchema = mongoose.Schema({
         default: "pendiente",
         requiered: true
     },
-    idArticulo: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "articuloIntercambios"
-    }],
-    id_usuario: [{
+    id_usuario: { //es el  usuario al que pertenece el articulo ofertado
         type: mongoose.Schema.Types.ObjectId,
         ref: "usuarios"
-    }],
-    id_articulo: [{
+    },
+    id_articulo: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "articuloIntercambios"
-    }],
+    },
+    idUsuario: { //es el usuario que esta haciendo la oferta del articulo
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "usuarios"
+    },
 });
 
 const OfertasIntercambio = mongoose.model("ofertasIntercambio", OfertasIntercambioSchema);
