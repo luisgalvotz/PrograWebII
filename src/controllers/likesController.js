@@ -6,7 +6,7 @@ exports.likes_actualizar = async(req, res) => {
     const likeDB = new Likes(like);
 
     try {
-        let busqueda = await Likes.find({id_usuario: like.id_usuario, id_articulo: like.id_articulo});
+        let busqueda = await Likes.exists({id_usuario: like.id_usuario, id_articulo: like.id_articulo});
 
         if (busqueda) {
             const data = await Likes.updateOne(
@@ -36,7 +36,7 @@ exports.likes_actualizar = async(req, res) => {
 
 exports.likes_ver = async(req, res) => {
     const {params: {id}} = req;
-
+    console.log(req.params);
     const data = await Likes.find({id_articulo: id, estatus: "si"});
 
     let suma = 0;
@@ -50,7 +50,7 @@ exports.likes_ver = async(req, res) => {
 exports.likes_estatus = async(req, res) => {
     const {params: {id_usuario, id_articulo}} = req;
 
-    const data = await Likes.find({id_usuario, id_articulo});
+    const data = await Likes.exists({id_usuario, id_articulo});
 
     if (data) {
         res.send({
@@ -67,6 +67,11 @@ exports.likes_estatus = async(req, res) => {
 
 exports.likes_reporte = async(req, res) => {
     const data = await Likes.aggregate([
+        {
+            $match: {
+                estatus: "si"
+            }
+        },
         {
             $group: {
                 _id: "$id_articulo",
