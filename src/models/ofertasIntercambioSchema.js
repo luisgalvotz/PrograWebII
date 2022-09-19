@@ -26,7 +26,7 @@ const OfertasIntercambioSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "usuarios"
     },
-    id_articulo: {
+    id_articulo: { //articulo que esta siendo ofertado
         type: mongoose.Schema.Types.ObjectId,
         ref: "articuloIntercambios"
     },
@@ -34,6 +34,9 @@ const OfertasIntercambioSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "usuarios"
     },
+    fecha:{
+        type : Date
+    }
 });
 
 const OfertasIntercambio = mongoose.model("ofertasIntercambio", OfertasIntercambioSchema);

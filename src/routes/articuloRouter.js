@@ -10,5 +10,6 @@ router.get("/articulos", articulo_controller.articulo_getAll); //TRAER TODOS LOS
 router.get("/busqueda/:etiquetas", articulo_controller.busqueda); //BUSCA EL ARTICULO POR ETIQUETAS -LISTO
 router.post("/baja", articulo_controller.articulo_baja); //DAR DE BAJA ARTICULO -LISTO
 
+
 module.exports = router;
 

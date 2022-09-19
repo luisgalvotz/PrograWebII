@@ -54,20 +54,33 @@ exports.articulo_getAll = async (req, res) => {
   
   };
 
- //DAR DE BAJA ARTICULO EN LA BASE DE DATOS Y PONER EN INACTIVO 
+ //DAR DE BAJA ARTICULO EN LA BASE DE DATOS PORQUE SE VENDIO
 
  exports.articulo_baja = async (req, res) => {
     
     const { body: articulo } = req;
   
     try {
-      let articuloDB = await Articulo.find({ _id: articulo._id }); //BUSCA EL USUARIO
+      let articuloDB = await ArticuloVenta.find({ id_articulo: articulo._id})
+      .populate({path : "id_articulo", select: "titulo"}); 
       if (articuloDB) {
         //const { estatus } = articulo;
-        const data = await Articulo.updateOne(
-          { _id: articulo._id }, //filtro
-          { estatus : "baja" } //los que se les dara update , en este caso en se daran de baja
+        //SE DA DE BAJA EN LOS ARTICULOS EN VENTA
+        const data = await ArticuloVenta.updateOne(
+          { id_articulo: articulo._id }, //filtro
+          //TAMBIEN SE VA A ACTUALIZAR LA FECHA DEL ARTICULO AL SER VENDIDO
+          { estatus : "baja", fecha : Date.now() } //los que se les dara update , en este caso en se daran de baja
+
+          
         );
+            //SE DA DE BAJA EN LA TABLA DE ARTICULOS PRINCIPALES
+        const data2 = await Articulo.updateOne(
+            { _id: articulo._id }, //filtro
+            { estatus : "baja" } //los que se les dara update , en este caso en se daran de baja
+  
+            
+          );
+
         res.send({ msg: "Articulo dado de baja" });
       }else{
         res.send({ msg: "Articulo no encontrado" });
@@ -81,6 +94,10 @@ exports.articulo_getAll = async (req, res) => {
 
 
   };
+
+
+//DAR DE BAJA ARTICULO AL ACEPTAR EL TRUEQUE
+
 
   //ARTICULOS DE TIPO VENTA
 

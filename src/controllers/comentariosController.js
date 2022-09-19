@@ -40,11 +40,12 @@ exports.comentarios_revisar = async(req, res) => {
 };
 
 exports.comentarios_reporte = async(req, res) => {
-    const data = await Comentarios.aggregate([
+    const data = await Comentarios.aggregate([ //schema, como tablas dinamicas
         {
-            $group: {
+            $group: {       //funcion del aggregate, las agrupa en bae al paramerro
+                //lo agrupa por año y por mes 
                 _id: { year: { $year: "$fecha" }, month: { $month: "$fecha" } }, 
-                cantidad: { $count: {} }
+                cantidad: { $count: {} } //cuenta cuales se repiten
             }
         }, 
         { 

@@ -8,6 +8,7 @@ router.post("/agregarArticuloVenta", articuloVenta_controller.articuloVenta_agre
 router.get("/articulosVenta", articuloVenta_controller.articuloVenta_getAll); //TRAER TODOS LOS ARTICULOS DE VENTA -LISTO
 router.get("/:id", articuloVenta_controller.articuloVenta_getById); //TRAER ARTICULO INDIVIDUAL -LISTO
 //router.post("/reporteVentas", articuloVenta_controller.articuloVenta_reporte); //REPORTE DE CUANTAS VENTAS HAN HABIDO POR MESES DEL AÑO
-
+//REPORTE DE ARTICULOS VENDIDOS POR MES Y AÑO
+//router.post("/reporteVentas", articuloVenta_controller.articuloVenta_reporte);
 
 module.exports = router;

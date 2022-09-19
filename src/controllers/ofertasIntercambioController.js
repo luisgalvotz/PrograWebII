@@ -1,4 +1,6 @@
 const Oferta = require('../models/ofertasIntercambioSchema');
+const Articulo = require('../models/articuloSchema');
+const ArticuloIntercambio = require('../models/articulosIntercambioSchema');
 
 
 //AGREGAR OFERTA A LA LISTA DE PROPUESTAS,es decir, crear la oferta
@@ -33,10 +35,21 @@ exports.oferta_aceptar = async (req, res) => {
       let ofertaDB = await Oferta.find({ _id: oferta._id }); //busca la oferta por el id
       if (ofertaDB) {
         //const { estatus } = articulo;
-        const data = await Oferta.updateOne(
+        const data = await Oferta.updateOne( //DA DE BAJA LA OFERTA 
           { _id: oferta._id }, 
-          { estatus : "aceptado" } 
+          { estatus : "aceptado" , fecha : Date.now()} 
         );
+        //ACTUALIZAR LA TABLA DE ARTICULOS EN INTERCAMBIO Y PONERLOS EN BAJA
+        const data2 = await ArticuloIntercambio.updateOne(
+          { id_articulo: oferta.id_articulo}, 
+          { estatus : "baja" } 
+        );
+        //ACTUALIZAR EN LA TABLA DE ARTICULOS NORMAL QUE EL ARTICULO ESTA DADO DE BAJA
+        const data3 = await Articulo.updateOne(
+          { _id: oferta.id_articulo}, 
+          { estatus : "baja" } 
+        );
+
         res.send({ msg: "Oferta aceptada" });
       }else{
         res.send({ msg: "Algo fallo en la oferta" });
