@@ -25,7 +25,7 @@ app.use('/usuario', usuario_router);
 
 //ARTICULOS
 app.use('/articulo',articulo_router);
-//app.use('/articuloVenta',articuloVenta_router);
+app.use('/articuloVenta',articuloVenta_router);
 ///app.use('/articuloIntercambio',articuloIntercambio_router);
 
 //OFERTAS

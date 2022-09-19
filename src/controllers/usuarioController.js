@@ -74,10 +74,10 @@ exports.usuario_getById = async (req, res) => {
       let usuarioDB = await Usuario.find({ _id: usuario._id }); //BUSCA EL USUARIO
       if (usuarioDB) {
         //variables que se van a editar 
-        const { nombre, telefono, contrasena,fotografia } = usuario;
+        //const { nombre, telefono, contrasena,fotografia } = usuario;
         const data = await Usuario.updateOne(
           { _id: usuario._id }, //filtro
-          { estatus : 'baja' } //los que se les dara update 
+          { estatus  } //los que se les dara update 
         );
         res.send({ msg: "Usuario dado de baja" });
       }else{
