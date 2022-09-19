@@ -25,7 +25,7 @@ exports.resenas_ver = async(req, res) => {
         .populate({path : "id_vendedor", select: "nombre"})
         .populate({path : "id_usuario", select: "nombre"});
 
-    res.send(data)
+    res.send(data);
 };
 
 exports.resenas_promedio = async(req, res) => {

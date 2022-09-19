@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const LikesSchema = mongoose.Schema({
     estatus: {
-        type: String,
-        required: true
+        type: String
     },
     id_usuario: {
         type: mongoose.Schema.Types.ObjectId,

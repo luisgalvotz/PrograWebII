@@ -12,6 +12,10 @@ const articuloVenta_router = require('./src/routes/articuloVentaRouter');
 const articuloIntercambio_router = require('./src/routes/articuloIntercambioRouter');
 const ofertaIntercambio_router = require('./src/routes/ofertasIntercambioRouter');
 const resenas_router = require('./src/routes/resenasRouter');
+const wishlist_router = require('./src/routes/wishlistRouter');
+const likes_router = require('./src/routes/likesRouter');
+const comentarios_router = require('./src/routes/comentariosRouter');
+//const etiquetas_router = require('./src/routes/etiquetasRouter');
 
 app.use(bodyParser.json());
 
@@ -33,6 +37,18 @@ app.use('/articuloVenta',articuloVenta_router);
 
 //RESEÑAS
 app.use('/resenas', resenas_router);
+
+//WISHLIST
+app.use('/wishlist', wishlist_router);
+
+//LIKES
+app.use('/likes', likes_router);
+
+//COMENTARIOS
+app.use('/comentarios', comentarios_router);
+
+//ETIQUETAS
+//app.use('/etiquetas', etiquetas_router);
 
 app.listen(port, () => {
     console.log(`La aplicación se está ejecutando en el puerto: ${port}`)
