@@ -15,7 +15,7 @@ const resenas_router = require('./src/routes/resenasRouter');
 const wishlist_router = require('./src/routes/wishlistRouter');
 const likes_router = require('./src/routes/likesRouter');
 const comentarios_router = require('./src/routes/comentariosRouter');
-//const etiquetas_router = require('./src/routes/etiquetasRouter');
+const etiquetas_router = require('./src/routes/etiquetasRouter');
 
 app.use(bodyParser.json());
 
@@ -48,7 +48,7 @@ app.use('/likes', likes_router);
 app.use('/comentarios', comentarios_router);
 
 //ETIQUETAS
-//app.use('/etiquetas', etiquetas_router);
+app.use('/etiquetas', etiquetas_router);
 
 app.listen(port, () => {
     console.log(`La aplicación se está ejecutando en el puerto: ${port}`)

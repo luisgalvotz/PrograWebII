@@ -10,7 +10,8 @@ const EtiquetasSchema = mongoose.Schema({
     },
     estatus: {
         type: String,
-        required: true
+        required: true,
+        default: "activo"
     }
 });
 
