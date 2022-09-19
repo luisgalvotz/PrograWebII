@@ -3,17 +3,19 @@ const mongoose = require('mongoose');
 const ComentariosSchema = mongoose.Schema({
     contenido: {
         type: String,
-        required: true,
-        minlength: 4,
-        maxlenght: 400
+        required: [true, 'No puede dejar el campo vacío'],
+        minlength: [4, 'Favor de usar mínimo 4 caracteres'],
+        maxlenght: [400, 'Favor de usar máximo 400 caracteres']
     },
     fecha: {
         type: Date,
-        required: true
+        required: true,
+        default: Date.now
     },
     estatus: {
         type: String,
-        required: true
+        required: true,
+        default: "pendiente"
     },
     id_usuario: {
         type: mongoose.Schema.Types.ObjectId,
