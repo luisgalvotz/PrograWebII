@@ -22,7 +22,8 @@ const ArticuloSchema = mongoose.Schema({
         type: String
     }],
     etiquetas: [{
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "etiquetas",
         required: [true, 'Favor llenar campo etiquetas']
     }],
     estatus: {
