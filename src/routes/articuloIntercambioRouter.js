@@ -8,7 +8,7 @@ const articuloIntercambio_controller = require('../controllers/articuloControlle
 
 router.post("/agregarArticuloIntercambio", articuloIntercambio_controller.articuloIntercambio_agregar); //AGREGAR ARTICULO A LISTA DE INTERCAMBIOS -LISTO
 router.get("/articulosIntercambio", articuloIntercambio_controller.articuloIntercambio_getAll); //TRAER TODOS LOS ARTICULOS DE INTERCAMBIO -
-//router.post("/reporteIntercambios", articuloIntercambio_controller.articuloIntercambio_reporte); //REPORTE DE INTERCAMBIOS - 
-router.get("/:id", articuloIntercambio_controller.articuloIntercambio_getById); // OBTENER ARTICULO INDIVIDUAL -LISTO
+router.get("/reporteIntercambios", articuloIntercambio_controller.articuloIntercambio_reporte); //REPORTE DE INTERCAMBIOS - 
+router.get("/articuloIntercambioId/:id", articuloIntercambio_controller.articuloIntercambio_getById); // OBTENER ARTICULO INDIVIDUAL -LISTO
 
 module.exports = router;
