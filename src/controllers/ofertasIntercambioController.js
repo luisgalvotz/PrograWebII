@@ -95,19 +95,18 @@ exports.oferta_aceptar = async (req, res) => {
   exports.oferta_getAll = async (req, res) => {
     const {params: {id}} = req; //id del usuario logueado
  
-                 try {                   
-   const data = await Oferta.find({id_usuario : id , estatus : "pendiente"}  ) //FILTRAR POR USUARIO LOGUEADO Y SUS OFERTAS
+    try {                   
+      const data = await Oferta.find({id_usuario : id , estatus : "pendiente"}  ) //FILTRAR POR USUARIO LOGUEADO Y SUS OFERTAS
         .populate({path : "id_usuario"});
 
-    if (data){
-        res.send({message: "todas las ofertas ",data});
-    }else{
-        res.send("No hay ofertas");
-    }
-  }catch (err){
-    res.send({ msg: "Error en la oferta" });
-        console.log(err);
-
+      if (data){
+          res.send({message: "todas las ofertas ",data});
+      }else{
+          res.send("No hay ofertas");
+      }
+    }catch (err){
+      res.send({ msg: "Error en la oferta" });
+      console.log(err);
   }
   
   };

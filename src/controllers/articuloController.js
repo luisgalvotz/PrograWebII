@@ -22,7 +22,6 @@ exports.articulo_crear = async (req, res) => {
     } catch (err) {
         res.send("No se pudo crear el articulo");
     }
-
 };
 
 //MOSTRAR TODOS LOS ARTICULOS EN GENERAL EN DASHBOARD
@@ -45,7 +44,6 @@ exports.articulo_getAll = async (req, res) => {
     } else {
         res.send("No hay articulos");
     }
-
 };
 
 //BUSQUEDA POR ETIQUETAS DE UN ARTICULO
@@ -73,7 +71,6 @@ exports.busqueda = async (req, res) => {
     } else {
         res.send("No hay articulos");
     }
-
 };
 
 //DAR DE BAJA ARTICULO EN LA BASE DE DATOS PORQUE SE VENDIO
@@ -132,14 +129,7 @@ exports.articulo_baja = async (req, res) => {
         });
         console.log(err);
     }
-
-
-
 };
-
-
-
-
 
 //ARTICULOS DE TIPO VENTA
 
@@ -162,7 +152,6 @@ exports.articuloVenta_agregar = async (req, res) => {
     } catch (err) {
         res.send("No se pudo crear el articulo");
     }
-
 };
 
 //MOSTRAR TODOS LOS ARTICULOS EN GENERAL DE VENTAS
@@ -179,7 +168,6 @@ exports.articuloVenta_getAll = async (req, res) => {
         select: "titulo"
     });
 
-
     if (data) {
         res.send({
             message: "todos los articulos venta",
@@ -188,7 +176,6 @@ exports.articuloVenta_getAll = async (req, res) => {
     } else {
         res.send("No hay articulos");
     }
-
 };
 
 //MOSTRAR ARTICULO DE VENTA EN ESPECIFICO 
@@ -213,12 +200,7 @@ exports.articuloVenta_getById = async (req, res) => {
     } catch (err) {
         res.send('No se encontro el articulo 2');
     }
-
-
 };
-
-//FALTA REPORTE 
-
 
 //ARTICULOS EN INTERCAMBIO
 exports.articuloIntercambio_agregar = async (req, res) => {
@@ -305,7 +287,6 @@ exports.articuloVenta_reporte = async (req, res) => {
             }
         },
         {
-
             $group: { //funcion del aggregate, las agrupa en bae al paramerro
                 //lo agrupa por año y por mes 
                 _id: {
@@ -339,7 +320,6 @@ exports.articuloIntercambio_reporte= async (req, res) => {
             }
         },
         {
-
             $group: { //funcion del aggregate, las agrupa en bae al paramerro
                 //lo agrupa por año y por mes 
                 _id: {

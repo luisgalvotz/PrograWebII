@@ -9,12 +9,12 @@ const ArticulosVentaSchema = mongoose.Schema({
         type: String,
         default: "activo"
     },
+    fecha: {
+        type: Date
+    },
     id_articulo: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "articulos"
-    },
-    fecha: {
-        type: Date
     }
 });
 
