@@ -5,7 +5,9 @@ import taylor2 from '../img/taylor2.png'
 import taylor1 from '../img/taylor1.jpg'
 import heart from '../img/heart.png'
 import like from '../img/like.png'
-
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
 
 import './Styles/DetalleProducto.css'
 // import { validas } from'./Scripts/Script'
@@ -34,7 +36,7 @@ export default class DetalleProductoIntercambio extends Component {
                     <img className= "imgVendedorDetalle" src={markUwu} alt="Imagen"/>
                     <span className= "product-description descripcionExtra nombreVendedorDetalle">Pancho Pantera Barbosa</span> <br></br>
                     <span className= "product-description calificacionVendedorDetalle">Calificación de 6.9</span><br></br><br></br>
-   </div>
+                    </div>
 
                   
                 </div>
@@ -66,6 +68,33 @@ export default class DetalleProductoIntercambio extends Component {
                         <img src={like} alt="Bootstrap" className='btnLikeDetalle'/>
                         </button>
                     </div>
+
+                    <div className="contendorCAS">
+                    <h5 className="letraFooter">Ingrese la información de su artículo a sugerir</h5>
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text  className="inputArticuloSugerido" id="basic-addon1">Título</InputGroup.Text>
+                        <Form.Control 
+                        placeholder="Título"  className="inputArticuloSugeridoTexto" aria-describedby="basic-addon1"/>
+                    </InputGroup>
+                    <InputGroup  >
+                    <InputGroup.Text className="inputArticuloSugerido">Descripción</InputGroup.Text>
+                    <Form.Control className="inputArticuloSugeridoTexto" as="textarea"  placeholder="Descripción" aria-label="With textarea" />
+                    </InputGroup>
+                    <Button className="btnAgregarImagenCAS" variant="dark">Agregar Imágenes</Button>  <br></br>
+                    <div className= "divOpcionesDetalle imgOpcionExtra">
+                        <img className= "imgOpcionesDetalle " src={taylor1} alt="Imagen"/> 
+                    </div>
+                     <div className= "divOpcionesDetalle imgOpcionExtra">
+                        <img className= "imgOpcionesDetalle " src={taylor1} alt="Imagen"/> 
+                    </div>
+                      <div className= "divOpcionesDetalle imgOpcionExtra">
+                        <img className= "imgOpcionesDetalle " src={taylor1} alt="Imagen"/> 
+                    </div>
+                    <br></br>
+                    <Button className="btnEnviarCAS" variant="dark">Enviar oferta</Button>  
+
+                    </div>
+
                 </div>
             </div>
         </div>

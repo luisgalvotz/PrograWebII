@@ -12,7 +12,21 @@ Body {Background-color : var(--main-bg-color);}
   .letraFooter{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
-  
+
+  .inputFooter{
+    color:var(--text-base);
+}
+
+.inputFooter:hover{
+  color:var(--text-base);
+}
+
+.inputFooterTexto{
+    background-color: var(--white-variation);
+    transition: .2s;
+}
+
+
   .imgFooter{
     padding: 0;
     margin:0;

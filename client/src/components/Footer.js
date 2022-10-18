@@ -15,8 +15,8 @@ function Footer() {
           <div className="col">
           <h4 className="letraFooter">¿Tienes alguna sugerencia?</h4>
             <ui className="list-unstyled">
-            <InputGroup className="mb-3">
-        <Form.Control
+            <InputGroup className="mb-3 inputFooter">
+        <Form.Control className="inputFooterTexto"
           placeholder="Escriba su sugerencia aqui"
           aria-label="Escriba su sugerencia aqui"
           aria-describedby="basic-addon2"

@@ -31,6 +31,7 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
+            <Nav.Link href="#action2"  className="textoNavBar">Publicar</Nav.Link>
             <NavDropdown title="Productos"  id="navbarScrollingDropdown">
             <Link className="linkNavBar" to="/ProductosVenta">
               <NavDropdown.Item className="textoNavBarDrop" href="#CreateNote">En venta</NavDropdown.Item>
@@ -63,10 +64,10 @@ function NavScrollExample() {
             */}
           </Nav>
           <Form className="d-flex">
-            <Form.Control
+            <Form.Control 
               type="search"
               placeholder="Buscar producto"
-              className="me-2"
+              className="me-2 inputNavBar"
               aria-label="Search"
             />
             <Button variant="outline-success" className="btnBuscarOutside">  

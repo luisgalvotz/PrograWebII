@@ -7,6 +7,11 @@
   padding-left: 60px;
 }
 
+.inputNavBar{
+  background-color: var(--white-variation);
+  transition: .2s;
+}
+
 .linkNavBar{
   text-decoration: none;
 }
