@@ -315,6 +315,10 @@ img{
 }
 
 
+.alinearIzquier{
+text-align: start;
+}
+
 
 @media screen and (max-width: 992px){
     .product-div{

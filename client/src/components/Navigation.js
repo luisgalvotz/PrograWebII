@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import TrueFanLogo from '../img/truefanlogo.png'
 import Lupa from '../img/lupa.png'
@@ -33,17 +34,19 @@ function NavScrollExample() {
           >
             <Nav.Link href="#action2"  className="textoNavBar">Publicar</Nav.Link>
             <NavDropdown title="Productos"  id="navbarScrollingDropdown">
-            <Link className="linkNavBar" to="/ProductosVenta">
+            <Link className="linkNavBar" to="/ListaProductosVenta">
               <NavDropdown.Item className="textoNavBarDrop" href="#CreateNote">En venta</NavDropdown.Item>
               </Link>
+              <Link className="linkNavBar" to="/ListaProductosIntercambio">
               <NavDropdown.Item className="textoNavBarDrop" href="#action4">En intercambio</NavDropdown.Item>
+              </Link>
             </NavDropdown>
 
             <NavDropdown title="Usuario"  id="navbarScrollingDropdown">
             <NavDropdown.Item className="textoNavBarDrop" href="#action2">Editar perfil</NavDropdown.Item>
               <NavDropdown.Item className="textoNavBarDrop" href="#action3">Wishlist</NavDropdown.Item>
-              <NavDropdown.Item className="textoNavBarDrop" href="#action4">Articulos adquiridos</NavDropdown.Item>
-              <NavDropdown.Item className="textoNavBarDrop" href="#action4">Artículos publicados</NavDropdown.Item>
+              <NavDropdown.Item className="textoNavBarDrop" href="#action4">Productos adquiridos</NavDropdown.Item>
+              <NavDropdown.Item className="textoNavBarDrop" href="#action4">Productos publicados</NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title="Administrador"  id="navbarScrollingDropdown">
@@ -69,9 +72,12 @@ function NavScrollExample() {
               placeholder="Buscar producto"
               className="me-2 inputNavBar"
               aria-label="Search"
-            />
+            />            
+            <Link className="linkNavBar" to="/ListaProductosBusqueda">
             <Button variant="outline-success" className="btnBuscarOutside">  
-            <img src={Lupa} alt="Bootstrap" className='btnBuscar'/> </Button>
+            <img src={Lupa} alt="Bootstrap" className='btnBuscar'/> 
+            </Button>
+            </Link>
           </Form>
         </Navbar.Collapse>
       </Container>

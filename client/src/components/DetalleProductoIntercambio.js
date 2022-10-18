@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from 'react'
+import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import markUwu from '../img/markUwu.jpg'
 import taylor2 from '../img/taylor2.png'
@@ -19,6 +19,7 @@ export default class DetalleProductoIntercambio extends Component {
     return (
       <div className= "main-wrapper">
         <div className= "container">
+
             <div className= "product-div">
                 <div className= "product-div-left">
                     <div className= "img-container">
@@ -70,7 +71,7 @@ export default class DetalleProductoIntercambio extends Component {
                     </div>
 
                     <div className="contendorCAS">
-                    <h5 className="letraFooter">Ingrese la información de su artículo a sugerir</h5>
+                    <h5 className="letraFooter alinearIzquier">Ingrese la información de su artículo a sugerir</h5>
                     <InputGroup className="mb-3">
                         <InputGroup.Text  className="inputArticuloSugerido" id="basic-addon1">Título</InputGroup.Text>
                         <Form.Control 

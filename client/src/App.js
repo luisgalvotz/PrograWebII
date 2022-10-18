@@ -5,11 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import NotesList from './components/NotesList'
-import CreateNote from './components/CreateNote'
 import CreateUser from './components/CreateUser'
-import DetalleProductoVenta from './components/DetalleProductoVenta'
-import DetalleProductoIntercambio from './components/DetalleProductoIntercambio.js'
-import ProductosVenta from './components/ProductosVenta'
+import DetalleProductoVentaPage from './pages/DetalleProductoVentaPage'
+import DetalleProductoIntercambioPage from './pages/DetalleProductoIntercambioPage.js'
+import ListaProductosVentaPage from './pages/ListaProductosVentaPage'
+import ListaProductosIntercambioPage from './pages/ListaProductosIntercambioPage'
+import ListaProductosBusquedaPage from './pages/ListaProductosBusquedaPage'
 
 
 function App() {
@@ -22,11 +23,12 @@ function App() {
       <div className="content-wrap">
       <Routes>
       <Route exact path="/" element={<NotesList/>} />
-      <Route exact path="/DetalleProductoVenta" element={<DetalleProductoVenta/>} />
-      <Route exact path="/DetalleProductoIntercambio" element={<DetalleProductoIntercambio/>} />
+      <Route exact path="/DetalleProductoVenta" element={<DetalleProductoVentaPage/>} />
+      <Route exact path="/DetalleProductoIntercambio" element={<DetalleProductoIntercambioPage/>} />
       <Route exact path="/edit/:id" element={<NotesList/>} />
-      <Route exact path="/create" element={<CreateNote/>} />
-      <Route exact path="/ProductosVenta" element={<ProductosVenta/>} />
+      <Route exact path="/ListaProductosVenta" element={<ListaProductosVentaPage/>} />
+      <Route exact path="/ListaProductosIntercambio" element={<ListaProductosIntercambioPage/>} />
+      <Route exact path="/ListaProductosBusqueda" element={<ListaProductosBusquedaPage/>} />
       <Route exact path="/user" element={<CreateUser/>} />
       </Routes>
       </div>
