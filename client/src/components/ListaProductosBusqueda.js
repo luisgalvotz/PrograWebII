@@ -32,7 +32,7 @@ export default class ListaProductosBusqueda extends Component {
                     </div>
               </div>
               <div>
-                    <div className="cartaListaProductoVenta">
+                    <div className="cartaListaProductoVenta cartaListaProductoIntercambio">
                     <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
@@ -66,7 +66,7 @@ export default class ListaProductosBusqueda extends Component {
                     </div>
               </div>            
               <div>
-                    <div className="cartaListaProductoVenta">
+                    <div className="cartaListaProductoVenta cartaListaProductoIntercambio">
                     <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>

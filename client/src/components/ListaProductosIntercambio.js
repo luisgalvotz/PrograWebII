@@ -15,7 +15,7 @@ export default class ListaProductosIntercambio extends Component {
          <h3 className="tituloListaVenta">Productos para intercambiar:</h3>
             <div className= "productVenta-div quitarBackgroundProductoVenta">
               <div>
-                    <div className="cartaListaProductoVenta">
+                    <div className="cartaListaProductoVenta cartaListaProductoIntercambio">
                     <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
@@ -32,7 +32,7 @@ export default class ListaProductosIntercambio extends Component {
                     </div>
               </div>
               <div>
-                    <div className="cartaListaProductoVenta">
+              <div className="cartaListaProductoVenta cartaListaProductoIntercambio">
                     <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
@@ -47,8 +47,9 @@ export default class ListaProductosIntercambio extends Component {
                         </Link>
                     </div>
                     </div>
-              </div>              <div>
-                    <div className="cartaListaProductoVenta">
+              </div>              
+              <div>
+              <div className="cartaListaProductoVenta cartaListaProductoIntercambio">
                     <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
@@ -63,8 +64,9 @@ export default class ListaProductosIntercambio extends Component {
                         </Link>
                     </div>
                     </div>
-              </div>              <div>
-                    <div className="cartaListaProductoVenta">
+              </div>              
+              <div>
+              <div className="cartaListaProductoVenta cartaListaProductoIntercambio">
                     <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>

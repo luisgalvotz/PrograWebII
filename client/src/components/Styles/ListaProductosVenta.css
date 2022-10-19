@@ -70,6 +70,10 @@
     text-align: justify;
 }
 
+.cartaListaProductoIntercambio{
+    background-color: var(--card-light);
+}
+
 .cartaListaProductoVenta img{
     width: 320px;
 
