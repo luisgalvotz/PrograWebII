@@ -1,6 +1,5 @@
-
-.productosAdquiridosContainer{
-    max-width: 1200px;
+.productosPublicadosContainer{
+    max-width: 800px;
     padding: 0 1rem;
     margin: 0 auto;
 } 
@@ -10,7 +9,8 @@
     margin-bottom: 20px;
 }
 
-.main-wrapperThree{
+/* main-wrapperThree */
+.main-wrapperFour{
     /* min-height: 100vh;
     max-width: 100%; */
     /* quitar */
@@ -22,17 +22,19 @@
 
 }
 
-.moverLinkIzq2 {
+/* moverLinkIzq2  */
+.moverLinkIzq3 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: var(--text-hover);
     margin-right: 6px;
 }
 
-.moverLinkIzq2:hover{
+.moverLinkIzq3:hover{
     color: var(--text-hover-dark);
 }
 
-.productAdquirid-div{
+/* productAdquirid */
+.productPublicad-div{
     align-items: center;
     justify-content: left;
     /* padding: 2rem 0; */
@@ -42,22 +44,25 @@
     column-gap: 10px;
     color:var(--text-base);
 }
-.productAdquirid-div-left{
+.productPublicad-div-left{
     padding: 20px;
 }
-.productAdquirid-div-right{
+.productPublicad-div-right{
     padding: 20px;
 }
 
-.quitarBackgroundProductoAdquirido{
+/* quitarBackgroundProductoAdquirido */
+.quitarBackgroundProductoPublicado{
     background-color: var(--main-bg-color);
 }
 
-.cartaExtr{
+/* cartaExtr */
+.cartaExtr2{
     margin-bottom: 25px;
 }
 
-.cartaListaProductoAdquirido{
+/* cartaListaProductoAdquirido */
+/* .cartaListaProductoAdquirido{
     z-index: 1;
     margin-left: 15px;
     margin-right: 15px;
@@ -69,13 +74,14 @@
     box-shadow: 1px 5px 25px rgba(0,0,0,0.45);
     border-radius: 5px;
     text-align: left;
-}
+} */
 
-.cartaListaProductoIntercambioAdquirido{
+/* cartaListaProductoIntercambioAdquirido */
+.cartaListaProductoIntercambioPublicado{
     background-color: var(--card-light);
 }
 
-.cartaListaProductoAdquirido img{
+.cartaListaProductoPublicado img{
     width: 320px;
     padding: 0;
     /* margin: 0 auto;
@@ -85,8 +91,8 @@
     cursor: pointer;
 }
 
-
-.imgVendedorDetalleAdquirido{
+/* imgVendedorDetalleAdquirido */
+.imgVendedorDetallePublicado{
     display:block;
     height: 80px;  
     width: 80px;
@@ -94,11 +100,13 @@
     margin-right: 200px;
 }
 
-.columna1{
+/* columna1 */
+.columna2{
     width: 500px;
 }
 
-.btnProdAdqVer{
+/* btnProdAdqVer */
+.btnProdPublicadoVer{
     display: inline-block;
     border-radius: 15px;
     background-color:var(--like);
@@ -106,12 +114,12 @@
     margin-top:10px;
 }
 
-.btnProdAdqVer:hover{
+.btnProdPublicadoVer:hover{
     background-color:var(--like-hover);
 }
 
-
-.btnProdResena{
+/* btnProdResena */
+.btnProdResena2{
     display: inline-block;
     border-radius: 15px;
     background-color:var(--heart);
@@ -119,80 +127,61 @@
     margin-top:10px;
 }
 
-.btnProdResena:hover{
+.btnProdResena2:hover{
     background-color:var(--heart-hover);
 }
 
-.tituloListaProductoAdquirido{
+/* tituloListaProductoAdquirido */
+.tituloListaProductoPublicado{
     color: var(--text-base);
     text-align: left;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.notaListaProductoAdquirido{
+/* notaListaProductoAdquirido */
+.notaListaProductoPublicado{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-
-.contendorCAS2{
-margin-left: auto;    
-z-index: 1;
-    width: 310px;
-    height: auto;
-    background-color: var(--card);
-    padding: 17px 17px;
-    font-size: 15px;
-    line-height: 1.5;
-    box-shadow: 1px 5px 25px rgba(0,0,0,0.45);
-    border-radius: 5px;
-    text-align: justify;
-    margin-bottom: 25px;
-}
-
-/* .contendorCAS2 img{
+.imgProductoSugerido{
+    display:block;
+    height: 80px;  
+    width: 80px;
+    margin-bottom: 10px;
+    margin-right: 200px;
+    
     border-radius: 5px;
     float: left;
     margin-top:-1%;
     left:5%;
     margin-right: 15px;
     border-radius:15px;
-} */
-
-.btnConfirmarResena{
-    display: inline-block;
-    border-radius: 15px;
-    background-color:var(--buy);
-    border: 0px;
-    margin-top: 20px;
 }
 
-
-
-.imgRadioResena{
-    width: 30px;
-    margin-bottom: 3px;
+.btnVerSugerencia{
+    display: block;
+    margin-top: 40px;
+    margin-left: auto;    
 }
-
-
 
 @media screen and (max-width: 992px){
-    .productAdquirid-div{
+    .productPublicad-div{
         grid-template-columns: 100%;
     }
-    .productAdquirid-div-right{
+    .productPublicad-div-right{
         text-align: center;
     }
-    .productAdquirid-rating{
+    .productPublicad-rating{
         justify-content: center;
     }
 
-.cartaListaProductoAdquirido img{
+.cartaListaProductoPublicado img{
     width: 260px;
     margin-bottom: 20px;
 }
 
-.columna1{
-    max-width: 33%;
+.columna2{
+    max-width: 50%;
 }
 }
 

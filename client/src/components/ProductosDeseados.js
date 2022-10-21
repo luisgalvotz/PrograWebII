@@ -17,14 +17,15 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
 
 
-export default class ProductosAdquiridos extends Component {
+
+export default class ProductosDeseados extends Component {
   render() {
 
     return (
      
       <div className= "main-wrapperThree">
          <div className= "productosAdquiridosContainer">
-         <h3 className="tituloListaAdquiridos">Productos adquiridos:</h3>
+         <h3 className="tituloListaAdquiridos">Productos deseados:</h3>
             <div className= "productAdquirid-div quitarBackgroundProductoAdquirido">
 
             <div className="parrafo cartaExtr">
@@ -50,11 +51,11 @@ export default class ProductosAdquiridos extends Component {
           <div className="col columna1">
           <h4 className="tituloListaProductoAdquirido">Estado del producto</h4>
             <ui className="list-unstyled">
-              <li className="notaListaProductoAdquirido">Entregado</li>
+              <li className="notaListaProductoAdquirido">Disponible</li>
               <Link className="linkNavBar" to="/DetalleProductoVenta">
               <Button className="btnProdAdqVer" variant="dark">Ver producto</Button>&nbsp;&nbsp;&nbsp;
               </Link>
-              <Button className="btnProdResena" variant="dark">Dar reseña</Button>  
+              <Button className="btnProdResena" variant="dark">Eliminar de lista</Button>  
             </ui> 
           </div> 
           </div>
@@ -62,34 +63,40 @@ export default class ProductosAdquiridos extends Component {
       </div>
 
 
-      <div className="contendorCAS2">
-            <h5 className="letraFooter alinearIzquier">Escriba su reseña</h5>
-            <InputGroup>
-            <Form.Control className="inputArticuloSugeridoTexto" as="textarea"  placeholder="Reseña" aria-label="With textarea" />
-            </InputGroup>
-            <br></br>
-            <h5 className="letraFooter alinearIzquier">¿Qué tan buena considera su experiencia?</h5>
 
-        <ToggleButtonGroup type="radio" name="options" defaultValue={2}>
-        <ToggleButton id="tbg-radio-1"  variant="dark" value={2}>
-        <img className= "imgRadioResena" src={face1} alt="Imagen"/>
-        </ToggleButton>
-        <ToggleButton id="tbg-radio-2" variant="dark" value={4}>
-        <img className= "imgRadioResena" src={face2} alt="Imagen"/>
-        </ToggleButton>
-        <ToggleButton id="tbg-radio-3" variant="dark" value={6}>
-        <img className= "imgRadioResena" src={face3} alt="Imagen"/>
-        </ToggleButton>
-        <ToggleButton id="tbg-radio-4" variant="dark" value={8}>
-        <img className= "imgRadioResena" src={face4} alt="Imagen"/>
-        </ToggleButton>
-        <ToggleButton id="tbg-radio-5" variant="dark" value={10}>
-        <img className= "imgRadioResena" src={face5} alt="Imagen"/>
-        </ToggleButton>
-      </ToggleButtonGroup>
-            <Button className="btnConfirmarResena" variant="dark">Enviar reseña</Button>  
+      <div className="parrafo cartaExtr">
+            <div className="">
+        <div className="row">
+          {/* Column1 */}
+          <div className="col columna1">
+          <img className= "imgVendedorDetalleAdquirido" src={taylor1} alt="Imagen"/>
+            <ui className="list-unstyled">
+            <h4 className="tituloListaProductoAdquirido">Titulo del producto</h4>
+            <li className="notaListaProductoAdquirido">Producto para vender</li>
+            </ui>
+          </div>
+          {/* Column2 */}
+           <div className="col columna1">
+           <img className= "imgVendedorDetalleAdquirido" src={markUwu} alt="Imagen"/>
+            <ui className="list-unstyled">
+            <h4 className="tituloListaProductoAdquirido">Ofrecido por</h4>
+              <li className="notaListaProductoAdquirido">Juancho Barbosa Fuentes</li>
+            </ui> 
+          </div> 
+          {/* Column3 */}
+          <div className="col columna1">
+          <h4 className="tituloListaProductoAdquirido">Estado del producto</h4>
+            <ui className="list-unstyled">
+              <li className="notaListaProductoAdquirido">No disponible</li>
+              <Link className="linkNavBar" to="/DetalleProductoVenta">
+              <Button className="btnProdAdqVer" variant="dark">Ver producto</Button>&nbsp;&nbsp;&nbsp;
+              </Link>
+              <Button className="btnProdResena" variant="dark">Eliminar de lista</Button>  
+            </ui> 
+          </div> 
+          </div>
+        </div>
       </div>
-
 
 
       <div className="parrafo cartaExtr cartaListaProductoIntercambioAdquirido">
@@ -98,7 +105,6 @@ export default class ProductosAdquiridos extends Component {
           {/* Column1 */}
           <div className="col columna1">
           <img className= "imgVendedorDetalleAdquirido" src={taylor1} alt="Imagen"/>
-
             <ui className="list-unstyled">
             <h4 className="tituloListaProductoAdquirido">Titulo del producto</h4>
             <li className="notaListaProductoAdquirido">Producto para intercambiar</li>
@@ -116,86 +122,18 @@ export default class ProductosAdquiridos extends Component {
           <div className="col columna1">
           <h4 className="tituloListaProductoAdquirido">Estado del producto</h4>
             <ui className="list-unstyled">
-              <li className="notaListaProductoAdquirido">Entregado</li>
+              <li className="notaListaProductoAdquirido">Disponible</li>
               <Link className="linkNavBar" to="/DetalleProductoIntercambio">
               <Button className="btnProdAdqVer" variant="dark">Ver producto</Button>&nbsp;&nbsp;&nbsp;
-              </Link>            
-              </ui> 
-          </div> 
-          </div>
-        </div>
-      </div>
-
-
-      <div className="parrafo cartaExtr cartaListaProductoIntercambioAdquirido">
-            <div className="">
-        <div className="row">
-          {/* Column1 */}
-          <div className="col columna1">
-          <img className= "imgVendedorDetalleAdquirido" src={taylor1} alt="Imagen"/>
-
-            <ui className="list-unstyled">
-            <h4 className="tituloListaProductoAdquirido">Titulo del producto</h4>
-            <li className="notaListaProductoAdquirido">Producto para intercambiar</li>
-            </ui>
-          </div>
-          {/* Column2 */}
-           <div className="col columna1">
-           <img className= "imgVendedorDetalleAdquirido" src={markUwu} alt="Imagen"/>
-            <ui className="list-unstyled">
-            <h4 className="tituloListaProductoAdquirido">Ofrecido por</h4>
-              <li className="notaListaProductoAdquirido">Juancho Barbosa Fuentes</li>
+              </Link>
+              <Button className="btnProdResena" variant="dark">Eliminar de lista</Button>  
             </ui> 
           </div> 
-          {/* Column3 */}
-          <div className="col columna1">
-          <h4 className="tituloListaProductoAdquirido">Estado del producto</h4>
-            <ui className="list-unstyled">
-              <li className="notaListaProductoAdquirido">Intercambio en revisión</li>
-              <Link className="linkNavBar" to="/DetalleProductoIntercambio">
-              <Button className="btnProdAdqVer" variant="dark">Ver producto</Button>&nbsp;&nbsp;&nbsp;
-              </Link>             
-              </ui> 
-          </div> 
           </div>
         </div>
       </div>
 
-      
-      <div className="parrafo cartaExtr cartaListaProductoIntercambioAdquirido">
-            <div className="">
-        <div className="row">
-          {/* Column1 */}
-          <div className="col columna1">
-          <img className= "imgVendedorDetalleAdquirido" src={taylor1} alt="Imagen"/>
 
-            <ui className="list-unstyled">
-            <h4 className="tituloListaProductoAdquirido">Titulo del producto</h4>
-            <li className="notaListaProductoAdquirido">Producto para intercambiar</li>
-            </ui>
-          </div>
-          {/* Column2 */}
-           <div className="col columna1">
-           <img className= "imgVendedorDetalleAdquirido" src={markUwu} alt="Imagen"/>
-            <ui className="list-unstyled">
-            <h4 className="tituloListaProductoAdquirido">Ofrecido por</h4>
-              <li className="notaListaProductoAdquirido">Juancho Barbosa Fuentes</li>
-            </ui> 
-          </div> 
-          {/* Column3 */}
-          <div className="col columna1">
-          <h4 className="tituloListaProductoAdquirido">Estado del producto</h4>
-            <ui className="list-unstyled">
-              <li className="notaListaProductoAdquirido">Intercambio rechazado</li>
-              <Link className="linkNavBar" to="/DetalleProductoIntercambio">
-              <Button className="btnProdAdqVer" variant="dark">Ver producto</Button>&nbsp;&nbsp;&nbsp;
-              </Link>             
-              </ui> 
-          </div> 
-          </div>
-        </div>
-      </div>
-           
     </div>
     </div>
     </div>

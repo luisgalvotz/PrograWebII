@@ -12,6 +12,9 @@ import ListaProductosVentaPage from './pages/ListaProductosVentaPage'
 import ListaProductosIntercambioPage from './pages/ListaProductosIntercambioPage'
 import ListaProductosBusquedaPage from './pages/ListaProductosBusquedaPage'
 import ProductosAdquiridosPage from './pages/ProductosAdquiridosPage'
+import ProductosDeseadosPage from './pages/ProductosDeseadosPage'
+import ProductosPublicadosPage from './pages/ProductosPublicadosPage'
+import DetalleProductoSugeridoPage from './pages/DetalleProductoSugeridoPage'
 
 
 function App() {
@@ -26,11 +29,14 @@ function App() {
       <Route exact path="/" element={<NotesList/>} />
       <Route exact path="/DetalleProductoVenta" element={<DetalleProductoVentaPage/>} />
       <Route exact path="/DetalleProductoIntercambio" element={<DetalleProductoIntercambioPage/>} />
+      <Route exact path="/DetalleProductoSugerido" element={<DetalleProductoSugeridoPage/>} />
       <Route exact path="/edit/:id" element={<NotesList/>} />
       <Route exact path="/ListaProductosVenta" element={<ListaProductosVentaPage/>} />
       <Route exact path="/ListaProductosIntercambio" element={<ListaProductosIntercambioPage/>} />
       <Route exact path="/ListaProductosBusqueda" element={<ListaProductosBusquedaPage/>} />
       <Route exact path="/ProductosAdquiridos" element={<ProductosAdquiridosPage/>} />
+      <Route exact path="/ProductosDeseados" element={<ProductosDeseadosPage/>} />
+      <Route exact path="/ProductosPublicados" element={<ProductosPublicadosPage/>} />
       <Route exact path="/user" element={<CreateUser/>} />
       </Routes>
       </div>
