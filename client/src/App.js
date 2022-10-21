@@ -11,6 +11,7 @@ import DetalleProductoIntercambioPage from './pages/DetalleProductoIntercambioPa
 import ListaProductosVentaPage from './pages/ListaProductosVentaPage'
 import ListaProductosIntercambioPage from './pages/ListaProductosIntercambioPage'
 import ListaProductosBusquedaPage from './pages/ListaProductosBusquedaPage'
+import ProductosAdquiridosPage from './pages/ProductosAdquiridosPage'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <Route exact path="/ListaProductosVenta" element={<ListaProductosVentaPage/>} />
       <Route exact path="/ListaProductosIntercambio" element={<ListaProductosIntercambioPage/>} />
       <Route exact path="/ListaProductosBusqueda" element={<ListaProductosBusquedaPage/>} />
+      <Route exact path="/ProductosAdquiridos" element={<ProductosAdquiridosPage/>} />
       <Route exact path="/user" element={<CreateUser/>} />
       </Routes>
       </div>

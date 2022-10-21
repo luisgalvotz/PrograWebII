@@ -42,7 +42,7 @@ export default class DetalleProductoIntercambio extends Component {
                   
                 </div>
                 <div className= "product-div-right">
-                    <span className= "product-name">(New) Anal Watch - For Men</span>
+                    <span className= "product-name">(New) A Watch - For Men</span>
                     <span className= "product-price">Se busca que se entregue una coca a cambio</span>
                     <div className= "product-rating">
                         {/* <span><i className= "fas fa-star"></i></span>
@@ -93,7 +93,6 @@ export default class DetalleProductoIntercambio extends Component {
                     </div>
                     <br></br>
                     <Button className="btnEnviarCAS" variant="dark">Enviar oferta</Button>  
-
                     </div>
 
                 </div>

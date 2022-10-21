@@ -45,7 +45,9 @@ function NavScrollExample() {
             <NavDropdown title="Usuario"  id="navbarScrollingDropdown">
             <NavDropdown.Item className="textoNavBarDrop" href="#action2">Editar perfil</NavDropdown.Item>
               <NavDropdown.Item className="textoNavBarDrop" href="#action3">Wishlist</NavDropdown.Item>
+              <Link className="linkNavBar" to="/ProductosAdquiridos">
               <NavDropdown.Item className="textoNavBarDrop" href="#action4">Productos adquiridos</NavDropdown.Item>
+              </Link>
               <NavDropdown.Item className="textoNavBarDrop" href="#action4">Productos publicados</NavDropdown.Item>
             </NavDropdown>
 
