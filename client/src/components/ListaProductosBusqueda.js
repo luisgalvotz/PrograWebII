@@ -19,7 +19,7 @@ export default class ListaProductosBusqueda extends Component {
                     <Link className="linkNavBar" to="/DetalleProductoVenta">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
-                    <h4 className="tituloListaProductoVenta">Titulo del producto</h4>
+                    <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
                     <h6 className="tituloListaProductoVenta">Producto en venta</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
@@ -36,7 +36,7 @@ export default class ListaProductosBusqueda extends Component {
                     <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
-                    <h4 className="tituloListaProductoVenta">Titulo del producto</h4>
+                     <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
                     <h6 className="tituloListaProductoVenta">Producto para intercambiar</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
@@ -53,7 +53,7 @@ export default class ListaProductosBusqueda extends Component {
                     <Link className="linkNavBar" to="/DetalleProductoVenta">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
-                    <h4 className="tituloListaProductoVenta">Titulo del producto</h4>
+                     <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
                     <h6 className="tituloListaProductoVenta">Producto en venta</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
@@ -70,7 +70,7 @@ export default class ListaProductosBusqueda extends Component {
                     <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
-                    <h4 className="tituloListaProductoVenta">Titulo del producto</h4>
+                     <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
                     <h6 className="tituloListaProductoVenta">Producto para intercambiar</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">

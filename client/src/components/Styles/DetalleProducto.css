@@ -243,6 +243,23 @@ img{
     width: 80px;
 }
 
+.estIndividual{
+    color: orange;
+}
+
+.estrellasOut {
+    width: 300px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  .estrellasOut p {
+    text-align: left;
+  }
+  
+  .estrellasOut label {
+    font-size: 20px;
+  }
 
 
 .contendorCAS{

@@ -175,6 +175,50 @@ z-index: 1;
 
 
 
+
+
+
+
+.estrellasInput {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  .estrellasInput p {
+    text-align: left;
+  }
+  
+  .estrellasInput label {
+    font-size: 40px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+
+
+
+
 @media screen and (max-width: 992px){
     .productAdquirid-div{
         grid-template-columns: 100%;

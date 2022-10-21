@@ -1,6 +1,5 @@
 import React from 'react'
 import ListaProductosIntercambio from '../components/ListaProductosIntercambio'
-// import TextoResultados from '../components/TextoResultados'
 
 
 const ListaProductosIntercambioPage =()=>{

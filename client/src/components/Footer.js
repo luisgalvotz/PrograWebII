@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
+// import React, { Component } from 'react'
 import "./Styles/Footer.css";
-import TrueFanLogo from '../img/truefanlogo.png'
+// import TrueFanLogo from '../img/truefanlogo.png'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';

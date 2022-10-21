@@ -1,11 +1,8 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-import Navigation from './components/Navigation'
-import Footer from './components/Footer'
-import NotesList from './components/NotesList'
-import CreateUser from './components/CreateUser'
+import NavigationPage from './pages/NavigationPage'
+import FooterPage from './pages/FooterPage'
 import DetalleProductoVentaPage from './pages/DetalleProductoVentaPage'
 import DetalleProductoIntercambioPage from './pages/DetalleProductoIntercambioPage.js'
 import ListaProductosVentaPage from './pages/ListaProductosVentaPage'
@@ -22,25 +19,23 @@ function App() {
   return (
     <Router>
       
-      <Navigation/>
+      <NavigationPage/>
       <div className="page-container">
       <div className="content-wrap">
       <Routes>
-      <Route exact path="/" element={<NotesList/>} />
       <Route exact path="/DetalleProductoVenta" element={<DetalleProductoVentaPage/>} />
       <Route exact path="/DetalleProductoIntercambio" element={<DetalleProductoIntercambioPage/>} />
       <Route exact path="/DetalleProductoSugerido" element={<DetalleProductoSugeridoPage/>} />
-      <Route exact path="/edit/:id" element={<NotesList/>} />
+      {/* <Route exact path="/edit/:id" element={<NotesList/>} /> */}
       <Route exact path="/ListaProductosVenta" element={<ListaProductosVentaPage/>} />
       <Route exact path="/ListaProductosIntercambio" element={<ListaProductosIntercambioPage/>} />
       <Route exact path="/ListaProductosBusqueda" element={<ListaProductosBusquedaPage/>} />
       <Route exact path="/ProductosAdquiridos" element={<ProductosAdquiridosPage/>} />
       <Route exact path="/ProductosDeseados" element={<ProductosDeseadosPage/>} />
       <Route exact path="/ProductosPublicados" element={<ProductosPublicadosPage/>} />
-      <Route exact path="/user" element={<CreateUser/>} />
       </Routes>
       </div>
-      <Footer/>
+      <FooterPage/>
       </div>
     </Router>
   )
