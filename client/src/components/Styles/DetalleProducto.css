@@ -247,6 +247,11 @@ img{
     color: orange;
 }
 
+.estIndividualOff{
+    color: gray;
+}
+
+
 .estrellasOut {
     width: 300px;
     margin: 0 auto;

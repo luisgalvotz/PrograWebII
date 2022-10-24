@@ -15,55 +15,25 @@ export default class DetalleProductoSugerido extends Component {
           <div className="product-div">
             <div className="product-div-left">
               <div className="img-container">
-                <div>
-                  {" "}
-                  <img
-                    className="imgDetalleProducto"
-                    src={taylor1}
-                    alt="Imagen"
-                  />{" "}
+                <div>{" "}
+                  <img className="imgDetalleProducto" src={taylor1} alt="Imagen"/>{" "}
                 </div>
               </div>
               <div className="hover-container">
-                <div className="divOpcionesDetalle">
-                  {" "}
-                  <img
-                    className="imgOpcionesDetalle"
-                    src={taylor2}
-                    alt="Imagen"
-                  />{" "}
+                <div className="divOpcionesDetalle">{" "}
+                  <img className="imgOpcionesDetalle" src={taylor2} alt="Imagen"/>{" "}
                 </div>
-                <div className="divOpcionesDetalle">
-                  {" "}
-                  <img
-                    className="imgOpcionesDetalle"
-                    src={taylor1}
-                    alt="Imagen"
-                  />{" "}
+                <div className="divOpcionesDetalle">{" "}
+                  <img className="imgOpcionesDetalle" src={taylor1} alt="Imagen"/>{" "}
                 </div>
-                <div className="divOpcionesDetalle">
-                  {" "}
-                  <img
-                    className="imgOpcionesDetalle"
-                    src={taylor1}
-                    alt="Imagen"
-                  />{" "}
+                <div className="divOpcionesDetalle">{" "}
+                  <img className="imgOpcionesDetalle" src={taylor1} alt="Imagen"/>{" "}
                 </div>
-                <div className="divOpcionesDetalle">
-                  {" "}
-                  <img
-                    className="imgOpcionesDetalle"
-                    src={taylor2}
-                    alt="Imagen"
-                  />{" "}
+                <div className="divOpcionesDetalle">{" "}
+                  <img className="imgOpcionesDetalle" src={taylor2} alt="Imagen"/>{" "}
                 </div>
-                <div className="divOpcionesDetalle">
-                  {" "}
-                  <img
-                    className="imgOpcionesDetalle"
-                    src={taylor1}
-                    alt="Imagen"
-                  />{" "}
+                <div className="divOpcionesDetalle">{" "}
+                  <img className="imgOpcionesDetalle" src={taylor1} alt="Imagen"/>{" "}
                 </div>
               </div>
             </div>
@@ -81,61 +51,22 @@ export default class DetalleProductoSugerido extends Component {
                 Ofrecido por:
               </span>
               <div className="parrafo">
-                <img
-                  className="imgVendedorDetalle"
-                  src={markUwu}
-                  alt="Imagen"
-                />
+                <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
                 <span className=" descripcionExtra nombreVendedorDetalle">
                   Pancho Pantera Barbosa
                 </span>
                 <form className="estrellasOut">
                   <p className="clasificacion">
-                    <input
-                      id="radio1"
-                      type="radio"
-                      className="estrellasOut"
-                      value="5"
-                    />
-                    <label className="estIndividual" htmlFor="radio1">
-                      ★
-                    </label>
-                    <input
-                      id="radio2"
-                      type="radio"
-                      className="estrellasOut"
-                      value="4"
-                    />
-                    <label className="estIndividual" htmlFor="radio2">
-                      ★
-                    </label>
-                    <input
-                      id="radio3"
-                      type="radio"
-                      className="estrellasOut"
-                      value="3"
-                    />
-                    <label className="estIndividual" htmlFor="radio3">
-                      ★
-                    </label>
-                    <input
-                      id="radio4"
-                      type="radio"
-                      className="estrellasOut"
-                      value="2"
-                    />
-                    <label className="estIndividual" htmlFor="radio4">
-                      ★
-                    </label>
-                    <input
-                      id="radio5"
-                      type="radio"
-                      className="estrellasOut"
-                      value="1"
-                    />
-                    <label className="estIndividual" htmlFor="radio5">
-                      ★
-                    </label>
+                    <input id="radio1" type="radio" className="estrellasOut" value="5"/>
+                    <label className="estIndividual" htmlFor="radio1">★</label>
+                    <input id="radio2" type="radio" className="estrellasOut" value="4"/>
+                    <label className="estIndividual" htmlFor="radio2">★</label>
+                    <input id="radio3" type="radio" className="estrellasOut" value="3"/>
+                    <label className="estIndividual" htmlFor="radio3">★</label>
+                    <input id="radio4" type="radio" className="estrellasOut" value="2"/>
+                    <label className="estIndividual" htmlFor="radio4">★</label>
+                    <input id="radio5" type="radio" className="estrellasOut" value="1"/>
+                    <label className="estIndividual" htmlFor="radio5">★</label>
                   </p>
                 </form>
               </div>
