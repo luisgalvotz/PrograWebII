@@ -69,25 +69,10 @@ export default class Dashboard extends Component {
                         <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
-                                    Taylor Swift
+                                    #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    $500
-                                </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className="dashcardsrow col-sm-3">
-                    <Card className="dashcards">
-                        <Card.Img variant="top" src={taylor1} />
-                        <Card.Body >
-                            <Card.Title>Playera</Card.Title>
-                                <Card.Text>
-                                    Taylor Swift
-                                </Card.Text>
-                                <Card.Text>
-                                    $500
+                                    Venta
                                 </Card.Text>
                             <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
@@ -99,10 +84,10 @@ export default class Dashboard extends Component {
                         <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
-                                    Taylor Swift
+                                    #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    $500
+                                    Venta
                                 </Card.Text>
                             <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
@@ -114,10 +99,25 @@ export default class Dashboard extends Component {
                         <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
-                                    Taylor Swift
+                                    #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    $500
+                                    Intercambio
+                                </Card.Text>
+                            <Button className="dash-btn">Ver más</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
+                <div className="dashcardsrow col-sm-3">
+                    <Card className="dashcards">
+                        <Card.Img variant="top" src={taylor1} />
+                        <Card.Body >
+                            <Card.Title>Playera</Card.Title>
+                                <Card.Text>
+                                    #TaylorSwift
+                                </Card.Text>
+                                <Card.Text>
+                                    Venta
                                 </Card.Text>
                             <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
@@ -134,25 +134,10 @@ export default class Dashboard extends Component {
                         <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
-                                    Taylor Swift
+                                    #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    $500
-                                </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className="dashcardsrow col-sm-3">
-                    <Card className="dashcards">
-                        <Card.Img variant="top" src={taylor1} />
-                        <Card.Body >
-                            <Card.Title>Playera</Card.Title>
-                                <Card.Text>
-                                    Taylor Swift
-                                </Card.Text>
-                                <Card.Text>
-                                    $500
+                                    Venta
                                 </Card.Text>
                             <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
@@ -164,10 +149,10 @@ export default class Dashboard extends Component {
                         <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
-                                    Taylor Swift
+                                    #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    $500
+                                    Intercambio
                                 </Card.Text>
                             <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
@@ -179,10 +164,25 @@ export default class Dashboard extends Component {
                         <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
-                                    Taylor Swift
+                                    #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    $500
+                                    Venta
+                                </Card.Text>
+                            <Button className="dash-btn">Ver más</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
+                <div className="dashcardsrow col-sm-3">
+                    <Card className="dashcards">
+                        <Card.Img variant="top" src={taylor1} />
+                        <Card.Body >
+                            <Card.Title>Playera</Card.Title>
+                                <Card.Text>
+                                    #TaylorSwift
+                                </Card.Text>
+                                <Card.Text>
+                                    Venta
                                 </Card.Text>
                             <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
@@ -205,7 +205,7 @@ export default class Dashboard extends Component {
                     <Card className="dashcards">
                         <Card.Body >
                             <Card.Title>¡ARTISTA DEL MES!</Card.Title>
-                            <Button className="dash-btn">TAYLOR SWIFT</Button>
+                            <Button className="dash-btn">#TaylorSwift</Button>
                         </Card.Body>
                     </Card>
                 </div>

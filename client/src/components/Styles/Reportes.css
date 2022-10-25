@@ -37,7 +37,7 @@
 .reporte-name{
     color: var(--text-base); 
     text-align: center;
-
+    align-items: center;
 }
 
 .datos{
@@ -52,4 +52,19 @@
 
 .info-v{
     border-bottom: 2px solid var(--text-base);
+}
+
+.btn-rep{
+    background-color: var( --card-light);
+    border-color: var( --card-light);
+}
+
+.btn-rep:hover{
+    background-color: var(--text-hover-dark);
+    border-color: var(--text-hover-dark);
+}
+
+.formRadios-rep{
+    color: var(--text-base); 
+    text-align: center;
 }

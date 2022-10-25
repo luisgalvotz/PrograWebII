@@ -23,12 +23,12 @@ export default class Perfil extends Component {
         <div className= "row" >
             <div className="img-izqperfil col-sm-4">
             <img className= "img_perfil img-fluid" src={mujerPosando} alt="Usuario"/>
-            
             <p className= "rating-perfil">RATING</p>
             <p className= "rating-perfil">*****</p>
-            <Button className= "btn-perfil" type="submit">
-            Editar 
-            </Button>
+            <Form.Group className="btn-perfil mb-3">
+                    <Form.Label className= "user-perfil">Editar foto de perfil</Form.Label>
+                    <Form.Control type="file"/>
+                </Form.Group>
             <Button className= "btn-perfil" type="submit">
             Eliminar
             </Button>
