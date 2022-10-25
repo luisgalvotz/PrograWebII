@@ -142,7 +142,7 @@ export default class ProductosAdquiridos extends Component {
                     <img className="imgVendedorDetalleAdquirido" src={taylor1} alt="Imagen"/>
                     <ui className="list-unstyled">
                       <h4 className="tituloListaProductoAdquirido">Sudadera de Taylor Swift</h4>
-                      <li className="notaListaProductoAdquirido">Producto para intercambiar</li>
+                      <li className="notaListaProductoAdquirido">Producto para intercambio</li>
                     </ui>
                   </div>
                   {/* Column2 */}
@@ -174,7 +174,7 @@ export default class ProductosAdquiridos extends Component {
                     <img className="imgVendedorDetalleAdquirido" src={taylor1} alt="Imagen"/>
                     <ui className="list-unstyled">
                       <h4 className="tituloListaProductoAdquirido">Sudadera de Taylor Swift</h4>
-                      <li className="notaListaProductoAdquirido">Producto para intercambiar</li>
+                      <li className="notaListaProductoAdquirido">Producto para intercambio</li>
                     </ui>
                   </div>
                   {/* Column2 */}
@@ -206,7 +206,7 @@ export default class ProductosAdquiridos extends Component {
                     <img className="imgVendedorDetalleAdquirido" src={taylor1} alt="Imagen"/>
                     <ui className="list-unstyled">
                       <h4 className="tituloListaProductoAdquirido">Sudadera de Taylor Swift</h4>
-                      <li className="notaListaProductoAdquirido">Producto para intercambiar</li>
+                      <li className="notaListaProductoAdquirido">Producto para intercambio</li>
                     </ui>
                   </div>
                   {/* Column2 */}

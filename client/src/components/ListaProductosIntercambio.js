@@ -12,7 +12,7 @@ export default class ListaProductosIntercambio extends Component {
      
       <div className= "main-wrapperTwo">
          <div className= "listaVentaContainer">
-         <h3 className="tituloListaVenta">Productos para intercambiar:</h3>
+         <h3 className="tituloListaVenta">Productos para intercambio:</h3>
             <div className= "productVenta-div quitarBackgroundProductoVenta">
               <div>
                     <div className="cartaListaProductoVenta cartaListaProductoIntercambio">
@@ -20,7 +20,7 @@ export default class ListaProductosIntercambio extends Component {
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
                      <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto para intercambiar</h6>
+                    <h6 className="tituloListaProductoVenta">Producto para intercambio</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
                         <span>#Etiqueta1</span>
@@ -37,7 +37,7 @@ export default class ListaProductosIntercambio extends Component {
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
                      <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto para intercambiar</h6>
+                    <h6 className="tituloListaProductoVenta">Producto para intercambio</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
                         <span>#Etiqueta1</span>
@@ -54,7 +54,7 @@ export default class ListaProductosIntercambio extends Component {
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
                      <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto para intercambiar</h6>
+                    <h6 className="tituloListaProductoVenta">Producto para intercambio</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
                         <span>#Etiqueta1</span>
@@ -71,7 +71,7 @@ export default class ListaProductosIntercambio extends Component {
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
                      <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto para intercambiar</h6>
+                    <h6 className="tituloListaProductoVenta">Producto para intercambio</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
                         <span>#Etiqueta1</span>

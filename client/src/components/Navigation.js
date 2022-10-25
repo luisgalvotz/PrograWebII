@@ -55,15 +55,6 @@ function NavScrollExample() {
               </Link>
             </NavDropdown>
 
-            <NavDropdown title="Administrador"  id="navbarScrollingDropdown">
-            <Link className="linkNavBar" to="/ListaEtiquetas">
-            <NavDropdown.Item className="textoNavBarDrop" href="#action4">Eitquetas existentes</NavDropdown.Item>
-            </Link>
-              <NavDropdown.Item className="textoNavBarDrop" href="#action3">Reportes</NavDropdown.Item>
-              <NavDropdown.Item className="textoNavBarDrop" href="#action4">Sugerencias de usuarios</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#action2"  className="textoNavBar">Registrarse</Nav.Link>
-            <Nav.Link href="#action2"  className="textoNavBar">Iniciar sesión</Nav.Link>
             <Nav.Link href="#action2"  className="textoNavBar">Salir</Nav.Link>
             {/* <Nav.Link href="#" disabled>
               Link

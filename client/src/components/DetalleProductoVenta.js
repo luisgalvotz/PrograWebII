@@ -75,7 +75,9 @@ export default class DetalleProductoVenta extends Component {
               </p>
               <p className="product-description ">Nota: tiene una mancha</p>
               <div className="btn-groups">
+              <Link className="linkNavBar" to="/EscribirResena">
                 <button type="button" className="add-cart-btn">Comprar ahora</button>
+              </Link>
                 <button type="button" className="buy-now-btn">
                   <img src={heart} alt="Bootstrap" className="btnLikeDetalle" />
                 </button>

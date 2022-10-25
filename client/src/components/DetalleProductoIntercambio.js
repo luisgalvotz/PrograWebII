@@ -171,30 +171,18 @@ export default class DetalleProductoIntercambio extends Component {
                 </Button>{" "}
                 <br></br>
                 <div className="divOpcionesDetalle imgOpcionExtra">
-                  <img
-                    className="imgOpcionesDetalle "
-                    src={taylor1}
-                    alt="Imagen"
-                  />
+                  <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
                 </div>
                 <div className="divOpcionesDetalle imgOpcionExtra">
-                  <img
-                    className="imgOpcionesDetalle "
-                    src={taylor1}
-                    alt="Imagen"
-                  />
+                  <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
                 </div>
                 <div className="divOpcionesDetalle imgOpcionExtra">
-                  <img
-                    className="imgOpcionesDetalle "
-                    src={taylor1}
-                    alt="Imagen"
-                  />
+                  <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
                 </div>
                 <br></br>
-                <Button className="btnEnviarCAS" variant="dark">
-                  Enviar oferta
-                </Button>
+                <Link className="linkNavBar" to="/EscribirResena">
+                <Button className="btnEnviarCAS" variant="dark">Enviar oferta</Button>
+              </Link>
               </div>
             </div>
           </div>

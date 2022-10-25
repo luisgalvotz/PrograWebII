@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 
 
 
-export default class ProductosPublicados extends Component {
+export default class AdministrarIntercambios extends Component {
   render() {
 
     return (
@@ -29,13 +29,13 @@ export default class ProductosPublicados extends Component {
           <img className= "imgVendedorDetallePublicado" src={taylor1} alt="Imagen"/>
             <ui className="list-unstyled">
             <h4 className="tituloListaProductoAdquirido">Sudadera de Taylor Swift</h4>
-            <li className="notaListaProductoPublicado">Producto para intercambiar</li>
+            <li className="notaListaProductoPublicado">Producto para intercambio</li>
             </ui>
           </div>
 
           {/* Column3 */}
           <div className="col columna2">
-          <h4 className="tituloListaProductoPublicado">12/03/2022</h4>
+          <h4 className="tituloListaProductoPublicado">Producto disponible</h4>
             <ui className="list-unstyled">
               <Link className="linkNavBar" to="/DetalleProductoIntercambio">
               <Button className="btnProdPublicadoVer" variant="dark">Ver producto</Button>&nbsp;&nbsp;&nbsp;

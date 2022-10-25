@@ -37,7 +37,7 @@ export default class ListaProductosBusqueda extends Component {
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
                      <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto para intercambiar</h6>
+                    <h6 className="tituloListaProductoVenta">Producto para intercambio</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
                         <span>#Etiqueta1</span>
@@ -71,7 +71,7 @@ export default class ListaProductosBusqueda extends Component {
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
                      <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto para intercambiar</h6>
+                    <h6 className="tituloListaProductoVenta">Producto para intercambio</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
                         <span>#Etiqueta1</span>
