@@ -1,0 +1,80 @@
+.img-izq{
+    position: relative;
+    display: inline-block;
+    text-align: left;
+}
+
+.texto-sobreimagen{
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    color: var(--text-base);
+}
+
+.sobreimagen{
+    color: var(--text-base);
+    font-size: 25px;
+    text-align: center;
+    margin: 10px 50px 0px 0px;
+}
+
+.img_login{
+    height: auto;
+    border: none;
+    max-width: 100%;
+    padding: 30px 30px;
+}
+
+.sesion-login{
+    max-width: 100%;
+    padding:10px 50px 5px 50px;
+    text-align: center;
+    align-items: center;
+} 
+.input-login{
+    border-radius: 5px;
+    padding: 10px 50px 5px 10px;
+    margin: 20px 0px 50px 0px;
+    align-items: center;
+}
+
+.btn-login{
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    margin: 20px 0px 60px 0px;
+    background-color: var(--text-hover-dark);
+    border-color: var(--text-hover-dark);
+}
+
+.btn-login:hover{
+    background-color: var(--navbar);
+    border-color: var(--navbar);
+}
+
+.btn-login:active{
+    background-color: var(--text-hover);
+    border-color: var(--text-hover);
+}
+
+.info-login{
+    margin: 0px 0px 20px 0px;
+    color:var(--text-base);
+}
+
+.create-login{
+    color:var(--text-hover);
+    margin: 0px 0px 50px 0px;
+}
+.create-login:hover{
+    color:var(--text-hover-dark);
+}
+
+.registro-login{
+    color:var(--text-hover-dark);
+}
+
+.registro-login:hover{
+    color:var(--text-hover);
+}
+

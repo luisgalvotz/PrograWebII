@@ -1,0 +1,67 @@
+.texto-sug{
+    color: var(--text-base);
+}
+
+.texto-sug-t{
+    color: var(--text-base);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-sug{
+    margin: 40px 20px 40px 20px;
+}
+
+.sel-op{
+    width: 100%;
+}
+
+.container-seleccion{
+    margin: 30px 152px 50px 152px;
+}
+
+.container-com{
+    align-items: center;
+}
+
+.cardsug{
+    background-color: var(--card);
+    border-radius:10px;
+    margin: 20px 10px 20px 10px;
+    padding: 20px 10px 20px 10px;
+}
+
+.cardsug:hover{
+    background-color: var(--navbar);
+}
+
+.texto-sug-date{
+    text-align: right;
+    color: var(--text-base);
+}
+
+.btn-Revisado{
+    border-radius: 5px;
+    display: block;
+    width: 95%;
+    margin: 20px 12px 0px 12px;
+    background-color: var(--navbar-hover);
+    border-color: var(--navbar-hover);
+
+}
+
+.btn-Revisado:hover{
+    background-color: var(--footer);
+    border-color: var(--footer);
+}
+
+.img_com{
+    border-radius:5px;
+    margin: 30px 0px 0px 0px;
+}
+
+.texto-sug-rev{
+    text-align: center;
+    color: var(--text-base);
+    background-color: var(--buy);
+}

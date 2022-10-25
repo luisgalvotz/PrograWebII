@@ -1,0 +1,12 @@
+.publicar-fotos{
+    background-color: blue;
+    color: var(--text-base);
+    }
+    
+    .publicar-info{
+    background-color: brown;
+    }
+    
+    .texto-p{
+        color: var(--text-base);
+    }

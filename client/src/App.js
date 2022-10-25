@@ -14,6 +14,13 @@ import AdministrarIntercambiosPage from "./pages/AdministrarIntercambiosPage.js"
 import DetalleProductoSugeridoPage from "./pages/DetalleProductoSugeridoPage";
 import ListaEtiquetasPage from "./pages/ListaEtiquetasPage";
 import EscribirResenaPage from "./pages/EscribirResenaPage";
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
+import PerfilPage from './pages/PerfilPage'
+import ReportsPage from './pages/ReportsPage'
+import DashboardPage from './pages/DashboardPage'
+import SugerenciasPage from './pages/SugerenciasPage'
+import CrearArticuloPage from './pages/CrearArticuloPage'
 
 function App() {
   return (
@@ -69,6 +76,23 @@ function App() {
             Se puede eliminar cada etiqueta que siga activa*/}
             <Route exact path="/EscribirResena" element={<EscribirResenaPage />}/>
             {/* Se puede crear una reseña hecha de acuerdo al usuario con el que se haya comprado o intercambiado */}
+            <Route exact path="/Login" element={<LoginPage/>} />
+            {/* El usuario puede ingresar a la pagina con su cuenta */}
+            <Route exact path="/Register" element={<RegisterPage/>} />
+            {/* El usuario puede registrarse con un nombre de usuario, su correo y su contraseña */}
+            <Route exact path="/Perfil" element={<PerfilPage/>} />
+            {/* Se ve la información personal del usuario, su foto de perfil, se pueden editar todos sus datos
+            y aparece su calificación en estrellas como vendedor */}
+            <Route exact path="/Reports" element={<ReportsPage/>} />
+            {/* Aparecen los filtros del reporte que se requiera y se genera el reporte con los datos que se solicitan */}
+            <Route exact path="/Dashboard" element={<DashboardPage/>} />
+            {/* Pagina principal de TrueFan, aparecen los articulos mas solicitados, los mas nuevos e informacion 
+            que puede ser util para el usuario */}
+            <Route exact path="/Sugerencias" element={<SugerenciasPage/>} />
+            {/* Aqui el administrador puede ver todas las sugerencias de los usuarios, puede ver los que ya reviso y los que
+            aun no revisa */}
+            <Route exact path="/CrearArticulo" element={<CrearArticuloPage/>} />
+            {/* Se crea el articulo con toda la información y fotos necesarias para su venta o intercambio */}
           </Routes>
         </div>
         <Footer />
