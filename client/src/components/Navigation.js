@@ -51,9 +51,9 @@ function NavScrollExample() {
               <Link className="linkNavBar" to="/ProductosDeseados">
                 <NavDropdown.Item className="textoNavBarDrop" href="#action3">Wishlist</NavDropdown.Item>
               </Link>
-              <Link className="linkNavBar" to="/ProductosAdquiridos">
+              {/* <Link className="linkNavBar" to="/ProductosAdquiridos">
                 <NavDropdown.Item className="textoNavBarDrop" href="#action4">Tus compras e intercambios</NavDropdown.Item>
-              </Link>
+              </Link> */}
               <Link className="linkNavBar" to="/AdministrarIntercambios">
                 <NavDropdown.Item className="textoNavBarDrop" href="#action4">Administrar intercambios</NavDropdown.Item>
               </Link>
@@ -64,6 +64,9 @@ function NavScrollExample() {
               </Link>
               <Link className="linkNavBar" to="/Sugerencias">
                 <NavDropdown.Item className="textoNavBarDrop" href="#action4">Sugerencias de usuarios</NavDropdown.Item>
+              </Link>
+              <Link className="linkNavBar" to="/ListaEtiquetas">
+                <NavDropdown.Item className="textoNavBarDrop" href="#action4">Administrar etiquetas</NavDropdown.Item>
               </Link>
             </NavDropdown>
             <Link className="linkNavBar" to="/Register">

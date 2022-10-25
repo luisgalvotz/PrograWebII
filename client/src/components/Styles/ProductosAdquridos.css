@@ -231,25 +231,27 @@ z-index: 1;
     font-size: 40px;
   }
   
-  input[type="radio"] {
+  .estrellasInput[type="radio"] {
     display: none;
   }
   
-  label {
-    color: grey;
-  }
-  
+
   .clasificacion {
     direction: rtl;
     unicode-bidi: bidi-override;
   }
+
+  .labelEstrella {
+    color: grey;
+  }
+
   
-  label:hover,
-  label:hover ~ label {
+  .labelEstrella:hover,
+  .labelEstrella:hover ~ label {
     color: orange;
   }
   
-  input[type="radio"]:checked ~ label {
+  .estrellasInput[type="radio"]:checked ~ label {
     color: orange;
   }
 

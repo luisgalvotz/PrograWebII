@@ -12,14 +12,12 @@ export default class EscribirResena extends Component {
     return (
       <div className="main-wrapperThree">
         <div className="productosAdquiridosContainer">
-          <h3 className="tituloListaAdquiridos">
-            Escriba una reseña de acuerdo a la experiencia con el usuario que realizó su adquisición:
-          </h3>
-          
           <div className="productAdquirid-div quitarBackgroundProductoAdquirido">
-         
+          <h3 className="tituloListaAdquiridos">
+          Escriba una reseña del usuario
+          </h3>  <br></br>  <br></br>
             <div className="contendorCAS2">
-              <h5 className="letraFooter alinearIzquier">Escriba su reseña</h5>
+              
               <InputGroup>
                 <Form.Control className="inputArticuloSugeridoTexto" as="textarea" placeholder="Yo pienso que..." aria-label="With textarea"/>
               </InputGroup>
@@ -28,15 +26,15 @@ export default class EscribirResena extends Component {
               <form className="estrellasInput">
                 <p className="clasificacion">
                   <input enabled id="radio1" type="radio" className="estrellasInput"value="5"/>
-                  <label htmlFor="radio1">★</label>
+                  <label className="labelEstrella" htmlFor="radio1">★</label>
                   <input enabled id="radio2" type="radio" className="estrellasInput" value="4"/>
-                  <label htmlFor="radio2">★</label>
+                  <label className="labelEstrella" htmlFor="radio2">★</label>
                   <input enabled id="radio3" type="radio" className="estrellasInput" value="3"/>
-                  <label htmlFor="radio3">★</label>
+                  <label className="labelEstrella" htmlFor="radio3">★</label>
                   <input enabled id="radio4" type="radio" className="estrellasInput" value="2"/>
-                  <label htmlFor="radio4">★</label>
+                  <label className="labelEstrella" htmlFor="radio4">★</label>
                   <input enabled id="radio5" type="radio" className="estrellasInput" value="1"/>
-                  <label htmlFor="radio5">★</label>
+                  <label className="labelEstrella" htmlFor="radio5">★</label>
                 </p>
               </form>
               <Link className="linkNavBar" to="/">

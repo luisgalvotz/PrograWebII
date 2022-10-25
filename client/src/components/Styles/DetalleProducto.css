@@ -265,6 +265,13 @@ img{
   .estrellasOut label {
     font-size: 20px;
   }
+    
+  .estrellasOut[type="radio"] {
+    display: none;
+  }
+  .estrellasOut[type="radio"]:checked ~ label {
+    color: orange;
+  }
 
 
 .contendorCAS{
