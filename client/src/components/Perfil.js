@@ -56,35 +56,7 @@ export default class Perfil extends Component {
                     <Form.Group className="mb-3" controlId="formBasicUser">
                     <Form.Control className= "input-perfil" type="number" size="8" placeholder="TELEFONO" />
                     </Form.Group>
-                    <div className="juntar-perfil row">
-                        <div className="juntar-perfil col-sm-6">
-                            <Form.Group className="mb-3" controlId="formBasicUser">
-                            <Form.Control className= "input-perfil" type="text" placeholder="DIRECCION" />
-                            </Form.Group>
-                        </div>
-                        <div className="juntar-perfil col-sm-6">
-                            <Form.Group className="mb-3" controlId="formBasicUser">
-                            <Form.Control className= "input-perfil" type="number" size="5" placeholder="C.P" />
-                            </Form.Group>
-                        </div>
-                    </div>
-                    <div className="juntar-perfil row">
-                        <div className="juntar-perfil col-sm-4">
-                            <Form.Group className="mb-3" controlId="formBasicUser">
-                            <Form.Control className= "input-perfil" type="text" placeholder="ESTADO" />
-                            </Form.Group>
-                        </div>
-                        <div className="juntar-perfil col-sm-4">
-                            <Form.Group className="mb-3" controlId="formBasicUser">
-                            <Form.Control className= "input-perfil" type="text" placeholder="CIUDAD" />
-                            </Form.Group>
-                        </div>
-                        <div className="juntar-perfil col-sm-4">
-                            <Form.Group className="mb-3" controlId="formBasicUser">
-                            <Form.Control className= "input-perfil" type="text" placeholder="PAIS" />
-                            </Form.Group>
-                        </div>
-                    </div>
+
                     <Form.Group className="mb-3" controlId="formBasicUser">
                     <Form.Control className= "input-perfil" type="text" placeholder="EMAIL" />
                     </Form.Group>
@@ -92,12 +64,6 @@ export default class Perfil extends Component {
                     <Form.Group className="mb-3" controlId="formBasicUser">
                     <Form.Control className= "input-perfil" type="date" max="2004-12-31" min="1940-12-31"placeholder="CUMPLEAÑOS" />
                     </Form.Group>
-
-                    <Form.Select className= "sel-op" aria-label="Default select example" >
-                        <option value="1">Mujer</option>
-                        <option value="2">Hombre</option>
-                        <option value="2">Otro</option>
-                    </Form.Select>
                     <Link className="registro-login" to="/Perfil">
                     <Button className= "btn-perfil-editar " type="Submit">
                     Guardar
