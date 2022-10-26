@@ -56,7 +56,7 @@
 }
 
 .btn-rep{
-    padding: 0px 5px 0px 5px;
+    padding: 0px 0px 0px 0px;
     background-color: var( --card-light);
     border-color: var( --card-light);
 }

@@ -89,6 +89,7 @@ function App() {
             <Route exact path="/Dashboard" element={<DashboardPage/>} />
             {/* Pagina principal de TrueFan, aparecen los articulos mas solicitados, los mas nuevos e informacion 
             que puede ser util para el usuario */}
+            <Route exact path="/" element={<DashboardPage/>} />
             <Route exact path="/Sugerencias" element={<SugerenciasPage/>} />
             {/* Aqui el administrador puede ver todas las sugerencias de los usuarios, puede ver los que ya reviso y los que
             aun no revisa */}
