@@ -25,11 +25,11 @@ export default class Dashboard extends Component {
     <div className= "container-dash">
         <Carousel fade>
             <Carousel.Item>
-                <img
+            <img
                 className="d-block w-100"
                 src={truefanlogo}
                 alt="First slide"
-                />
+                />  
                 <Carousel.Caption>
                     <h3>MERCANCIA NUEVA</h3>
                     <p>VEN Y ENCUENTRA TU MERCANCIA FAVORITA</p>
@@ -65,126 +65,128 @@ export default class Dashboard extends Component {
             <div className= "row" >
                 <div className="dashcardsrow col-sm-3">
                     <Card className="dashcards">
+                    <Link className="linkNavBar" to="/DetalleProductoVenta">
                         <Card.Img variant="top" src={taylor1} />
+                        </Link>
                         <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
                                     #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    Venta
+                                    Producto en venta
                                 </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
                     </Card>
                 </div>
                 <div className="dashcardsrow col-sm-3">
                     <Card className="dashcards">
+                    <Link className="linkNavBar" to="/DetalleProductoVenta">
                         <Card.Img variant="top" src={taylor1} />
-                        <Card.Body >
+                        </Link>                        <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
                                     #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    Venta
+                                    Producto en venta
                                 </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
                     </Card>
                 </div>
                 <div className="dashcardsrow col-sm-3">
-                    <Card className="dashcards">
+                    <Card className="dashcardsInter">
+                    <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                         <Card.Img variant="top" src={taylor1} />
-                        <Card.Body >
+                        </Link>                           <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
                                     #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    Intercambio
+                                Producto para intercambio
                                 </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
                     </Card>
                 </div>
                 <div className="dashcardsrow col-sm-3">
-                    <Card className="dashcards">
+                    <Card className="dashcardsInter">
+                    <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                         <Card.Img variant="top" src={taylor1} />
-                        <Card.Body >
+                        </Link>                           <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
                                     #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    Venta
+                                    Producto para intercambio
                                 </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
                     </Card>
                 </div>
             </div>
         </div>
         <div className= "container-newmerch">
-        <p className= "titulo-merch">MERCANCIA MAS PEDIDA</p>
-            <div className= "row" >
+        <p className= "titulo-merch">TODOS LOS ARTICULOS</p>
+        <div className= "row" >
                 <div className="dashcardsrow col-sm-3">
                     <Card className="dashcards">
+                    <Link className="linkNavBar" to="/DetalleProductoVenta">
                         <Card.Img variant="top" src={taylor1} />
+                        </Link>
                         <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
                                     #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    Venta
+                                    Producto en venta
                                 </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
                     </Card>
                 </div>
                 <div className="dashcardsrow col-sm-3">
                     <Card className="dashcards">
+                    <Link className="linkNavBar" to="/DetalleProductoVenta">
                         <Card.Img variant="top" src={taylor1} />
-                        <Card.Body >
+                        </Link>                        <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
                                     #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    Intercambio
+                                    Producto en venta
                                 </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
                     </Card>
                 </div>
                 <div className="dashcardsrow col-sm-3">
-                    <Card className="dashcards">
+                    <Card className="dashcardsInter">
+                    <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                         <Card.Img variant="top" src={taylor1} />
-                        <Card.Body >
+                        </Link>                           <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
                                     #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    Venta
+                                Producto para intercambio
                                 </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
                     </Card>
                 </div>
                 <div className="dashcardsrow col-sm-3">
-                    <Card className="dashcards">
+                    <Card className="dashcardsInter">
+                    <Link className="linkNavBar" to="/DetalleProductoIntercambio">
                         <Card.Img variant="top" src={taylor1} />
-                        <Card.Body >
+                        </Link>                           <Card.Body >
                             <Card.Title>Playera</Card.Title>
                                 <Card.Text>
                                     #TaylorSwift
                                 </Card.Text>
                                 <Card.Text>
-                                    Venta
+                                    Producto para intercambio
                                 </Card.Text>
-                            <Button className="dash-btn">Ver más</Button>
                         </Card.Body>
                     </Card>
                 </div>

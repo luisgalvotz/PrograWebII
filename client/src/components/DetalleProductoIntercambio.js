@@ -75,11 +75,9 @@ export default class DetalleProductoIntercambio extends Component {
                 Ofrecido por:
               </span>
               <div className="parrafo">
-                <img
-                  className="imgVendedorDetalle"
-                  src={markUwu}
-                  alt="Imagen"
-                />
+              <Link className="linkNavBar" to="/PerfilResenas">
+                <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
+              </Link>
                 <span className="product-description descripcionExtra nombreVendedorDetalle">
                   Pancho Pantera Barbosa
                 </span>{" "}

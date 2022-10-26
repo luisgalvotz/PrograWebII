@@ -212,7 +212,7 @@ export default class Reports extends Component {
                 </div>
             </div>
             <div className= "reporte-listo row" >
-                <h2 className= "reporte-nombre">Mejores reseñas</h2>
+                <h2 className= "reporte-nombre">Más likes</h2>
                 <div className="reporte-name col-sm-3">
                     <h3 className= "info-v">Artículo</h3>
                     <div className= "datos row" >

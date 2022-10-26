@@ -80,6 +80,9 @@ export default class CrearArticulo extends Component {
                 <FloatingLabel  label="Ingrese notas del artículo" className="mb-3">
                     <Form.Control as="textarea" placeholder="Notas" />
                 </FloatingLabel>
+                <FloatingLabel  label="Ingrese el artículo que espera a cambio" className="mb-3">
+                        <Form.Control type="text" placeholder="artículo" />
+                </FloatingLabel>
                     <p className="texto-p">Selecciona la etiqueta del artículo</p>
                 <Form.Select className= "sel-etiqueta" aria-label="Default select example" >
                     <option value="1">#TaylorSwift</option>
@@ -99,9 +102,6 @@ export default class CrearArticulo extends Component {
                     <p className="texto-p">Ingresa las fotos de tu artículo</p>
                     <Form.Control type="file" multiple/>
                 </Form.Group>
-                <FloatingLabel  label="Ingrese el artículo que espera a cambio" className="mb-3">
-                        <Form.Control type="text" placeholder="artículo" />
-                </FloatingLabel>
                 <Link className="registro-login" to="/CrearArticulo">
                     <Button className= "btn-publicar" type="submit">
                         Publicar

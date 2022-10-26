@@ -40,8 +40,10 @@ export default class DetalleProductoVenta extends Component {
               </div>
               <span className="product-description ofrecidoPor">Ofrecido por:</span>
               <div className="parrafo">
+              <Link className="linkNavBar" to="/PerfilResenas">
                 <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
-                <span className="product-description descripcionExtra nombreVendedorDetalle">Pancho Pantera Barbosa</span>{" "}<br></br>
+              </Link>                
+              <span className="product-description descripcionExtra nombreVendedorDetalle">Pancho Pantera Barbosa</span>{" "}<br></br>
                 <form className="estrellasOut">
                   <p className="clasificacion">
                     <input id="radio1" type="radio" className="estrellasOut" value="5"/>

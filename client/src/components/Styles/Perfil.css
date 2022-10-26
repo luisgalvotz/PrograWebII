@@ -106,3 +106,33 @@
   .estrellasOutP[type="radio"]:checked ~ label {
     color: orange;
   }
+
+
+  .estrellasOutR {
+    width: auto;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  .estrellasOutR p {
+    text-align: left;
+  }
+  
+  .estrellasOutR label {
+    font-size: 30px;
+  }
+    
+  .estrellasOutR[type="radio"] {
+    display: none;
+  }
+  .estrellasOutR[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+  .whiteTe{
+    color:var(--text-base);
+  }
+
+  .colorInter{
+    background-color: var(--card-light);
+  }

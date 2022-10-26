@@ -23,7 +23,7 @@ export default class Perfil extends Component {
         <div className= "row" >
             <div className="img-izqperfil col-sm-4">
             <img className= "img_perfil img-fluid" src={mujerPosando} alt="Usuario"/>
-            <p className= "rating-perfil">RATING</p>
+            <p className= "rating-perfil">Nombre Del Usuario</p>
             <form className="estrellasOutP">
             <p className="clasificacion">
                     <input id="estrella1" type="radio" className="estrellasOutP" value="5"/>

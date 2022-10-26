@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import markUwu from "../img/markUwu.jpg";
 import taylor2 from "../img/taylor2.png";
 import taylor1 from "../img/taylor1.jpg";
@@ -51,8 +51,9 @@ export default class DetalleProductoSugerido extends Component {
                 Ofrecido por:
               </span>
               <div className="parrafo">
+              <Link className="linkNavBar" to="/PerfilResenas">
                 <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
-                <span className=" descripcionExtra nombreVendedorDetalle">
+              </Link>                <span className=" descripcionExtra nombreVendedorDetalle">
                   Pancho Pantera Barbosa
                 </span>
                 <form className="estrellasOut">

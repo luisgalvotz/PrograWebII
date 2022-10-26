@@ -25,6 +25,17 @@
     
 }
 
+.dashcardsInter{
+    background-color: var(--card-light);
+    margin: 10px 20px 10px 20px;
+    
+}
+
+.dashcardsInter:hover{
+    background-color: var(--navbar);    
+}
+
+
 .dash-btn{
     border-radius: 5px;
     display: block;
