@@ -32,7 +32,7 @@ export default class Reports extends Component {
                             <ToggleButton className="btn-rep" id="tbg-radio-1" value={1}>
                                 Ventas
                             </ToggleButton>
-                            <ToggleButton className="btn-rep" id="tbg-radio-4" value={2}>
+                            <ToggleButton className="btn-rep" id="tbg-radio-3" value={2}>
                                 Intercambios
                             </ToggleButton>
                             <ToggleButton className="btn-rep" id="tbg-radio-4" value={4}>
