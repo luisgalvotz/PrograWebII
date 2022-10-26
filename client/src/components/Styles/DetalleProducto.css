@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+.main-wrapper{
+    min-height: 100vh;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: 0 auto;
+} */
+
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.imgDetalleProducto{
+    width: 100%;
+    display: block;
+    border-radius:15px;
+}
+
+.container{
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: 0 auto;
+} 
+
+.main-wrapper{
+    background-color:  var( --main-bg-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-div{
+    margin: 1rem 0;
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color:  var(--card-dark);
+    border-radius: 3px;
+    column-gap: 10px;
+    color:var(--text-base);
+}
+.product-div-left{
+    padding: 20px;
+}
+.product-div-right{
+    padding: 20px;
+}
+.img-container img{
+    width: 320px;
+    width: 60%;
+    padding: 0;
+    margin: 0 auto;
+}
+.hover-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+}
+.hover-container div{
+    border: 1px solid var(--text-hover);
+    padding: .4rem;
+    border-radius: 4px;
+    margin: 0 4px 8px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divOpcionesDetalle{
+    width: 70px;
+    height: 70px;
+}
+
+
+.imgOpcionesDetalle{
+    width: 100%;
+    height: 100%;
+    border-radius:5px;
+}
+
+
+
+.active{
+    border-color: var(--text-hover-dark)!important;
+}
+.hover-container div:hover{
+    border-color: var(--text-hover-dark);
+}
+.hover-container div img{
+    width: 50px;
+    cursor: pointer;
+}
+.product-div-right span{
+    display: block;
+}
+.product-name{
+    font-size: 26px;
+    margin-bottom: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+.product-price{
+    font-weight: 700;
+    font-size: 24px;
+    opacity: 0.9;
+    font-weight: 500;
+}
+.product-rating{
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+.product-rating span{
+    color: var(--text-hover);
+    margin-right: 6px;
+}
+.product-rating span:hover{
+    color: var(--text-hover-dark);
+}
+.descripcionExtra{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.product-description{
+    font-weight: 18px;
+    line-height: 1.6;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-top: 18px;
+}
+.btn-groups{
+    margin-top: 22px;
+}
+.btn-groups button{
+    display: inline-block;
+    font-size: 16px;
+    font-family: inherit;
+    text-transform: uppercase;
+    padding: 15px 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-groups button .fas{
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.btnLikeDetalle {
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.like-item-btn{
+    border-radius: 15px;
+    background-color:var(--like);
+    border: 0px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.like-item-btn:hover{
+    background-color:var(--like-hover);
+}
+
+.add-cart-btn{
+    border-radius: 15px;
+    background-color:var(--buy);
+    border: 0px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+.add-cart-btn:hover{
+    background-color:var(--buy-hover);
+}
+.buy-now-btn{
+    border-radius: 15px;
+    background-color:var(--heart);
+    border: 0px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+.buy-now-btn:hover{
+    background-color:var(--heart-hover);
+    color: #000;
+}
+
+.ofrecidoPor{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+.parrafo{
+    z-index: 1;
+    width: auto;
+    height: auto;
+    background-color: var(--navbar-hover);
+    padding: 20px 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 1px 5px 25px rgba(0,0,0,0.45);
+    border-radius: 5px;
+    text-align: justify;
+}
+.parrafo img{
+    border-radius: 5px;
+    float: left;
+    margin-top:-1%;
+    left:5%;
+    margin-right: 15px;
+    border-radius:15px;
+
+}
+
+.imgVendedorDetalle{
+    display:inline-block;
+    height: 80px;  
+    width: 80px;
+}
+
+.estIndividual{
+    color: orange;
+}
+
+.estIndividualOff{
+    color: gray;
+}
+
+
+.estrellasOut {
+    width: 300px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  .estrellasOut p {
+    text-align: left;
+  }
+  
+  .estrellasOut label {
+    font-size: 20px;
+  }
+    
+  .estrellasOut[type="radio"] {
+    display: none;
+  }
+  .estrellasOut[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+
+.contendorCAS{
+    margin-top: 20px;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    background-color: var(--card);
+    padding: 17px 17px;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 1px 5px 25px rgba(0,0,0,0.45);
+    border-radius: 5px;
+    text-align: justify;
+}
+.contendorCAS img{
+    border-radius: 5px;
+    float: left;
+    margin-top:-1%;
+    left:5%;
+    margin-right: 15px;
+    border-radius:15px;
+
+}
+
+.btnAgregarImagenCAS{
+    border-radius: 15px;
+    background-color:var(--like);
+    border: 0px;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-top:12px;
+    
+}
+.btnAgregarImagenCAS:hover{
+    background-color:var(--like-hover);
+}
+
+.inputArticuloSugerido{
+    background-color: var(--card-dark);
+    border:none;
+    color:var(--text-base);
+}
+
+.inputArticuloSugeridoTexto{
+    background-color: var(--white-variation);
+    border:none;
+    color:white;
+    transition: .2s;
+}
+
+.btnEnviarCAS{
+    border-radius: 15px;
+    background-color:var(--buy);
+    border: 0px;
+    margin-right: 34%;
+    margin-left: 38%;
+    margin-top:12px;
+    height:50px;
+    height:150%;
+}
+.btnEnviarCAS:hover{
+    background-color:var(--buy-hover);
+}
+
+.imgOpcionExtra{
+    display: inline-block;
+    margin-top:10px;
+    margin-left:8px;
+}
+
+
+.alinearIzquier{
+text-align: start;
+}
+
+
+@media screen and (max-width: 992px){
+    .product-div{
+        grid-template-columns: 100%;
+    }
+    .product-div-right{
+        text-align: center;
+    }
+    .product-rating{
+        justify-content: center;
+    }
+    .product-description{
+        max-width: 400px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .btn-groups button{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

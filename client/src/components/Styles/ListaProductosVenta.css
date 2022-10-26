@@ -1,0 +1,110 @@
+
+
+.listaVentaContainer{
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: 0 auto;
+} 
+
+
+
+.tituloListaVenta{
+    margin-top: 30px;
+}
+
+.main-wrapperTwo{
+    /* min-height: 100vh;
+    max-width: 100%; */
+
+    /* quitar */
+    /* background-color:  var(--card-dark); */
+
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin-bottom: 50px;
+
+}
+
+.moverLinkIzq {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text-hover);
+    margin-right: 6px;
+}
+.moverLinkIzq:hover{
+    color: var(--text-hover-dark);
+}
+
+.productVenta-div{
+    align-items: center;
+    justify-content: center;
+    /* padding: 2rem 0; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 3px;
+    column-gap: 10px;
+    color:var(--text-base);
+}
+.productVenta-div-left{
+    padding: 20px;
+}
+.productVenta-div-right{
+    padding: 20px;
+}
+
+.quitarBackgroundProductoVenta{
+    background-color: var(--main-bg-color);
+}
+
+.cartaListaProductoVenta{
+    z-index: 1;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 20px;
+    background-color: var(--card);
+    padding: 20px 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 1px 5px 25px rgba(0,0,0,0.45);
+    border-radius: 5px;
+    text-align: justify;
+}
+
+.cartaListaProductoIntercambio{
+    background-color: var(--card-light);
+}
+
+.cartaListaProductoVenta img{
+    width: 320px;
+
+    padding: 0;
+    margin: 0 auto;
+    display:block;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.tituloListaProductoVenta{
+    color: var(--text-base);
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media screen and (max-width: 992px){
+    .productVenta-div{
+        grid-template-columns: 100%;
+    }
+    .productVenta-div-right{
+        text-align: center;
+    }
+    .productVenta-rating{
+        justify-content: center;
+    }
+
+.cartaListaProductoVenta img{
+    width: 260px;
+    margin-bottom: 20px;
+}
+}
+
