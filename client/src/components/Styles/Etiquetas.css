@@ -1,0 +1,113 @@
+/* productosAdquiridosContainer */
+.pEtiquetasContainer{
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: 0 auto;
+} 
+
+/* tituloListaAdquiridos */
+.tituloListaEtiquetas{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* .main-wrapperThree */
+.main-wrapperFour{
+    /* min-height: 100vh;
+    max-width: 100%; */
+    /* quitar */
+    /* background-color:  var(--card-dark); */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin-bottom: 50px;
+}
+
+.moverLinkIzq3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text-hover);
+    margin-right: 6px;
+}
+
+.moverLinkIzq3:hover{
+    color: var(--text-hover-dark);
+}
+
+/* productAdquirid */
+.pEtiquetas-div{
+    align-items: center;
+    justify-content: left;
+    /* padding: 2rem 0; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-radius: 3px;
+    column-gap: 10px;
+    color:var(--text-base);
+}
+
+.pEtiquetas-div-left{
+    padding: 20px;
+}
+.pEtiquetas-div-right{
+    padding: 20px;
+}
+
+.quitarBackgroundProductoAdquirido{
+    background-color: var(--main-bg-color);
+}
+
+
+/* btnProdResena2 */
+.btnProdResena3{
+    display: inline-block;
+    border-radius: 15px;
+    background-color:var(--heart);
+    border: 0px;
+    margin-top:5px;
+}
+
+.btnProdResena3:hover{
+    background-color:var(--heart-hover);
+}
+
+/* contendorCAS2 */
+.contendorCAS3{
+/* margin-left: auto;     */
+z-index: 1;
+    /* width: 310px; */
+    height: auto;
+    background-color: var(--card);
+    padding: 17px 17px;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 1px 5px 25px rgba(0,0,0,0.45);
+    border-radius: 5px;
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+.contExtra{
+    margin-left: auto;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 992px){
+    .pEtiquetas-div{
+        grid-template-columns: 50%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .pEtiquetas-div-right{
+        text-align: center;
+    }
+    .pEtiquetas-rating{
+        justify-content: center;
+    }
+
+}
+

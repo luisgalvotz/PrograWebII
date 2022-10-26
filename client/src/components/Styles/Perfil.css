@@ -1,0 +1,138 @@
+.img_perfil{
+    width:300px;
+    height:300px;
+    border-radius:150px;
+    margin: 10px 0px 30px 0px;
+}
+
+.img-izqperfil{
+    text-align: center;
+    align-items: center;
+}
+
+.btn-perfil{
+    border-radius: 5px;
+    display: block;
+    width: 95%;
+    margin: 20px 0px 20px 12px;
+    background-color: var(--text-hover-dark);
+    border-color: var(--text-hover-dark);
+}
+
+.btn-perfil:hover{
+    background-color: var(--navbar);
+    border-color: var(--navbar);
+}
+
+.btn-perfil:active{
+    background-color: var(--text-hover);
+    border-color: var(--text-hover);
+}
+
+.rating-perfil{
+    color: var(--text-base);
+    font-weight: bold;
+    font-size: large;
+}
+
+.sesion-perfil{
+    max-width: 100%;
+    padding:10px 50px 5px 50px;
+    margin: 70px 0px 50px 0px;
+    text-align: center;
+    align-items: center;
+} 
+
+.user-perfil{
+    color: var(--text-base);
+    font-weight: bold;
+    font-size: large;
+    text-align:left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.input-perfil{
+    border-radius: 5px;
+    padding: 10px 50px 5px 10px;
+    margin: 0px 0px 15px 0px;
+    align-items: center;
+}
+
+.btn-perfil-editar{
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    margin: 25px 0px 10px 0px;
+    background-color: var(--text-hover-dark);
+    border-color: var(--text-hover-dark);
+}
+
+.btn-perfil-editar:hover{
+    background-color: var(--navbar);
+    border-color: var(--navbar);
+}
+
+.btn-perfil-editar:active{
+    background-color: var(--text-hover);
+    border-color: var(--text-hover);
+}
+
+.estIndividualP{
+    color: orange;
+}
+
+.estIndividualOffP{
+    color: gray;
+}
+
+.estrellasOutP {
+    width: 300px;
+    margin: 0 auto;
+    height: 60px;
+  }
+  
+  .estrellasOutP p {
+    text-align: center;
+  }
+  
+  .estrellasOutP label {
+    font-size: 40px;
+  }
+    
+  .estrellasOutP[type="radio"] {
+    display: none;
+  }
+  .estrellasOutP[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+
+  .estrellasOutR {
+    width: auto;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  .estrellasOutR p {
+    text-align: left;
+  }
+  
+  .estrellasOutR label {
+    font-size: 30px;
+  }
+    
+  .estrellasOutR[type="radio"] {
+    display: none;
+  }
+  .estrellasOutR[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+  .whiteTe{
+    color:var(--text-base);
+  }
+
+  .colorInter{
+    background-color: var(--card-light);
+  }

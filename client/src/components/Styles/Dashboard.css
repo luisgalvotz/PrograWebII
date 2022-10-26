@@ -1,0 +1,54 @@
+.container-newmerch{
+    color: var(--text-base);
+    text-align: center;
+    align-items: center;
+}
+
+.container-double{
+    color: var(--text-base);
+}
+
+.titulo-merch{
+    font-size: 33px;
+    border-bottom: 2px solid var(--text-base);
+    margin: 20px 0px 20px 0px;
+}
+
+.dashcards{
+    background-color: var(--navbar-hover);
+    margin: 10px 20px 10px 20px;
+    
+}
+
+.dashcards:hover{
+    background-color: var(--navbar);
+    
+}
+
+.dashcardsInter{
+    background-color: var(--card-light);
+    margin: 10px 20px 10px 20px;
+    
+}
+
+.dashcardsInter:hover{
+    background-color: var(--navbar);    
+}
+
+
+.dash-btn{
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    margin: 20px 0px 20px 0px;
+    background-color: var(--text-hover-dark);
+    border-color: var(--text-hover-dark);
+    border-color: var(--text-hover-dark);
+
+}
+
+.dash-btn:hover{
+    background-color: var(--text-hover);
+    border-color: var(--text-hover);
+
+}

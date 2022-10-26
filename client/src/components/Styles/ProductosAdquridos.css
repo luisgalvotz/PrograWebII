@@ -1,0 +1,282 @@
+
+.productosAdquiridosContainer{
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: 0 auto;
+} 
+
+.tituloListaAdquiridos{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.main-wrapperThree{
+    /* min-height: 100vh;
+    max-width: 100%; */
+    /* quitar */
+    /* background-color:  var(--card-dark); */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin-bottom: 50px;
+
+}
+
+.moverLinkIzq2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text-hover);
+    margin-right: 6px;
+}
+
+.moverLinkIzq2:hover{
+    color: var(--text-hover-dark);
+}
+
+.claseExt{
+    margin-bottom: 20px;
+}
+
+.productAdquirid-div{
+    align-items: center;
+    justify-content: left;
+    /* padding: 2rem 0; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 3px;
+    column-gap: 10px;
+    color:var(--text-base);
+}
+
+.productAdquirid-div-left{
+    padding: 20px;
+}
+.productAdquirid-div-right{
+    padding: 20px;
+}
+
+.quitarBackgroundProductoAdquirido{
+    background-color: var(--main-bg-color);
+}
+
+.cartaExtr{
+    margin-bottom: 25px;
+}
+
+.cartaListaProductoAdquirido{
+    z-index: 1;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 20px;
+    background-color: var(--card);
+    padding: 20px 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 1px 5px 25px rgba(0,0,0,0.45);
+    border-radius: 5px;
+    text-align: left;
+}
+
+.cartaListaProductoIntercambioAdquirido{
+    background-color: var(--card-light);
+}
+
+.cartaListaProductoAdquirido img{
+    width: 320px;
+    padding: 0;
+    /* margin: 0 auto;
+    display:block; */
+    border-radius: 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+
+.imgVendedorDetalleAdquirido{
+    display:block;
+    height: 80px;  
+    width: 80px;
+    margin-bottom: 10px;
+    margin-right: 200px;
+}
+
+.imgResena{
+    display:block;
+    height: 80px;  
+    width: 80px;
+    margin-right: 200px;
+    
+    border-radius: 5px;
+    float: left;
+    margin-top:-1%;
+    left:5%;
+    margin-right: 15px;
+    border-radius:15px;
+}
+
+.estrellasResena {
+    color: orange;
+    width: 300px;
+    height: 50px;
+  }
+  
+  .estrellasResena p {
+    text-align: left;
+  }
+  
+  .estrellasResena label {
+    font-size: 20px;
+  }
+
+
+.columna1{
+    width: 500px;
+}
+
+.btnProdAdqVer{
+    display: inline-block;
+    border-radius: 15px;
+    background-color:var(--like);
+    border: 0px;
+    margin-top:10px;
+}
+
+.btnProdAdqVer:hover{
+    background-color:var(--like-hover);
+}
+
+
+.btnProdResena{
+    display: inline-block;
+    border-radius: 15px;
+    background-color:var(--heart);
+    border: 0px;
+    margin-top:10px;
+}
+
+.btnProdResena:hover{
+    background-color:var(--heart-hover);
+}
+
+.tituloListaProductoAdquirido{
+    color: var(--text-base);
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.notaListaProductoAdquirido{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.contendorCAS2{
+/* margin-left: auto;     */
+z-index: 1;
+    /* width: 310px; */
+    height: auto;
+    background-color: var(--card);
+    padding: 17px 17px;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 1px 5px 25px rgba(0,0,0,0.45);
+    border-radius: 5px;
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+.contExtra{
+    margin-left: auto;
+}
+
+/* .contendorCAS2 img{
+    border-radius: 5px;
+    float: left;
+    margin-top:-1%;
+    left:5%;
+    margin-right: 15px;
+    border-radius:15px;
+} */
+
+.btnConfirmarResena{
+    display: inline-block;
+    border-radius: 15px;
+    background-color:var(--buy);
+    border: 0px;
+    margin-top: 20px;
+}
+
+
+
+.imgRadioResena{
+    width: 30px;
+    margin-bottom: 3px;
+}
+
+
+
+
+
+
+
+.estrellasInput {
+    width: 250px;
+    /* margin: 0 auto; */
+    height: 50px;
+  }
+  
+  .estrellasInput p {
+    text-align: left;
+  }
+  
+  .estrellasInput label {
+    font-size: 40px;
+  }
+  
+  .estrellasInput[type="radio"] {
+    display: none;
+  }
+  
+
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+
+  .labelEstrella {
+    color: grey;
+  }
+
+  
+  .labelEstrella:hover,
+  .labelEstrella:hover ~ label {
+    color: orange;
+  }
+  
+  .estrellasInput[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+
+
+
+
+@media screen and (max-width: 992px){
+    .productAdquirid-div{
+        grid-template-columns: 100%;
+    }
+    .productAdquirid-div-right{
+        text-align: center;
+    }
+    .productAdquirid-rating{
+        justify-content: center;
+    }
+
+.cartaListaProductoAdquirido img{
+    width: 260px;
+    margin-bottom: 20px;
+}
+
+.columna1{
+    max-width: 33%;
+}
+}
+

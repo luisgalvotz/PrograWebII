@@ -1,0 +1,53 @@
+.publicar-inter{
+    background-color: var(--card-light);
+    margin: 10px 0px 10px 0px;
+    padding: 20px 20px 20px 20px;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+}
+    
+.publicar-venta{
+    background-color: var(--navbar-hover);
+    margin: 10px 0px 10px 0px;
+    padding: 20px 20px 20px 20px;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+}
+    
+.container-titulo-publicaciones{
+    margin: 50px 0px 30px 0px;
+}
+.texto-p{
+    color: var(--text-base);
+}
+
+.texto-ph2{
+    color: var(--text-base);
+    margin: 0px 0px 50px 0px;
+    text-align: center;
+}
+
+.container-publicar{
+    margin: 0px 20px 0px 20px;
+}
+
+.container-tipo{
+    margin: 20px 20px 50px 20px;
+}
+
+.sel-etiqueta{
+    margin: 10px 0px 10px 0px;
+}
+
+.btn-publicar{
+    background-color: var(--text-hover-dark);
+    border-color: var(--text-hover-dark);
+    margin: 0px 0px 20px 0px;
+}
+
+.btn-publicar:hover{
+    background-color: var(--text-hover);
+    border-color: var(--text-hover);
+}

@@ -1,0 +1,72 @@
+.formHorizontalRadios{
+    color: var(--text-base); 
+}
+
+.formRadios{
+    color: var(--text-base); 
+}
+
+.container-perfil{
+    margin: 50px 20px 40px 20px;
+}
+
+.reporte-filtrado{
+    align-items: center;
+    text-align: center;
+}
+
+
+.reporte-filtrado{
+    background-color: var(--card);
+    border-radius:10px;
+    margin: 20px 10px 20px 10px;
+    padding: 20px 10px 20px 10px;
+}
+
+.reporte-listo{
+    background-color: var( --card-light);
+    border-radius:10px;
+    margin: 0px 10px 0px 10px;
+}
+
+.reporte-nombre{
+    color: var(--text-base); 
+    text-align: center;
+    margin-top: 20px;
+}
+
+.reporte-name{
+    color: var(--text-base); 
+    text-align: center;
+    align-items: center;
+}
+
+.datos{
+    text-align: center;
+}
+
+.datos-reporte{
+    margin: 20px 0px 20px 0px;
+    border-bottom: 2px solid var(--text-base);
+    
+}
+
+.info-v{
+    border-bottom: 2px solid var(--text-base);
+}
+
+.btn-rep{
+    padding: 0px 0px 0px 0px;
+    background-color: var( --card-light);
+    border-color: var( --card-light);
+}
+
+.btn-rep:hover{
+    background-color: var(--text-hover-dark);
+    border-color: var(--text-hover-dark);
+}
+
+.formRadios-rep{
+    color: var(--text-base); 
+    text-align: center;
+}
