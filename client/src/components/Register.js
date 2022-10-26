@@ -6,10 +6,12 @@ import markUwu from '../img/markUwu.jpg'
 import taylor2 from '../img/taylor2.png'
 import taylor1 from '../img/taylor1.jpg'
 */
-import abriendocaja from '../img/abriendocaja.jpg'
+import abriendocajita from '../img/abriendocajita.jpg'
 import truefanlogo from '../img/truefanlogo.png'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 import './Styles/Login.css'
 
@@ -23,28 +25,49 @@ export default class Register extends Component {
     <div className= "container-login">
         <div className= "row" >
             <div className="img-izq col-sm-8">
-            <p className= "texto-sobreimagen">Registrate a TRUE FAN</p>
-                <img className= "img_login_large img-fluid" src={abriendocaja} alt="Personas abriendo una caja"/>
+                <img className= "img_login_large img-fluid" src={abriendocajita} alt="Personas abriendo una caja"/>
             </div>
             <div className="sesion-login col-sm-4">
                 <img className= "img_login" src={truefanlogo} alt="Logo TrueFan"/>
-                    <Form>
+                    <Form className="inicio">
                     <Form.Group className="mb-3" controlId="formBasicUser">
-                    <Form.Control className= "input-login" type="text" placeholder="USERNAME" />
+                    <FloatingLabel  label="Nombre completo" className="mb-3">
+                        <Form.Control type="text" placeholder="nombre" />
+                    </FloatingLabel>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicUser">
+                    <FloatingLabel  label="Teléfono" className="mb-3">
+                        <Form.Control type="number" placeholder="telefono" />
+                    </FloatingLabel>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicUser">
+                    <Form.Control className= "input-perfil" type="date" max="2004-12-31" min="1940-12-31"placeholder="CUMPLEAÑOS" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control className= "input-login" type="email" placeholder="EMAIL" />
+                    <FloatingLabel  label="Email" className="mb-3">
+                        <Form.Control type="Email" placeholder="email" />
+                    </FloatingLabel>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control className= "input-login" type="password" placeholder="PASSWORD" />
+                    <FloatingLabel  label="Contraseña" className="mb-3">
+                        <Form.Control type="password" placeholder="password" />
+                    </FloatingLabel>
                     </Form.Group>
+
+                    <Form.Group className="btn-perfil3 mb-3">
+                        <Form.Label className= "user-perfil">Subir foto de perfil</Form.Label>
+                        <Form.Control type="file"/>
+                    </Form.Group>
+                    <Link className="linkbotones" to="/Dashboard">
                     <Button className= "btn-login" type="submit">
                     REGISTER
                     </Button>
+                    </Link>
                     </Form>
-
             </div>
         </div>
     </div>

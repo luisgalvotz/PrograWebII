@@ -10,7 +10,7 @@ import logincaja from '../img/logincaja.jpg'
 import truefanlogo from '../img/truefanlogo.png'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import './Styles/Login.css'
 
 
@@ -28,17 +28,23 @@ export default class Login extends Component {
             </div>
             <div className="sesion-login col-sm-4">
                 <img className= "img_login" src={truefanlogo} alt="Logo TrueFan"/>
-                    <Form>
-                    <Form.Group className="mb-3" controlId="formBasicUser">
-                    <Form.Control className= "input-login" type="text" placeholder="USERNAME" />
+                    <Form className="inicio">
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <FloatingLabel  label="Email" className="mb-3">
+                        <Form.Control type="Email" placeholder="email" />
+                    </FloatingLabel>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control className= "input-login" type="password" placeholder="PASSWORD" />
+                    <FloatingLabel  label="Contraseña" className="mb-3">
+                        <Form.Control type="password" placeholder="password" />
+                    </FloatingLabel>
                     </Form.Group>
+                    <Link className="linkbotones" to="/Dashboard">
                     <Button className= "btn-login" type="submit">
                     LOGIN
                     </Button>
+                    </Link>
                     </Form>
 
                     <p className= "info-login">DON'T HAVE AN ACCOUNT YET?</p>

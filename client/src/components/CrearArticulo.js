@@ -53,16 +53,20 @@ export default class CrearArticulo extends Component {
                 <FloatingLabel  label="Ingresa tu etiqueta si no existe" className="mb-3">
                     <Form.Control type="text" placeholder="Título" />
                 </FloatingLabel>
+                <Link className="registro-login" to="/CrearArticulo">
                 <Button className= "btn-publicar" type="submit">
                     Ingresar Etiqueta
                 </Button>
+                </Link>
                 <Form.Group className="mb-3">
                     <p className="texto-p">Ingresa las fotos de tu artículo</p>
                     <Form.Control type="file" multiple/>
                 </Form.Group>
+                <Link className="registro-login" to="/CrearArticulo">
                 <Button className= "btn-publicar" type="submit">
                     Publicar
                 </Button>
+                </Link>
             </Form>
             </div>
             <div className="publicar-inter col-sm-6">
@@ -86,19 +90,23 @@ export default class CrearArticulo extends Component {
                 <FloatingLabel  label="Ingresa tu etiqueta si no existe" className="mb-3">
                     <Form.Control type="text" placeholder="Título" />
                 </FloatingLabel>
+                <Link className="registro-login" to="/CrearArticulo">
                 <Button className= "btn-publicar" type="submit">
                     Ingresar Etiqueta
                 </Button>
+                </Link>
                 <Form.Group className="mb-3">
                     <p className="texto-p">Ingresa las fotos de tu artículo</p>
                     <Form.Control type="file" multiple/>
                 </Form.Group>
                 <FloatingLabel  label="Ingrese el artículo que espera a cambio" className="mb-3">
                         <Form.Control type="text" placeholder="artículo" />
-                    </FloatingLabel>
-                <Button className= "btn-publicar" type="submit">
-                    Publicar
+                </FloatingLabel>
+                <Link className="registro-login" to="/CrearArticulo">
+                    <Button className= "btn-publicar" type="submit">
+                        Publicar
                     </Button>
+                </Link>
             </div>
         </div>
     </div>

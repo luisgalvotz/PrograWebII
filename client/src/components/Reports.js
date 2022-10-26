@@ -24,7 +24,7 @@ export default class Reports extends Component {
         <div className="reporte-filtrado row">
             <Form>
                 <fieldset>
-                    <Form.Group as={Row} className="mb-3">
+                    <Form.Group as={Row} className="eleccionrep mb-3">
                         <Form.Label as="legend" className="formRadios-rep">
                             ELIGE TU REPORTE
                         </Form.Label>
@@ -69,7 +69,9 @@ export default class Reports extends Component {
                         <Form.Control type="date" className="fechasreporte" placeholder="Enter email" />
                         </Col>
                         <Col sm={2}>
-                            <Button type="submit">Generar</Button>
+                            <Link className="registro-login" to="/Reports">
+                                <Button type="submit">Generar</Button>
+                            </Link>
                         </Col>
                     </Form.Group>
                 </fieldset>

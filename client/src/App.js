@@ -21,6 +21,7 @@ import ReportsPage from './pages/ReportsPage'
 import DashboardPage from './pages/DashboardPage'
 import SugerenciasPage from './pages/SugerenciasPage'
 import CrearArticuloPage from './pages/CrearArticuloPage'
+import PerfilResenasPage from './pages/PerfilResenasPage'
 
 function App() {
   return (
@@ -93,6 +94,9 @@ function App() {
             aun no revisa */}
             <Route exact path="/CrearArticulo" element={<CrearArticuloPage/>} />
             {/* Se crea el articulo con toda la información y fotos necesarias para su venta o intercambio */}
+            <Route exact path="/PerfilResenas" element={<PerfilResenasPage/>} />
+            {/* Aqui el administrador puede ver todas las sugerencias de los usuarios, puede ver los que ya reviso y los que
+            aun no revisa */}
           </Routes>
         </div>
         <Footer />

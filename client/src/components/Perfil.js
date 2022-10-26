@@ -37,13 +37,13 @@ export default class Perfil extends Component {
                     <input id="estrella5" type="radio" className="estrellasOutP" value="1"/>
                     <label className="estIndividualP" htmlFor="radio5">★</label>
                   </p>
-                  </form>
+            </form>
             <Form.Group className="btn-perfil mb-3">
                     <Form.Label className= "user-perfil">Editar foto de perfil</Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
             <Button className= "btn-perfil" type="submit">
-            Eliminar
+            Eliminar Cuenta
             </Button>
             </div>
             <div className="sesion-perfil col-sm-8">
@@ -93,16 +93,18 @@ export default class Perfil extends Component {
                     <Form.Control className= "input-perfil" type="date" max="2004-12-31" min="1940-12-31"placeholder="CUMPLEAÑOS" />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicUser">
-                    <Form.Control className= "input-perfil" type="text" placeholder="GENERO" />
-                    </Form.Group>
-
+                    <Form.Select className= "sel-op" aria-label="Default select example" >
+                        <option value="1">Mujer</option>
+                        <option value="2">Hombre</option>
+                        <option value="2">Otro</option>
+                    </Form.Select>
+                    <Link className="registro-login" to="/Perfil">
                     <Button className= "btn-perfil-editar " type="Submit">
                     Guardar
                     </Button>
+                    </Link>
                     </Form>
 
-                    
             </div>
         </div>
     </div>
