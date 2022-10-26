@@ -18,80 +18,88 @@ export default class CrearArticulo extends Component {
     return (
 
     <div className= "container-publicar">
+        <div className= "container-titulo-publicaciones">
+        <h2 className="texto-ph2">Publicaciones de tus artículos</h2>
+        </div>
+        <div className= "container-tipo">
+            <Form.Select className= "sel-etiqueta" aria-label="Default select example" >
+                <option value="1">Publicar artículo en forma de venta</option>
+                <option value="2">Publicar artículo en forma de intercambio</option>
+            </Form.Select>
+        </div>
         <div className= "row" >
-            <div className="publicar-fotos col-sm-6">
-            <p className="texto-p">Ingresa las fotos de tu artículo</p>
-                <Form.Group className="mb-3">
-                    <Form.Label>Selecciona la foto 1 de tu artículo</Form.Label>
-                    <Form.Control type="file"/>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Selecciona la foto 2 de tu artículo</Form.Label>
-                    <Form.Control type="file"/>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Selecciona la foto 3 de tu artículo</Form.Label>
-                    <Form.Control type="file"/>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Selecciona la foto 4 de tu artículo</Form.Label>
-                    <Form.Control type="file"/>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Selecciona la foto 5 de tu artículo</Form.Label>
-                    <Form.Control type="file"/>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Selecciona la foto 6 de tu artículo</Form.Label>
-                    <Form.Control type="file"/>
-                </Form.Group>
-            </div>
-            <div className="publicar-info col-sm-6">
-            <p className="texto-p">Artículo a publicar</p>
+            <div className="publicar-venta col-sm-6">
+            <h2 className="texto-ph2">Venta de tu artículo</h2>
             <Form>
                 <FloatingLabel  label="Ingrese el título de artículo" className="mb-3">
                     <Form.Control type="text" placeholder="Título" />
                 </FloatingLabel>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text>$</InputGroup.Text>
-                        <FloatingLabel  label="Ingrese el precio del artículo" className="mb-3">
-                            <Form.Control type="number" placeholder="Number" />
-                        </FloatingLabel>
-                    <InputGroup.Text>.00</InputGroup.Text>
-                </InputGroup>
+                <FloatingLabel  label="Ingrese el precio del artículo en pesos" className="mb-3">
+                    <Form.Control type="number" placeholder="Number" />
+                </FloatingLabel>
                 <FloatingLabel  label="Ingrese la descripción de artículo" className="mb-3">
                     <Form.Control as="textarea" placeholder="Descripción" />
                 </FloatingLabel>
                 <FloatingLabel  label="Ingrese notas del artículo" className="mb-3">
                     <Form.Control as="textarea" placeholder="Notas" />
                 </FloatingLabel>
-
-                <div className="intercambio-info">
-                    <p className="texto-p">Agregar artículo a sugerir para intercambio +</p>
-                    <FloatingLabel  label="Ingrese el título de artículo" className="mb-3">
-                        <Form.Control type="text" placeholder="Título" />
-                    </FloatingLabel>
-                    <FloatingLabel  label="Ingrese la descripción de artículo" className="mb-3">
-                        <Form.Control as="textarea" placeholder="Descripción" />
-                    </FloatingLabel>
-                    <InputGroup className="mb-3">
-                    <InputGroup.Text>$</InputGroup.Text>
-                        <FloatingLabel  label="Ingrese el precio del artículo" className="mb-3">
-                            <Form.Control type="number" placeholder="Number" />
-                        </FloatingLabel>
-                        <InputGroup.Text>.00</InputGroup.Text>
-                    </InputGroup>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Ingresa la foto del artículo querido</Form.Label>
-                        <Form.Control type="file"/>
-                    </Form.Group>
-                    <Button className= "btn-publicar" type="submit">
+                <p className="texto-p">Selecciona la etiqueta del artículo</p>
+                <Form.Select className= "sel-etiqueta" aria-label="Default select example" >
+                <option value="1">#TaylorSwift</option>
+                <option value="2">#HarryStyles</option>
+                <option value="3">#OliviaRodrigo</option>
+                <option value="4">#5SecondsOfSummer</option>
+                </Form.Select>
+                <FloatingLabel  label="Ingresa tu etiqueta si no existe" className="mb-3">
+                    <Form.Control type="text" placeholder="Título" />
+                </FloatingLabel>
+                <Button className= "btn-publicar" type="submit">
+                    Ingresar Etiqueta
+                </Button>
+                <Form.Group className="mb-3">
+                    <p className="texto-p">Ingresa las fotos de tu artículo</p>
+                    <Form.Control type="file" multiple/>
+                </Form.Group>
+                <Button className= "btn-publicar" type="submit">
                     Publicar
-                    </Button>
-                </div>
+                </Button>
             </Form>
             </div>
-            
+            <div className="publicar-inter col-sm-6">
+            <h2 className="texto-ph2">Intercambio de tu artículo</h2>
+                <FloatingLabel  label="Ingrese el título de artículo" className="mb-3">
+                    <Form.Control type="text" placeholder="Título" />
+                </FloatingLabel>
+                <FloatingLabel  label="Ingrese la descripción de artículo" className="mb-3">
+                    <Form.Control as="textarea" placeholder="Descripción" />
+                </FloatingLabel>
+                <FloatingLabel  label="Ingrese notas del artículo" className="mb-3">
+                    <Form.Control as="textarea" placeholder="Notas" />
+                </FloatingLabel>
+                    <p className="texto-p">Selecciona la etiqueta del artículo</p>
+                <Form.Select className= "sel-etiqueta" aria-label="Default select example" >
+                    <option value="1">#TaylorSwift</option>
+                    <option value="2">#HarryStyles</option>
+                    <option value="3">#OliviaRodrigo</option>
+                    <option value="4">#5SecondsOfSummer</option>
+                </Form.Select>
+                <FloatingLabel  label="Ingresa tu etiqueta si no existe" className="mb-3">
+                    <Form.Control type="text" placeholder="Título" />
+                </FloatingLabel>
+                <Button className= "btn-publicar" type="submit">
+                    Ingresar Etiqueta
+                </Button>
+                <Form.Group className="mb-3">
+                    <p className="texto-p">Ingresa las fotos de tu artículo</p>
+                    <Form.Control type="file" multiple/>
+                </Form.Group>
+                <FloatingLabel  label="Ingrese el artículo que espera a cambio" className="mb-3">
+                        <Form.Control type="text" placeholder="artículo" />
+                    </FloatingLabel>
+                <Button className= "btn-publicar" type="submit">
+                    Publicar
+                    </Button>
+            </div>
         </div>
     </div>
         )

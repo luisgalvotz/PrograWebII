@@ -9,7 +9,7 @@ import taylor1 from '../img/taylor1.jpg'
 import mujerPosando from '../img/mujerPosando.jpg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import heart from "../img/heart.png";
 import './Styles/Perfil.css'
 
 
@@ -24,7 +24,20 @@ export default class Perfil extends Component {
             <div className="img-izqperfil col-sm-4">
             <img className= "img_perfil img-fluid" src={mujerPosando} alt="Usuario"/>
             <p className= "rating-perfil">RATING</p>
-            <p className= "rating-perfil">*****</p>
+            <form className="estrellasOutP">
+            <p className="clasificacion">
+                    <input id="estrella1" type="radio" className="estrellasOutP" value="5"/>
+                    <label className="estIndividualP" htmlFor="radio1">★</label>
+                    <input id="estrella2" type="radio" className="estrellasOutP" value="4"/>
+                    <label className="estIndividualP" htmlFor="radio2">★</label>
+                    <input id="estrella3" type="radio" className="estrellasOutP" value="3"/>
+                    <label className="estIndividualP" htmlFor="radio3">★</label>
+                    <input id="estrella4" type="radio" className="estrellasOutP" value="2"/>
+                    <label className="estIndividualP" htmlFor="radio4">★</label>
+                    <input id="estrella5" type="radio" className="estrellasOutP" value="1"/>
+                    <label className="estIndividualP" htmlFor="radio5">★</label>
+                  </p>
+                  </form>
             <Form.Group className="btn-perfil mb-3">
                     <Form.Label className= "user-perfil">Editar foto de perfil</Form.Label>
                     <Form.Control type="file"/>

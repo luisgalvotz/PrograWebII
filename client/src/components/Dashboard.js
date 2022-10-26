@@ -11,7 +11,7 @@ import logincaja from '../img/logincaja.jpg'
 import truefanlogo from '../img/truefanlogo.png'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import heart from "../img/heart.png";
 import './Styles/Dashboard.css'
 
   

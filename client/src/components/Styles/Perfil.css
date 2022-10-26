@@ -2,7 +2,7 @@
     width:300px;
     height:300px;
     border-radius:150px;
-    margin: 50px 0px 30px 0px;
+    margin: 10px 0px 30px 0px;
 }
 
 .img-izqperfil{
@@ -38,7 +38,7 @@
 .sesion-perfil{
     max-width: 100%;
     padding:10px 50px 5px 50px;
-    margin: 50px 0px 50px 0px;
+    margin: 20px 0px 50px 0px;
     text-align: center;
     align-items: center;
 } 
@@ -77,3 +77,32 @@
     background-color: var(--text-hover);
     border-color: var(--text-hover);
 }
+
+.estIndividualP{
+    color: orange;
+}
+
+.estIndividualOffP{
+    color: gray;
+}
+
+.estrellasOutP {
+    width: 300px;
+    margin: 0 auto;
+    height: 60px;
+  }
+  
+  .estrellasOutP p {
+    text-align: center;
+  }
+  
+  .estrellasOutP label {
+    font-size: 40px;
+  }
+    
+  .estrellasOutP[type="radio"] {
+    display: none;
+  }
+  .estrellasOutP[type="radio"]:checked ~ label {
+    color: orange;
+  }

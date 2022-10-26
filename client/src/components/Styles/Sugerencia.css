@@ -45,14 +45,14 @@
     display: block;
     width: 95%;
     margin: 20px 12px 0px 12px;
-    background-color: var(--navbar-hover);
-    border-color: var(--navbar-hover);
+    background-color: var(--text-hover-dark);
+    border-color: var(--text-hover-dark);
 
 }
 
 .btn-Revisado:hover{
-    background-color: var(--footer);
-    border-color: var(--footer);
+    background-color: var(--text-hover);
+    border-color: var(--text-hover);
 }
 
 .img_com{
