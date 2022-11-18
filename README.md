@@ -23,6 +23,5 @@ Carpeta server:
 Carpeta client:
 *El contenido principal está dentro de la carpeta "src", la cual contiene el archivo "App.js" que maneja todas las rutas en el frontend de la aplicación y además contiene las siguientes carpetas:
 
-- components: Dentro de esta carpeta se encuentran los archivos en javascript que tienen el esqueleto y el diseño de todos los componentes que conforman a las páginas de la aplicación, dentro de esta carpeta también se encuentra la carpeta "Styles", la cual contiene todos los estilos usados por los mismos componentes.
+- pages: Dentro de esta carpeta se encuentran los archivos en javascript que tienen el esqueleto y el diseño de todos los componentes que conforman a las páginas de la aplicación, dentro de esta carpeta también se encuentra la carpeta "Styles", la cual contiene todos los estilos usados por los mismos componentes.
 - img: Dentro de esta carpeta se encuentran los archivos multimedia que se usan para el diseño de algunas páginas.
-- pages: Dentro de esta carpeta se encuentran los archivos javascript que describe los componentes que se incluyen cada una de las páginas.

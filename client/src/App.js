@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+import Navigation from "./pages/Navigation";
+import Footer from "./pages/Footer";
 import DetalleProductoVentaPage from "./pages/DetalleProductoVentaPage";
 import DetalleProductoIntercambioPage from "./pages/DetalleProductoIntercambioPage.js";
 import ListaProductosVentaPage from "./pages/ListaProductosVentaPage";
 import ListaProductosIntercambioPage from "./pages/ListaProductosIntercambioPage";
 import ListaProductosBusquedaPage from "./pages/ListaProductosBusquedaPage";
-import ProductosAdquiridosPage from "./pages/ProductosAdquiridosPage";
+// import ProductosAdquiridosPage from "./pages/ProductosAdquiridosPage";
 import ProductosDeseadosPage from "./pages/ProductosDeseadosPage";
 import AdministrarIntercambiosPage from "./pages/AdministrarIntercambiosPage.js";
 import DetalleProductoSugeridoPage from "./pages/DetalleProductoSugeridoPage";
@@ -59,7 +59,7 @@ function App() {
             Se crea una wishlist del usuario en caso de que este sea su primer producto agregado a su lista
             Se puede añadir un producto a la wishlist del usuario
             */}
-            <Route exact path="/ProductosAdquiridos" element={<ProductosAdquiridosPage />}/>
+
 
             <Route exact path="/ProductosDeseados" element={<ProductosDeseadosPage />}/>
             {/* Se puede ver la lista completa de los productos disponibles agregados a la wishlist del usuario 
