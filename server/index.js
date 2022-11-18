@@ -1,6 +1,7 @@
 //CONEXION A LO QUE SE NECESITA
 const express = require('express');
 const bodyParser = require('body-parser')
+const cors = require('cors');
 const app = express();
 const port = 3001;
 require('./src/models/connection');
@@ -17,6 +18,7 @@ const likes_router = require('./src/routes/likesRouter');
 const comentarios_router = require('./src/routes/comentariosRouter');
 const etiquetas_router = require('./src/routes/etiquetasRouter');
 
+app.use(cors());
 app.use(bodyParser.json());
 
 //ruta principal

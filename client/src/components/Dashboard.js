@@ -12,9 +12,7 @@ import truefanlogo from '../img/truefanlogo.png'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import heart from "../img/heart.png";
-import './Styles/Dashboard.css'
-
-  
+import './Styles/Dashboard.css';
 
 export default class Dashboard extends Component {
 
@@ -129,6 +127,26 @@ export default class Dashboard extends Component {
         <div className= "container-newmerch">
         <p className= "titulo-merch">TODOS LOS ARTICULOS</p>
         <div className= "row" >
+            {/*articulos.map((articulo) => {
+                return (
+                <div className="dashcardsrow col-sm-3">
+                <Card className="dashcards">
+                <Link className="linkNavBar" to="/DetalleProductoVenta">
+                    <Card.Img variant="top" src={taylor1} />
+                    </Link>
+                    <Card.Body >
+                        <Card.Title>{articulo.titulo}</Card.Title>
+                            <Card.Text>
+                                #TaylorSwift
+                            </Card.Text>
+                            <Card.Text>
+                                Producto en venta
+                            </Card.Text>
+                    </Card.Body>
+                </Card>
+                </div>
+                )
+            })*/}
                 <div className="dashcardsrow col-sm-3">
                     <Card className="dashcards">
                     <Link className="linkNavBar" to="/DetalleProductoVenta">
