@@ -10,3 +10,13 @@ export const articulo_getAll = async () => {
         return [];
     }
 };
+
+export const articuloVenta_getById = async (id) => {
+    try {
+        const response = await axios.get(`/articuloVenta/articuloVentaId/${id}`);
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        return [];
+    }
+};

@@ -9,7 +9,20 @@ import Card from 'react-bootstrap/Card';
 import heart from "../img/heart.png";
 import './Styles/Dashboard.css';
 
+import { useEffect, useState } from "react";
+import {articulo_getAll} from '../services/ArticuloService';
+
 const DashboardPage =()=>{
+
+    const [articulos, setArticulos] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const res = await articulo_getAll();
+            setArticulos(res.data); //TENEMOS QUE AGREGAR EL DATA PARA QUE SEPA DE DONDE SACAR LA INFO
+        }
+    fetchData();
+    }, [])
+
     return(
         
     <div className= "container-dash">
@@ -119,11 +132,11 @@ const DashboardPage =()=>{
     <div className= "container-newmerch">
     <p className= "titulo-merch">TODOS LOS ARTICULOS</p>
     <div className= "row" >
-        {/*articulos.map((articulo) => {
+        {articulos.map((articulo) => {
             return (
             <div className="dashcardsrow col-sm-3">
             <Card className="dashcards">
-            <Link className="linkNavBar" to="/DetalleProductoVenta">
+            <Link className="linkNavBar" to={`/DetalleProductoVenta/${articulo._id}`}>
                 <Card.Img variant="top" src={taylor1} />
                 </Link>
                 <Card.Body >
@@ -138,68 +151,7 @@ const DashboardPage =()=>{
             </Card>
             </div>
             )
-        })*/}
-            <div className="dashcardsrow col-sm-3">
-                <Card className="dashcards">
-                <Link className="linkNavBar" to="/DetalleProductoVenta">
-                    <Card.Img variant="top" src={taylor1} />
-                    </Link>
-                    <Card.Body >
-                        <Card.Title>Playera</Card.Title>
-                            <Card.Text>
-                                #TaylorSwift
-                            </Card.Text>
-                            <Card.Text>
-                                Producto en venta
-                            </Card.Text>
-                    </Card.Body>
-                </Card>
-            </div>
-            <div className="dashcardsrow col-sm-3">
-                <Card className="dashcards">
-                <Link className="linkNavBar" to="/DetalleProductoVenta">
-                    <Card.Img variant="top" src={taylor1} />
-                    </Link>                        <Card.Body >
-                        <Card.Title>Playera</Card.Title>
-                            <Card.Text>
-                                #TaylorSwift
-                            </Card.Text>
-                            <Card.Text>
-                                Producto en venta
-                            </Card.Text>
-                    </Card.Body>
-                </Card>
-            </div>
-            <div className="dashcardsrow col-sm-3">
-                <Card className="dashcardsInter">
-                <Link className="linkNavBar" to="/DetalleProductoIntercambio">
-                    <Card.Img variant="top" src={taylor1} />
-                    </Link>                           <Card.Body >
-                        <Card.Title>Playera</Card.Title>
-                            <Card.Text>
-                                #TaylorSwift
-                            </Card.Text>
-                            <Card.Text>
-                            Producto para intercambio
-                            </Card.Text>
-                    </Card.Body>
-                </Card>
-            </div>
-            <div className="dashcardsrow col-sm-3">
-                <Card className="dashcardsInter">
-                <Link className="linkNavBar" to="/DetalleProductoIntercambio">
-                    <Card.Img variant="top" src={taylor1} />
-                    </Link>                           <Card.Body >
-                        <Card.Title>Playera</Card.Title>
-                            <Card.Text>
-                                #TaylorSwift
-                            </Card.Text>
-                            <Card.Text>
-                                Producto para intercambio
-                            </Card.Text>
-                    </Card.Body>
-                </Card>
-            </div>
+        })}
         </div>
     </div>
     <div className= "container-newmerch">
@@ -228,39 +180,3 @@ const DashboardPage =()=>{
 }
 
 export default DashboardPage
-
-
-
-/* import React, { useEffect, useState } from "react";
-import {articulo_getAll} from '../services/ArticuloService';
-
-export default function DashboardPage(props) {
-
-    const [articulos, setArticulos] = useState([]);
-    useEffect(() => {
-        async function fetchData() {
-            const res = await articulo_getAll();
-            setArticulos(res.data); //TENEMOS QUE AGREGAR EL DATA PARA QUE SEPA DE DONDE SACAR LA INFO
-        }
-    fetchData();
-    }, [])
-  
-    return (
-        <>
-        <h1>Articulos</h1>
-        <table>
-          <th>
-            <td>Titulo</td>
-          </th>
-          {articulos.map((articulo) => {
-            return (
-              <tr>
-                <td>{articulo.titulo}</td>
-              </tr>
-            )
-          })}
-        </table>
-        </>
-      )
-  
-} */

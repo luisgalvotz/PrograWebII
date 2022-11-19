@@ -186,10 +186,10 @@ exports.articuloVenta_getById = async (req, res) => {
         }
     } = req; //AQUI SACA EL PARAMETRO DEL REQUEST
     //id del articulo que hizo click que es el id del articuloVenta
-
+    
     try {
         const data = await ArticuloVenta.findOne({
-                _id: id,
+                id_articulo: id,
                 estatus: "activo",
             })
             .populate({

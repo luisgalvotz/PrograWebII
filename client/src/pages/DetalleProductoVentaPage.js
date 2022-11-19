@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import markUwu from "../img/markUwu.jpg";
 import taylor2 from "../img/taylor2.png";
 import taylor1 from "../img/taylor1.jpg";
@@ -9,7 +9,21 @@ import like from "../img/like.png";
 import "./Styles/DetalleProducto.css";
 // import { validas } from'./Scripts/Script'
 
+import { useEffect, useState } from "react";
+import {articuloVenta_getById} from '../services/ArticuloService';
+
 const DetalleProductoVentaPage =()=>{
+
+  let {id} = useParams(); //AQUI SE RECIBE EL PARAMETRO DE LA URL
+  const [articulo, setArticulo] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const res = await articuloVenta_getById(id);
+            setArticulo(res); //AQUI NO USAMOS EL .DATA PORQUE EN EL RESPONSE NO LO USAMOS
+        }
+    fetchData();
+    }, [])
+
     return(
         <div className="main-wrapper">
         <div className="container">
@@ -60,21 +74,14 @@ const DetalleProductoVentaPage =()=>{
               </div>
             </div>
             <div className="product-div-right">
-              <span className="product-name">Sudadera de Taylor Swift</span>
-              <span className="product-price">$ 50.25</span>
+              <span className="product-name">{articulo.id_articulo.titulo}</span>
+              <span className="product-price">${articulo.precio}</span>
               <div className="product-rating">
                 <Link className="linkNavBar" to="/"><span>#Etiqueta1</span></Link>
-                <Link className="linkNavBar" to="/">
-                  <span>#Etiqueta2</span>
-                </Link>
+                <Link className="linkNavBar" to="/"><span>#Etiqueta2</span></Link>
               </div>
-              <p className="product-description descripcionExtra">
-                DESCRIBIENDO QUE Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Vitae animi ad minima veritatis dolore.
-                Architecto facere dignissimos voluptate fugit ratione molestias
-                quis quidem exercitationem voluptas.
-              </p>
-              <p className="product-description ">Nota: tiene una mancha</p>
+              <p className="product-description descripcionExtra">{articulo.id_articulo.descripcion}</p>
+              <p className="product-description ">Nota: {articulo.id_articulo.notas}</p>
               <div className="btn-groups">
               <Link className="linkNavBar" to="/EscribirResena">
                 <button type="button" className="add-cart-btn">Comprar ahora</button>
