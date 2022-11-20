@@ -81,7 +81,7 @@ function App() {
             {/* El usuario puede ingresar a la pagina con su cuenta */}
             <Route exact path="/Register" element={<RegisterPage/>} />
             {/* El usuario puede registrarse con un nombre de usuario, su correo y su contraseña */}
-            <Route exact path="/Perfil" element={<PerfilPage/>} />
+            <Route exact path="/Perfil/:id" element={<PerfilPage/>} />
             {/* Se ve la información personal del usuario, su foto de perfil, se pueden editar todos sus datos
             y aparece su calificación en estrellas como vendedor */}
             <Route exact path="/Reports" element={<ReportsPage/>} />

@@ -1,18 +1,33 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import { Link, useParams } from "react-router-dom";
 import mujerPosando from '../img/mujerPosando.jpg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import heart from "../img/heart.png";
 import './Styles/Perfil.css'
 
+import { useEffect, useState } from "react";
+import {usuario_getById,usuario_actualizar,usuario_baja} from '../services/UsuarioService';
+
 const PerfilPage =()=>{
+
+  let {id} = useParams();
+  const [usuario, setUsuario] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const res = await usuario_getById(id);
+            setUsuario(res); 
+        }
+    fetchData();
+    }, [])
+
+
     return(
         <div className= "container-perfil">
         <div className= "row" >
             <div className="img-izqperfil col-sm-4">
             <img className= "img_perfil img-fluid" src={mujerPosando} alt="Usuario"/>
-            <p className= "rating-perfil">Nombre Del Usuario</p>
+            <p className= "rating-perfil">{usuario.nombre}</p>
             <form className="estrellasOutP">
             <p className="clasificacion">
                     <input id="estrella1" type="radio" className="estrellasOutP" value="5"/>

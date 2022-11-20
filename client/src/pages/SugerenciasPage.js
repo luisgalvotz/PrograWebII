@@ -7,7 +7,21 @@ import Button from 'react-bootstrap/Button';
 import mujerPosando from '../img/mujerPosando.jpg'
 import './Styles/Sugerencia.css'
 
+import { useEffect, useState } from "react";
+import {comentarios_ver,comentarios_revisar} from '../services/ComentariosService';
+
 const SugerenciasPage =()=>{
+
+    const [sugerencias, setSugerencias] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const res = await comentarios_ver();
+            setSugerencias(res.data); 
+        }
+    fetchData();
+    }, [])
+
+
     return(
         <div className= "container-sug">
         <h2 className= "texto-sug-t">Sugerencias de los usuarios hacia TrueFan</h2>

@@ -262,7 +262,7 @@ exports.articuloIntercambio_getById = async (req, res) => {
 
     try {
         const data = await ArticuloIntercambio.findOne({
-                _id: id,
+                id_articulo: id,
                 estatus: "activo",
             })
             .populate({

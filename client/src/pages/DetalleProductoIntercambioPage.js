@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import markUwu from "../img/markUwu.jpg";
 import taylor2 from "../img/taylor2.png";
 import taylor1 from "../img/taylor1.jpg";
@@ -12,8 +12,23 @@ import Button from "react-bootstrap/Button";
 import "./Styles/DetalleProducto.css";
 // import { validas } from'./Scripts/Script'
 
+import { useEffect, useState } from "react";
+import {articuloIntercambio_getById} from '../services/ArticuloService';
 
 const DetalleProductoIntercambioPage =()=>{
+
+  let {id} = useParams();
+  const [articulo, setArticulo] = useState([]);
+  const [subnivel, setSub] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const res = await articuloIntercambio_getById(id);
+            setArticulo(res); 
+            setSub(res.id_articulo);
+        }
+    fetchData();
+    }, [])
+
     return(
         <div className="main-wrapper">
         <div className="container">

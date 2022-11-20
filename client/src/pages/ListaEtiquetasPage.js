@@ -3,7 +3,20 @@ import "./Styles/Etiquetas.css";
 // import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
+import { useEffect, useState } from "react";
+import {etiquetas_ver} from '../services/EtiquetasService';
+
 const ListaEtiquetasPage =()=>{
+
+  const [etiquetas, setEtiquetas] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const res = await etiquetas_ver();
+            setEtiquetas(res.data); //TENEMOS QUE AGREGAR EL DATA PARA QUE SEPA DE DONDE SACAR LA INFO
+        }
+    fetchData();
+    }, [])
+
     return(
         <div className="main-wrapperFour">
         <div className="pEtiquetasContainer">

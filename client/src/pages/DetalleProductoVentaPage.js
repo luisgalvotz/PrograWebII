@@ -16,10 +16,12 @@ const DetalleProductoVentaPage =()=>{
 
   let {id} = useParams(); //AQUI SE RECIBE EL PARAMETRO DE LA URL
   const [articulo, setArticulo] = useState([]);
+  const [subnivel, setSub] = useState([]);
     useEffect(() => {
         async function fetchData() {
             const res = await articuloVenta_getById(id);
             setArticulo(res); //AQUI NO USAMOS EL .DATA PORQUE EN EL RESPONSE NO LO USAMOS
+            setSub(res.id_articulo);
         }
     fetchData();
     }, [])
@@ -74,14 +76,14 @@ const DetalleProductoVentaPage =()=>{
               </div>
             </div>
             <div className="product-div-right">
-              <span className="product-name">{articulo.id_articulo.titulo}</span>
+              <span className="product-name">{subnivel.titulo}</span>
               <span className="product-price">${articulo.precio}</span>
               <div className="product-rating">
                 <Link className="linkNavBar" to="/"><span>#Etiqueta1</span></Link>
                 <Link className="linkNavBar" to="/"><span>#Etiqueta2</span></Link>
               </div>
-              <p className="product-description descripcionExtra">{articulo.id_articulo.descripcion}</p>
-              <p className="product-description ">Nota: {articulo.id_articulo.notas}</p>
+              <p className="product-description descripcionExtra">{subnivel.descripcion}</p>
+              <p className="product-description ">Nota: {subnivel.notas}</p>
               <div className="btn-groups">
               <Link className="linkNavBar" to="/EscribirResena">
                 <button type="button" className="add-cart-btn">Comprar ahora</button>

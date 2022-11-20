@@ -5,8 +5,21 @@ import './Styles/ProductosAdquridos.css'
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 
+import { useEffect, useState } from "react";
+import {wishlist_ver} from '../services/WishlistService';
+
 
 const ProductosDeseadosPage =()=>{
+
+  const [deseos, setDeseos] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const res = await wishlist_ver();
+            setDeseos(res.data); //TENEMOS QUE AGREGAR EL DATA PARA QUE SEPA DE DONDE SACAR LA INFO
+        }
+    fetchData();
+    }, [])
+
     return(
         <div className= "main-wrapperThree">
         <div className= "productosAdquiridosContainer">
