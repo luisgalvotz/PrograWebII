@@ -49,7 +49,7 @@ function App() {
             Se crea una wishlist del usuario en caso de que este sea su primer producto agregado a su lista
             Se puede añadir un producto a la wishlist del usuario
             */}
-            <Route exact path="/DetalleProductoIntercambio" element={<DetalleProductoIntercambioPage />}/>
+            <Route exact path="/DetalleProductoIntercambio/:id" element={<DetalleProductoIntercambioPage />}/>
             {/* Se muestra la información de un Producto para intercambio en especifico 
             Se puede agregar una oferta para intercambiar el artículo
             Se actualiza el estado de un like

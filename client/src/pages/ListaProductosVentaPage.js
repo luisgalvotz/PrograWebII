@@ -3,7 +3,20 @@ import taylor1 from '../img/taylor1.jpg'
 import './Styles/ListaProductosVenta.css'
 import {Link} from 'react-router-dom'
 
+import { useEffect, useState } from "react";
+import {articuloVenta_getAll} from '../services/ArticuloService';
+
 const ListaProductosVentaPage =()=>{
+
+    const [articulos, setArticulos] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const res = await articuloVenta_getAll();
+            setArticulos(res.data); 
+        }
+    fetchData();
+    }, [])
+
     return(
         <div className= "main-wrapperTwo">
          <div className= "listaVentaContainer">

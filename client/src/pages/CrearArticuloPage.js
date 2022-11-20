@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+
 import {Link} from 'react-router-dom'
 
 import logincaja from '../img/logincaja.jpg'
@@ -8,10 +8,40 @@ import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+import React, { useState } from "react";
+import {articulo_crear} from '../services/ArticuloService';
+
 import './Styles/CrearArticulo.css'
 
 
 const CrearArticuloPage =()=>{
+/*
+    const articuloInit = {
+        titulo: "",
+        descripcion: "",
+        notas: "",
+        imagenes: [],
+        etiquetas: []
+      };
+
+    const [articulo, setArticulo] = useState(articuloInit);
+    const guardar = async (event) => {
+    event.preventDefault();
+
+    const res = await articulo_crear(articulo);
+    console.log(res);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setArticulo({
+      ...articulo,
+      [name]: value,
+    });
+  };
+
+*/
     return(
         
     <div className= "container-publicar">
@@ -27,28 +57,28 @@ const CrearArticuloPage =()=>{
     <div className= "row" >
         <div className="publicar-venta col-sm-6">
         <h2 className="texto-ph2">Venta de tu artículo</h2>
-        <Form>
+        <Form >
             <FloatingLabel  label="Ingrese el título de artículo" className="mb-3">
-                <Form.Control type="text" placeholder="Título" />
+                <Form.Control type="text" placeholder="Título"  />
             </FloatingLabel>
             <FloatingLabel  label="Ingrese el precio del artículo en pesos" className="mb-3">
-                <Form.Control type="number" placeholder="Number" />
+                <Form.Control type="number" placeholder="Number"  />
             </FloatingLabel>
             <FloatingLabel  label="Ingrese la descripción de artículo" className="mb-3">
-                <Form.Control as="textarea" placeholder="Descripción" />
+                <Form.Control as="textarea" placeholder="Descripción"  />
             </FloatingLabel>
             <FloatingLabel  label="Ingrese notas del artículo" className="mb-3">
-                <Form.Control as="textarea" placeholder="Notas" />
+                <Form.Control as="textarea" placeholder="Notas"  />
             </FloatingLabel>
             <p className="texto-p">Selecciona la etiqueta del artículo</p>
-            <Form.Select className= "sel-etiqueta" aria-label="Default select example" >
+            <Form.Select className= "sel-etiqueta" aria-label="Default select example"  >
             <option value="1">#TaylorSwift</option>
             <option value="2">#HarryStyles</option>
             <option value="3">#OliviaRodrigo</option>
             <option value="4">#5SecondsOfSummer</option>
             </Form.Select>
             <FloatingLabel  label="Ingresa tu etiqueta si no existe" className="mb-3">
-                <Form.Control type="text" placeholder="Título" />
+                <Form.Control type="text" placeholder="Título"  />
             </FloatingLabel>
             <Link className="registro-login" to="/CrearArticulo">
             <Button className= "btn-publicar" type="submit">
@@ -57,7 +87,7 @@ const CrearArticuloPage =()=>{
             </Link>
             <Form.Group className="mb-3">
                 <p className="texto-p">Ingresa las fotos de tu artículo</p>
-                <Form.Control type="file" multiple/>
+                <Form.Control type="file" multiple  />
             </Form.Group>
             <Link className="registro-login" to="/CrearArticulo">
             <Button className= "btn-publicar" type="submit">
