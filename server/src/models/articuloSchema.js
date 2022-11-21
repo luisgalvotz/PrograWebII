@@ -33,6 +33,9 @@ const ArticuloSchema = mongoose.Schema({
     id_usuario: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "usuarios"
+    },
+    tipo: {
+        type: String
     }
 });
 

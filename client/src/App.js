@@ -65,7 +65,7 @@ function App() {
             {/* Se puede ver la lista completa de los productos disponibles agregados a la wishlist del usuario 
             Se pueden eliminar de la lista los productos que sigan disponibles en su wishlist
             */}
-            <Route exact path="AdministrarIntercambios" element={<AdministrarIntercambiosPage />}/>
+            <Route exact path="/AdministrarIntercambios" element={<AdministrarIntercambiosPage />}/>
             {/* Se ve una lista de todas las ofertas que haya recibido el usuario especifico */}
             <Route exact path="/DetalleProductoSugerido" element={<DetalleProductoSugeridoPage />}/>
             {/* Se puede ver la información del producto ofrecido para intercambiar en especifico

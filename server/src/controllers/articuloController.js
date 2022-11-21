@@ -34,7 +34,8 @@ exports.articulo_getAll = async (req, res) => {
         estatus: "activo"
     }, {
         "titulo": 1,
-        "imagenes": 1
+        "imagenes": 1,
+        "tipo": 1
     });
     if (data) {
         res.send({

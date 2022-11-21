@@ -15,33 +15,30 @@ import './Styles/CrearArticulo.css'
 
 
 const CrearArticuloPage =()=>{
-/*
-    const articuloInit = {
-        titulo: "",
-        descripcion: "",
-        notas: "",
-        imagenes: [],
-        etiquetas: []
-      };
 
-    const [articulo, setArticulo] = useState(articuloInit);
-    const guardar = async (event) => {
-    event.preventDefault();
-
-    const res = await articulo_crear(articulo);
-    console.log(res);
-  };
+const [datos,setDatos] = useState ( {
+    titulo: '',
+    precio: '',
+    descripcion: '',
+    notas: '',
+    imagenes: [],
+    etiquetas: []
+  })
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setArticulo({
-      ...articulo,
-      [name]: value,
-    });
+    setDatos({
+        ...datos,
+        [event.target.name] : event.target.value
+      })
   };
 
-*/
+  const enviarDatos = async (event) =>{
+    event.preventDefault();
+    const res = await articulo_crear(datos);
+    console.log (res);
+  }
+
+
     return(
         
     <div className= "container-publicar">
@@ -57,21 +54,22 @@ const CrearArticuloPage =()=>{
     <div className= "row" >
         <div className="publicar-venta col-sm-6">
         <h2 className="texto-ph2">Venta de tu artículo</h2>
+        <form onSubmit={enviarDatos}>
         <Form >
             <FloatingLabel  label="Ingrese el título de artículo" className="mb-3">
-                <Form.Control type="text" placeholder="Título"  />
+                <Form.Control type="text" placeholder="Título" name="titulo" onChange={handleChange}/>
             </FloatingLabel>
             <FloatingLabel  label="Ingrese el precio del artículo en pesos" className="mb-3">
-                <Form.Control type="number" placeholder="Number"  />
+                <Form.Control type="number" placeholder="Number" name="precio" onChange={handleChange}/>
             </FloatingLabel>
             <FloatingLabel  label="Ingrese la descripción de artículo" className="mb-3">
-                <Form.Control as="textarea" placeholder="Descripción"  />
+                <Form.Control as="textarea" placeholder="Descripción" name="descripcion" onChange={handleChange}/>
             </FloatingLabel>
             <FloatingLabel  label="Ingrese notas del artículo" className="mb-3">
-                <Form.Control as="textarea" placeholder="Notas"  />
+                <Form.Control as="textarea" placeholder="Notas"  name="notas" onChange={handleChange}/>
             </FloatingLabel>
             <p className="texto-p">Selecciona la etiqueta del artículo</p>
-            <Form.Select className= "sel-etiqueta" aria-label="Default select example"  >
+            <Form.Select className= "sel-etiqueta" aria-label="Default select example"  name="etiquetas" onChange={handleChange}>
             <option value="1">#TaylorSwift</option>
             <option value="2">#HarryStyles</option>
             <option value="3">#OliviaRodrigo</option>
@@ -87,7 +85,7 @@ const CrearArticuloPage =()=>{
             </Link>
             <Form.Group className="mb-3">
                 <p className="texto-p">Ingresa las fotos de tu artículo</p>
-                <Form.Control type="file" multiple  />
+                <Form.Control type="file" multiple  name="imagenes" onChange={handleChange}/>
             </Form.Group>
             <Link className="registro-login" to="/CrearArticulo">
             <Button className= "btn-publicar" type="submit">
@@ -95,6 +93,8 @@ const CrearArticuloPage =()=>{
             </Button>
             </Link>
         </Form>
+        </form>
+        
         </div>
         <div className="publicar-inter col-sm-6">
         <h2 className="texto-ph2">Intercambio de tu artículo</h2>

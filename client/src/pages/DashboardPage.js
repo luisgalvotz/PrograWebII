@@ -136,9 +136,23 @@ const DashboardPage =()=>{
             return (
             <div className="dashcardsrow col-sm-3">
             <Card className="dashcards">
+            {(() => {
+                if (articulo.tipo === "venta"){
+                    return(
             <Link className="linkNavBar" to={`/DetalleProductoVenta/${articulo._id}`}>
                 <Card.Img variant="top" src={taylor1} />
                 </Link>
+                    )}
+                    else {
+                        return (
+                        <Link className="linkNavBar" to={`/DetalleProductoIntercambio/${articulo._id}`}>
+                <Card.Img variant="top" src={taylor1} />
+                </Link>
+                        )
+                    
+                }
+
+            })()}
                 <Card.Body >
                     <Card.Title>{articulo.titulo}</Card.Title>
                         <Card.Text>
