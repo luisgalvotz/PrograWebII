@@ -18,79 +18,33 @@ const ListaProductosVentaPage =()=>{
     }, [])
 
     return(
-        <div className= "main-wrapperTwo">
-         <div className= "listaVentaContainer">
+    <div className= "main-wrapperTwo">
+      <div className= "listaVentaContainer">
          <h3 className="tituloListaVenta">Productos en venta:</h3>
+         {articulos.map((articulo) => {
+            return (
             <div className= "productVenta-div quitarBackgroundProductoVenta">
-              <div>
+                <div>
                     <div className="cartaListaProductoVenta">
-                    <Link className="linkNavBar" to="/DetalleProductoVenta">
-                     <img src={taylor1} alt="Imagen"/>
-                     </Link>
-                     <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto en venta</h6>
-                    <div className= "moverLinkIzq">
-                        <Link className="linkNavBar moverLinkIzq" to="/">
-                        <span>#Etiqueta1</span>
+                        <Link className="linkNavBar" to={`/DetalleProductoVenta/${articulo.id_articulo._id}`}>
+                        <img src={taylor1} alt="Imagen"/>
                         </Link>
-                        <Link className="linkNavBar moverLinkIzq" to="/">
-                        <span>#Etiqueta2</span>
-                        </Link>
+                        <h4 className="tituloListaProductoVenta">{articulo.id_articulo.titulo}</h4>
+                        <div className= "moverLinkIzq">
+                            <Link className="linkNavBar moverLinkIzq" to="/">
+                            <span>#Etiqueta1</span>
+                            </Link>
+                            <Link className="linkNavBar moverLinkIzq" to="/">
+                            <span>#Etiqueta2</span>
+                            </Link>
+                        </div>
                     </div>
-                    </div>
-              </div>
-              <div>
-                    <div className="cartaListaProductoVenta">
-                    <Link className="linkNavBar" to="/DetalleProductoVenta">
-                     <img src={taylor1} alt="Imagen"/>
-                     </Link>
-                     <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto en venta</h6>
-                    <div className= "moverLinkIzq">
-                        <Link className="linkNavBar moverLinkIzq" to="/">
-                        <span>#Etiqueta1</span>
-                        </Link>
-                        <Link className="linkNavBar moverLinkIzq" to="/">
-                        <span>#Etiqueta2</span>
-                        </Link>
-                    </div>
-                    </div>
-              </div>              <div>
-                    <div className="cartaListaProductoVenta">
-                    <Link className="linkNavBar" to="/DetalleProductoVenta">
-                     <img src={taylor1} alt="Imagen"/>
-                     </Link>
-                     <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto en venta</h6>
-                    <div className= "moverLinkIzq">
-                        <Link className="linkNavBar moverLinkIzq" to="/">
-                        <span>#Etiqueta1</span>
-                        </Link>
-                        <Link className="linkNavBar moverLinkIzq" to="/">
-                        <span>#Etiqueta2</span>
-                        </Link>
-                    </div>
-                    </div>
-              </div>              <div>
-                    <div className="cartaListaProductoVenta">
-                    <Link className="linkNavBar" to="/DetalleProductoVenta">
-                     <img src={taylor1} alt="Imagen"/>
-                     </Link>
-                     <h4 className="tituloListaProductoVenta">Sudadera de Taylor Swift</h4>
-                    <h6 className="tituloListaProductoVenta">Producto en venta</h6>
-                    <div className= "moverLinkIzq">
-                        <Link className="linkNavBar moverLinkIzq" to="/">
-                        <span>#Etiqueta1</span>
-                        </Link>
-                        <Link className="linkNavBar moverLinkIzq" to="/">
-                        <span>#Etiqueta2</span>
-                        </Link>
-                    </div>
-                    </div>
-              </div>
+                </div>
+            </div>
+            )
+        })}
         </div>
-        </div>
-        </div>
+    </div>
     )
 }
 

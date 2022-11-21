@@ -114,9 +114,9 @@ const DetalleProductoIntercambioPage =()=>{
               </div>
             </div>
             <div className="product-div-right">
-              <span className="product-name">Sudadera de Taylor Swift</span>
-              <span className="product-price">
-                Se busca que se entregue una coca a cambio
+              <span className="product-name">{subnivel.titulo}</span>
+              <span className="product-price"> 
+              {articulo.sugerencias}
               </span>
               <div className="product-rating">
                 {/* <span><i className= "fas fa-star"></i></span>
@@ -133,12 +133,9 @@ const DetalleProductoIntercambioPage =()=>{
                 </Link>
               </div>
               <p className="product-description descripcionExtra">
-                DESCRIBIENDO QUE Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Vitae animi ad minima veritatis dolore.
-                Architecto facere dignissimos voluptate fugit ratione molestias
-                quis quidem exercitationem voluptas.
+              {subnivel.descripcion}
               </p>
-              <p className="product-description ">Nota: tiene una mancha</p>
+              <p className="product-description ">{subnivel.notas}</p>
               <div className="btn-groups">
                 <button type="button" className="add-cart-btn">
                   Ofrecer intercambio

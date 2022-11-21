@@ -31,7 +31,7 @@ export const articuloIntercambio_getById = async (id) => {
     } catch (err) {
         console.error(err);
         return [];
-    }
+    } 
 };
 
 //TRAER TODOS LOS ARTICULOS QUE SON DE TIPO VENTA
@@ -39,7 +39,7 @@ export const articuloVenta_getAll = async () => {
     try {
         const response = await axios.get("/articuloVenta/articulosVenta");
         return response.data;
-    } catch (err) {
+    } catch (err) { 
         console.error(err);
         return [];
     }
