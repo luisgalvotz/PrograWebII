@@ -10,7 +10,7 @@ import {wishlist_ver} from '../services/WishlistService';
 
 
 const ProductosDeseadosPage =()=>{
-
+/*
   const [deseos, setDeseos] = useState([]);
     useEffect(() => {
         async function fetchData() {
@@ -20,6 +20,7 @@ const ProductosDeseadosPage =()=>{
     fetchData();
     }, [])
 
+    */
     return(
         <div className= "main-wrapperThree">
         <div className= "productosAdquiridosContainer">

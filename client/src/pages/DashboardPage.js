@@ -19,6 +19,7 @@ const DashboardPage =()=>{
         async function fetchData() {
             const res = await articulo_getAll();
             setArticulos(res.data); //TENEMOS QUE AGREGAR EL DATA PARA QUE SEPA DE DONDE SACAR LA INFO
+            console.log(res.data)
         }
     fetchData();
     }, [])
