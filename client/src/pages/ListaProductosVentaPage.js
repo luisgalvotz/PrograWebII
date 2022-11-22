@@ -21,9 +21,9 @@ const ListaProductosVentaPage =()=>{
     <div className= "main-wrapperTwo">
       <div className= "listaVentaContainer">
          <h3 className="tituloListaVenta">Productos en venta:</h3>
-         {articulos.map((articulo) => {
-            return (
-            <div className= "productVenta-div quitarBackgroundProductoVenta">
+         <div className= "productVenta-div quitarBackgroundProductoVenta">
+            {articulos.map((articulo) => {
+            return (    
                 <div>
                     <div className="cartaListaProductoVenta">
                         <Link className="linkNavBar" to={`/DetalleProductoVenta/${articulo.id_articulo._id}`}>
@@ -40,9 +40,9 @@ const ListaProductosVentaPage =()=>{
                         </div>
                     </div>
                 </div>
-            </div>
             )
-        })}
+            })}
+        </div>
         </div>
     </div>
     )

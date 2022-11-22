@@ -20,7 +20,7 @@ exports.articulo_crear = async (req, res) => {
         });
 
     } catch (err) {
-        res.send("No se pudo crear el articulo");
+        res.send(err);
     }
 };
 

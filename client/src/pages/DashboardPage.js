@@ -19,7 +19,6 @@ const DashboardPage =()=>{
         async function fetchData() {
             const res = await articulo_getAll();
             setArticulos(res.data); //TENEMOS QUE AGREGAR EL DATA PARA QUE SEPA DE DONDE SACAR LA INFO
-            console.log(res.data)
         }
     fetchData();
     }, [])
@@ -136,38 +135,38 @@ const DashboardPage =()=>{
         {articulos.map((articulo) => {
             return (
             <div className="dashcardsrow col-sm-3">
-            <Card className="dashcards">
             {(() => {
                 if (articulo.tipo === "venta"){
                     return(
-            <Link className="linkNavBar" to={`/DetalleProductoVenta/${articulo._id}`}>
-                <Card.Img variant="top" src={taylor1} />
-                </Link>
+                        <Card className="dashcards">
+                        <Link className="linkNavBar" to={`/DetalleProductoVenta/${articulo._id}`}>
+                            <Card.Img variant="top" src={taylor1} />
+                        </Link>
+                        <Card.Body >
+                            <Card.Title>{articulo.titulo}</Card.Title>
+                            <Card.Text>#TaylorSwift</Card.Text>
+                            <Card.Text>Producto en venta</Card.Text>
+                        </Card.Body>
+                        </Card>
                     )}
-                    else {
-                        return (
+                else {
+                    return (
+                        <Card className="dashcardsInter">
                         <Link className="linkNavBar" to={`/DetalleProductoIntercambio/${articulo._id}`}>
-                <Card.Img variant="top" src={taylor1} />
-                </Link>
-                        )
-                    
-                }
-
+                            <Card.Img variant="top" src={taylor1} />
+                        </Link>
+                        <Card.Body >
+                            <Card.Title>{articulo.titulo}</Card.Title>
+                            <Card.Text>#TaylorSwift</Card.Text>
+                            <Card.Text>Producto para intercambio</Card.Text>
+                        </Card.Body>
+                        </Card>
+                    )}    
             })()}
-                <Card.Body >
-                    <Card.Title>{articulo.titulo}</Card.Title>
-                        <Card.Text>
-                            #TaylorSwift
-                        </Card.Text>
-                        <Card.Text>
-                            Producto en venta
-                        </Card.Text>
-                </Card.Body>
-            </Card>
             </div>
             )
         })}
-        </div>
+    </div>
     </div>
     <div className= "container-newmerch">
     <p className= "titulo-merch">¡NO ESPERES MAS!</p>

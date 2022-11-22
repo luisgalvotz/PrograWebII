@@ -60,9 +60,7 @@ export const articuloIntercambio_getAll = async () => {
 export const articulo_crear = async (articulo) => {
     try {
       const response = await axios.post("/articulo/crearArticulo", articulo);
-      
-      return "Creado con éxito";
-  
+      return response.data;
     } catch (err) {
       console.error(err);
       return "Ocurrió un error inesperado";
@@ -73,9 +71,7 @@ export const articulo_crear = async (articulo) => {
   export const articuloVenta_agregar = async (articulo) => {
     try {
       const response = await axios.post("/articuloVenta/agregarArticuloVenta", articulo);
-      
-      return "Creado con éxito";
-  
+      return response;
     } catch (err) {
       console.error(err);
       return "Ocurrió un error inesperado";

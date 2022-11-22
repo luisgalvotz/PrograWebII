@@ -9,7 +9,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 import React, { useState } from "react";
-import {articulo_crear} from '../services/ArticuloService';
+import {articulo_crear, articuloVenta_agregar} from '../services/ArticuloService';
 
 import './Styles/CrearArticulo.css'
 
@@ -17,12 +17,16 @@ import './Styles/CrearArticulo.css'
 const CrearArticuloPage =()=>{
 
 const [datos,setDatos] = useState ( {
+    id_articulo: '',
     titulo: '',
     precio: '',
+    sugerencias: '',
     descripcion: '',
     notas: '',
     imagenes: [],
-    etiquetas: []
+    etiquetas: [],
+    id_usuario: '6328ca0ce14c27d272eff8b6',
+    tipo: ''
   })
 
   const handleChange = (event) => {
@@ -32,12 +36,22 @@ const [datos,setDatos] = useState ( {
       })
   };
 
-  const enviarDatos = async (event) =>{
+  const enviarDatosVenta = async (event) =>{
     event.preventDefault();
-    const res = await articulo_crear(datos);
-    console.log (res);
+    datos.tipo = "venta"
+    const art = await articulo_crear(datos);
+    console.log(art);
+    datos.id_articulo = art.data._id;
+    const artv = await articuloVenta_agregar(datos);
+    console.log(artv);
   }
 
+  const enviarDatosInter = async (event) =>{
+    event.preventDefault();
+    datos.tipo = "intercambio"
+    const res = await articulo_crear(datos);
+    console.log(res);
+  }
 
     return(
         
@@ -54,8 +68,7 @@ const [datos,setDatos] = useState ( {
     <div className= "row" >
         <div className="publicar-venta col-sm-6">
         <h2 className="texto-ph2">Venta de tu artículo</h2>
-        <form onSubmit={enviarDatos}>
-        <Form >
+        <Form onSubmit={enviarDatosVenta}>
             <FloatingLabel  label="Ingrese el título de artículo" className="mb-3">
                 <Form.Control type="text" placeholder="Título" name="titulo" onChange={handleChange}/>
             </FloatingLabel>
@@ -87,13 +100,10 @@ const [datos,setDatos] = useState ( {
                 <p className="texto-p">Ingresa las fotos de tu artículo</p>
                 <Form.Control type="file" multiple  name="imagenes" onChange={handleChange}/>
             </Form.Group>
-            <Link className="registro-login" to="/CrearArticulo">
             <Button className= "btn-publicar" type="submit">
                 Publicar
             </Button>
-            </Link>
         </Form>
-        </form>
         
         </div>
         <div className="publicar-inter col-sm-6">
