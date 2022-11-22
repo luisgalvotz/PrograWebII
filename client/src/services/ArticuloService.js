@@ -2,9 +2,13 @@
 import { AxiosConfig as axios } from "./AxiosConfig";
 
 //TRAER TODOS LOS ARTICULOS
-export const articulo_getAll = async () => {
+export const articulo_getAll = async (token) => {
     try {
-        const response = await axios.get("/articulo/articulos");
+        const response = await axios.get("/articulo/articulos", {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
         return response.data;
     } catch (err) {
         console.error(err);

@@ -9,7 +9,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 import React, { useState } from "react";
-import {articulo_crear, articuloVenta_agregar,articuloIntercambio_agregar} from '../services/ArticuloService';
+import {articulo_crear, articuloVenta_agregar, articuloIntercambio_agregar} from '../services/ArticuloService';
 
 import './Styles/CrearArticulo.css'
 
@@ -25,7 +25,7 @@ const [datos,setDatos] = useState ( {
     notas: '',
     imagenes: [],
     etiquetas: [],
-    id_usuario: '6328acf2cbbbf05941a81c56',
+    id_usuario: '6328ca0ce14c27d272eff8b6',
     tipo: ''
   })
 

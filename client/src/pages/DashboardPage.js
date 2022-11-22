@@ -8,16 +8,24 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import heart from "../img/heart.png";
 import './Styles/Dashboard.css';
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import Loading from '../components/Loading';
 
 import { useEffect, useState } from "react";
 import {articulo_getAll} from '../services/ArticuloService';
 
 const DashboardPage =()=>{
 
+    const { user } = useAuth0();
+    console.log(user);
+
+    const { getAccessTokenSilently } = useAuth0();
+
     const [articulos, setArticulos] = useState([]);
     useEffect(() => {
         async function fetchData() {
-            const res = await articulo_getAll();
+            const token = await getAccessTokenSilently();
+            const res = await articulo_getAll(token);
             setArticulos(res.data); //TENEMOS QUE AGREGAR EL DATA PARA QUE SEPA DE DONDE SACAR LA INFO
         }
     fetchData();
@@ -193,4 +201,7 @@ const DashboardPage =()=>{
     )
 }
 
-export default DashboardPage
+//export default DashboardPage
+export default withAuthenticationRequired(DashboardPage, {
+    onRedirecting: () => <Loading/>,
+});

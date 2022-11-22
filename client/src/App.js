@@ -22,8 +22,20 @@ import DashboardPage from './pages/DashboardPage'
 import SugerenciasPage from './pages/SugerenciasPage'
 import CrearArticuloPage from './pages/CrearArticuloPage'
 import PerfilResenasPage from './pages/PerfilResenasPage'
+import { useAuth0 } from '@auth0/auth0-react'
+import Loading from './components/Loading'
 
 function App() {
+  const { isLoading, error } = useAuth0();
+
+  if (error) {
+    return <div>Oops... {error.message}</div>
+  }
+
+  if (isLoading) {
+    return <Loading/>;
+  }
+
   return (
     <Router>
       {/* INFORMACION ----------------------------------------------------------------------------------

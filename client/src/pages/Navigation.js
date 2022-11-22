@@ -6,9 +6,6 @@ import Lupa from '../img/lupa.png'
 import './Styles/Navbar.css'
 import './Styles/RootStyle.css'
 
-
-
-
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -16,7 +13,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 function NavScrollExample() {
+
+  const { logout } = useAuth0();
+  const logoutWithRedirect = () =>
+    logout({
+      returnTo: window.location.origin,
+    });
+
   return (
     <Navbar expand="lg" className="navBar">
       <Container fluid>
@@ -75,7 +81,7 @@ function NavScrollExample() {
             <Link className="linkNavBar" to="/Login">
               <Nav.Link href="#action1"  className="textoNavBar">Iniciar sesión</Nav.Link>
             </Link>
-            <Nav.Link href="#action2"  className="textoNavBar">Salir</Nav.Link>
+            <Nav.Link href="#action2" className="textoNavBar" onClick={logoutWithRedirect}>Salir</Nav.Link>
             {/* <Nav.Link href="#" disabled>
               Link
             </Nav.Link> 
