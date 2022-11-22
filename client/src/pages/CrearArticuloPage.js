@@ -9,7 +9,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 import React, { useState } from "react";
-import {articulo_crear, articuloVenta_agregar} from '../services/ArticuloService';
+import {articulo_crear, articuloVenta_agregar,articuloIntercambio_agregar} from '../services/ArticuloService';
 
 import './Styles/CrearArticulo.css'
 
@@ -25,7 +25,7 @@ const [datos,setDatos] = useState ( {
     notas: '',
     imagenes: [],
     etiquetas: [],
-    id_usuario: '6328ca0ce14c27d272eff8b6',
+    id_usuario: '6328acf2cbbbf05941a81c56',
     tipo: ''
   })
 
@@ -48,9 +48,10 @@ const [datos,setDatos] = useState ( {
 
   const enviarDatosInter = async (event) =>{
     event.preventDefault();
-    datos.tipo = "intercambio"
-    const res = await articulo_crear(datos);
-    console.log(res);
+    datos.tipo = "inter"
+    const art = await articulo_crear(datos);
+    datos.id_articulo = art.data._id;
+    const artv = await articuloIntercambio_agregar(datos);
   }
 
     return(
@@ -108,20 +109,21 @@ const [datos,setDatos] = useState ( {
         </div>
         <div className="publicar-inter col-sm-6">
         <h2 className="texto-ph2">Intercambio de tu artículo</h2>
+        <Form onSubmit={enviarDatosInter}>
             <FloatingLabel  label="Ingrese el título de artículo" className="mb-3">
-                <Form.Control type="text" placeholder="Título" />
+                <Form.Control type="text" placeholder="Título" onChange={handleChange} name="titulo"/>
             </FloatingLabel>
             <FloatingLabel  label="Ingrese la descripción de artículo" className="mb-3">
-                <Form.Control as="textarea" placeholder="Descripción" />
+                <Form.Control as="textarea" placeholder="Descripción" onChange={handleChange} name="descripcion"/>
             </FloatingLabel>
             <FloatingLabel  label="Ingrese notas del artículo" className="mb-3">
-                <Form.Control as="textarea" placeholder="Notas" />
+                <Form.Control as="textarea" placeholder="Notas" onChange={handleChange} name="notas"/>
             </FloatingLabel>
             <FloatingLabel  label="Ingrese el artículo que espera a cambio" className="mb-3">
-                    <Form.Control type="text" placeholder="artículo" />
+                    <Form.Control type="text" placeholder="artículo" onChange={handleChange} name="sugerencias"/>
             </FloatingLabel>
                 <p className="texto-p">Selecciona la etiqueta del artículo</p>
-            <Form.Select className= "sel-etiqueta" aria-label="Default select example" >
+            <Form.Select className= "sel-etiqueta" aria-label="Default select example" onChange={handleChange} name="etiquetas">
                 <option value="1">#TaylorSwift</option>
                 <option value="2">#HarryStyles</option>
                 <option value="3">#OliviaRodrigo</option>
@@ -137,13 +139,15 @@ const [datos,setDatos] = useState ( {
             </Link>
             <Form.Group className="mb-3">
                 <p className="texto-p">Ingresa las fotos de tu artículo</p>
-                <Form.Control type="file" multiple/>
+                <Form.Control type="file" multiple onChange={handleChange} name="imagenes"/>
             </Form.Group>
-            <Link className="registro-login" to="/CrearArticulo">
+            
                 <Button className= "btn-publicar" type="submit">
                     Publicar
                 </Button>
-            </Link>
+            
+            </Form>
+
         </div>
     </div>
 </div>   
