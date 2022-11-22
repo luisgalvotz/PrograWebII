@@ -14,17 +14,23 @@ import "./Styles/DetalleProducto.css";
 
 import { useEffect, useState } from "react";
 import {articuloIntercambio_getById} from '../services/ArticuloService';
+import {usuario_getById} from '../services/UsuarioService';
+
 
 const DetalleProductoIntercambioPage =()=>{
 
   let {id} = useParams();
   const [articulo, setArticulo] = useState([]);
   const [subnivel, setSub] = useState([]);
+  const [usuario, setUsuario] = useState([]);
     useEffect(() => {
         async function fetchData() {
             const res = await articuloIntercambio_getById(id);
             setArticulo(res); 
             setSub(res.id_articulo);
+            //AQUI IRA LA INFORMACION DEL USUARIO QUE ESTA VENDIENDO EL ARTICULO
+            const res2 = await usuario_getById(res.id_articulo.id_usuario);
+            setUsuario(res2);
         }
     fetchData();
     }, [])
@@ -94,7 +100,7 @@ const DetalleProductoIntercambioPage =()=>{
                 <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
               </Link>
                 <span className="product-description descripcionExtra nombreVendedorDetalle">
-                  Pancho Pantera Barbosa
+                {usuario.nombre}
                 </span>{" "}
                 <br></br>
                 <form className="estrellasOut">

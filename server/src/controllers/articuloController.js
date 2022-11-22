@@ -81,10 +81,9 @@ exports.articulo_baja = async (req, res) => {
     const {
         body: articulo
     } = req;
-
     try {
         let articuloDB = await ArticuloVenta.find({
-                id_articulo: articulo._id
+                id_articulo: articulo.id_articulo
             })
             .populate({
                 path: "id_articulo",
@@ -94,7 +93,7 @@ exports.articulo_baja = async (req, res) => {
             //const { estatus } = articulo;
             //SE DA DE BAJA EN LOS ARTICULOS EN VENTA
             const data = await ArticuloVenta.updateOne({
-                    id_articulo: articulo._id
+                    id_articulo: articulo.id_articulo
                 }, //filtro
                 //TAMBIEN SE VA A ACTUALIZAR LA FECHA DEL ARTICULO AL SER VENDIDO
                 {
@@ -106,7 +105,7 @@ exports.articulo_baja = async (req, res) => {
             );
             //SE DA DE BAJA EN LA TABLA DE ARTICULOS PRINCIPALES
             const data2 = await Articulo.updateOne({
-                    _id: articulo._id
+                    _id: articulo.id_articulo
                 }, //filtro
                 {
                     estatus: "baja"

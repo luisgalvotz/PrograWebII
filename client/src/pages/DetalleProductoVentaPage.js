@@ -11,17 +11,23 @@ import "./Styles/DetalleProducto.css";
 
 import { useEffect, useState } from "react";
 import {articuloVenta_getById} from '../services/ArticuloService';
+import {usuario_getById} from '../services/UsuarioService';
 
 const DetalleProductoVentaPage =()=>{
 
   let {id} = useParams(); //AQUI SE RECIBE EL PARAMETRO DE LA URL
   const [articulo, setArticulo] = useState([]);
   const [subnivel, setSub] = useState([]);
+  const [usuario, setUsuario] = useState([]);
     useEffect(() => {
         async function fetchData() {
             const res = await articuloVenta_getById(id);
             setArticulo(res); //AQUI NO USAMOS EL .DATA PORQUE EN EL RESPONSE NO LO USAMOS
             setSub(res.id_articulo);
+
+            //AQUI IRA LA INFORMACION DEL USUARIO QUE ESTA VENDIENDO EL ARTICULO
+            const res2 = await usuario_getById(res.id_articulo.id_usuario);
+            setUsuario(res2);
         }
     fetchData();
     }, [])
@@ -58,7 +64,7 @@ const DetalleProductoVentaPage =()=>{
               <Link className="linkNavBar" to="/PerfilResenas">
                 <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
               </Link>                
-              <span className="product-description descripcionExtra nombreVendedorDetalle">Pancho Pantera Barbosa</span>{" "}<br></br>
+              <span className="product-description descripcionExtra nombreVendedorDetalle">{usuario.nombre}</span>{" "}<br></br>
                 <form className="estrellasOut">
                   <p className="clasificacion">
                     <input id="radio1" type="radio" className="estrellasOut" value="5"/>
@@ -85,7 +91,7 @@ const DetalleProductoVentaPage =()=>{
               <p className="product-description descripcionExtra">{subnivel.descripcion}</p>
               <p className="product-description ">Nota: {subnivel.notas}</p>
               <div className="btn-groups">
-              <Link className="linkNavBar" to="/EscribirResena">
+              <Link className="linkNavBar"  to={`/EscribirResena/${subnivel._id}`}>
                 <button type="button" className="add-cart-btn">Comprar ahora</button>
               </Link>
                 <button type="button" className="buy-now-btn">

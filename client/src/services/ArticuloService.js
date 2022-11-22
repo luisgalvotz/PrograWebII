@@ -114,7 +114,7 @@ export const articulo_crear = async (articulo) => {
 
 export const articulo_baja = async (id) => {
     try {
-        const response = await axios.post("/articulo/baja/",id);
+        const response = await axios.post("/articulo/baja",id);
         return response.data;
     } catch (err) {
         console.error(err);

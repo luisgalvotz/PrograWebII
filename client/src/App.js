@@ -87,13 +87,13 @@ function App() {
             <Route exact path="/ListaEtiquetas" element={<ListaEtiquetasPage />}/>
             {/* El administrador puede visualizar todas las etiquetas activas 
             Se puede eliminar cada etiqueta que siga activa*/}
-            <Route exact path="/EscribirResena" element={<EscribirResenaPage />}/>
+            <Route exact path="/EscribirResena/:id" element={<EscribirResenaPage />}/>
             {/* Se puede crear una reseña hecha de acuerdo al usuario con el que se haya comprado o intercambiado */}
             <Route exact path="/Login" element={<LoginPage/>} />
             {/* El usuario puede ingresar a la pagina con su cuenta */}
             <Route exact path="/Register" element={<RegisterPage/>} />
             {/* El usuario puede registrarse con un nombre de usuario, su correo y su contraseña */}
-            <Route exact path="/Perfil/:id" element={<PerfilPage/>} />
+            <Route exact path="/Perfil" element={<PerfilPage/>} />
             {/* Se ve la información personal del usuario, su foto de perfil, se pueden editar todos sus datos
             y aparece su calificación en estrellas como vendedor */}
             <Route exact path="/Reports" element={<ReportsPage/>} />

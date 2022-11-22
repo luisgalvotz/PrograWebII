@@ -11,11 +11,12 @@ import {usuario_getById,usuario_actualizar,usuario_baja} from '../services/Usuar
 
 const PerfilPage =()=>{
 
-  let {id} = useParams();
+  //let {id} = useParams();
   const [usuario, setUsuario] = useState([]);
     useEffect(() => {
         async function fetchData() {
-            const res = await usuario_getById(id);
+            const usua = '6328acf2cbbbf05941a81c56';
+            const res = await usuario_getById(usua);
             setUsuario(res); 
         }
     fetchData();

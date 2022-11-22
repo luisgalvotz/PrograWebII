@@ -25,7 +25,7 @@ const [datos,setDatos] = useState ( {
     notas: '',
     imagenes: [],
     etiquetas: [],
-    id_usuario: '6328ca0ce14c27d272eff8b6',
+    id_usuario: '6328acf2cbbbf05941a81c56',
     tipo: ''
   })
 
