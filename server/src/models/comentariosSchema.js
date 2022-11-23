@@ -16,10 +16,6 @@ const ComentariosSchema = mongoose.Schema({
         type: String,
         required: true,
         default: "pendiente"
-    },
-    id_usuario: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "usuarios"
     }
 });
 

@@ -18,18 +18,38 @@ exports.comentarios_crear = async(req, res) => {
     }
 };
 
+/*
 exports.comentarios_ver = async(req, res) => {
     const data = await Comentarios.find({estatus : "pendiente"})
         .populate({path : "id_usuario", select: "nombre"});
 
     res.send(data);
+};*/
+exports.comentarios_ver = async (req, res) => {
+
+    const data = await Comentarios.find({
+        
+    }, {
+        "contenido": 1,
+        "estatus" :1,
+        "_id": 1
+    });
+    if (data) {
+        res.send({
+            message: "todos los comentarios",
+            data
+        });
+    } else {
+        res.send("No hay comentarios");
+    }
 };
 
-exports.comentarios_revisar = async(req, res) => {
-    const {body : _id} = req;
 
+exports.comentarios_revisar = async(req, res) => {
+    const {body : id} = req;
+    console.log(id)
     const data = await Comentarios.updateOne(
-        {_id : _id}, 
+        {_id : id._id}, 
         {estatus: "revisado"}
     );
 
@@ -37,6 +57,8 @@ exports.comentarios_revisar = async(req, res) => {
         message: "Comentario revisado",
         data: data
     });
+   
+
 };
 
 exports.comentarios_reporte = async(req, res) => {

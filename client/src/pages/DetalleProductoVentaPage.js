@@ -13,16 +13,18 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import { useEffect, useState } from "react";
 import {articuloVenta_getById} from '../services/ArticuloService';
-import {usuario_getById} from '../services/UsuarioService';
+import {usuario_getById,usuario_getByEmail} from '../services/UsuarioService';
 
 const DetalleProductoVentaPage =()=>{
 
-  const { user } = useAuth0();
+  const { user, getAccessTokenSilently} = useAuth0();
 
   let {id} = useParams(); //AQUI SE RECIBE EL PARAMETRO DE LA URL
   const [articulo, setArticulo] = useState([]);
   const [subnivel, setSub] = useState([]);
   const [usuario, setUsuario] = useState([]);
+  const [usuario2, setUsuario2] = useState([]);
+  
     useEffect(() => {
         async function fetchData() {
             const res = await articuloVenta_getById(id);
@@ -32,6 +34,12 @@ const DetalleProductoVentaPage =()=>{
             //AQUI IRA LA INFORMACION DEL USUARIO QUE ESTA VENDIENDO EL ARTICULO
             const us = await usuario_getById(res.id_articulo.id_usuario);
             setUsuario(us);
+            
+            //APARTADO PARA COMPARACION DE SI EL USUARIO ES QUIEN LO PUBLICO
+            const token = await getAccessTokenSilently();
+            const us2 = await usuario_getByEmail(user.email, token);
+            setUsuario2(us2);
+
         }
     fetchData();
     }, [])
@@ -97,6 +105,9 @@ const DetalleProductoVentaPage =()=>{
 
               {(() => {
               if (user){
+                if (usuario2._id === usuario._id){
+                  console.log ("sin boton")
+                }else{
                 return(
                   <div className="btn-groups">
                     <Link className="linkNavBar"  to={`/EscribirResena/${subnivel._id}`}>
@@ -110,6 +121,7 @@ const DetalleProductoVentaPage =()=>{
                     </button>
                   </div>
                 )
+              }
               }
             })()}
               

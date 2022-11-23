@@ -16,17 +16,18 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import { useEffect, useState } from "react";
 import {articuloIntercambio_getById} from '../services/ArticuloService';
-import {usuario_getById} from '../services/UsuarioService';
+import {usuario_getById,usuario_getByEmail} from '../services/UsuarioService';
 
 
 const DetalleProductoIntercambioPage =()=>{
 
-  const { user } = useAuth0();
+  const { user, getAccessTokenSilently} = useAuth0();
 
   let {id} = useParams();
   const [articulo, setArticulo] = useState([]);
   const [subnivel, setSub] = useState([]);
   const [usuario, setUsuario] = useState([]);
+  const [usuario2, setUsuario2] = useState([]);
     useEffect(() => {
         async function fetchData() {
             const res = await articuloIntercambio_getById(id);
@@ -35,6 +36,10 @@ const DetalleProductoIntercambioPage =()=>{
             //AQUI IRA LA INFORMACION DEL USUARIO QUE ESTA VENDIENDO EL ARTICULO
             const res2 = await usuario_getById(res.id_articulo.id_usuario);
             setUsuario(res2);
+            //APARTADO PARA COMPARACION DE SI EL USUARIO ES QUIEN LO PUBLICO
+            const token = await getAccessTokenSilently();
+            const us2 = await usuario_getByEmail(user.email, token);
+            setUsuario2(us2);
         }
     fetchData();
     }, [])
@@ -149,6 +154,9 @@ const DetalleProductoIntercambioPage =()=>{
 
               {(() => {
               if (user){
+                if (usuario2._id === usuario._id){
+                  console.log ("sin boton")
+                }else{
                 return(
                   <div className="btn-groups">
                     {/* <button type="button" className="add-cart-btn">
@@ -163,10 +171,14 @@ const DetalleProductoIntercambioPage =()=>{
                   </div>
                 )
               }
+              }
             })()}
 
               {(() => {
               if (user){
+                if (usuario2._id === usuario._id){
+                  console.log ("sin boton")
+                }else{
                 return(
                   <div className="contendorCAS">
                     <h5 className="letraFooter alinearIzquier">
@@ -215,6 +227,7 @@ const DetalleProductoIntercambioPage =()=>{
                   </Link>
                   </div>
                 )
+              }
               }
             })()}
 

@@ -12,6 +12,26 @@ import {comentarios_ver,comentarios_revisar} from '../services/ComentariosServic
 
 const SugerenciasPage =()=>{
 
+    //REVISAR UNA SUGERENCIA
+    const [datos,setDatos] = useState ( {
+        id:''
+      })
+
+      const handleChange = (event) => {
+        setDatos({
+            ...datos,
+            [event.target.name] : event.target.value
+          })
+      };
+
+      const enviarDatos = async (event) =>{
+    
+        event.preventDefault();
+        //const inputDOM =document.getElementById('id');
+        //setDatos.id = inputDOM.value;
+        await comentarios_revisar(datos);
+      }
+
     const [sugerencias, setSugerencias] = useState([]);
     useEffect(() => {
         async function fetchData() {
@@ -25,51 +45,43 @@ const SugerenciasPage =()=>{
     return(
         <div className= "container-sug">
         <h2 className= "texto-sug-t">Sugerencias de los usuarios hacia TrueFan</h2>
-        <div className= "container-seleccion ">
-            <Form.Select className= "sel-op" aria-label="Default select example" >
-                <option value="1">Sugerencias pendientes</option>
-                <option value="2">Sugerencias revisadas</option>
-            </Form.Select>
-        </div>
+        
         <div className= "container-com">
-            <h2 className= "texto-sug-t">Sugerencias pendientes</h2>
+            {sugerencias.map((comentario) => {
+            if (comentario.estatus ==="revisado"){
+                return (
+                    <div className= "cardsug row" >
+                    <div className="comentario-usuario col-sm-2">
+                        <img className= "img_com img-fluid" src={mujerPosando} alt="Usuario"/>
+                    </div>
+                    <div className="comentario-usuario col-sm-10">
+                        <p className= "texto-sug">{comentario.contenido}</p>
+                        <p className= "texto-sug-rev">Sugerencia Revisada</p>
+                    </div>
+                </div>
+                )
+            }else{
+                  return (
             <div className= "cardsug row" >
                 <div className="comentario-usuario col-sm-2">
                     <img className= "img_com img-fluid" src={mujerPosando} alt="Usuario"/>
                 </div>
                 <div className="comentario-usuario col-sm-10">
-                    <p className= "texto-sug-date" >24/10/2022</p>
-                    <p className= "texto-sug">Nombre usuario</p>
-                    <p className= "texto-sug">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae animi ad minima veritatis dolore. Architecto facere dignissimos voluptate fugit ratione molestias quis quidem exercitationem voluptas.</p>
-                    <Button className= "btn-Revisado" type="Submit">
+                    <p className= "texto-sug">{comentario.contenido}</p>
+                    <Form onSubmit={enviarDatos}>
+                    <Button className= "btn-Revisado" type="Submit" value={comentario._id} name="id" id="id" onClick={handleChange}>
                         Revisar Sugerencia
                     </Button>
+                    </Form>
                 </div>
             </div>
-            <div className= "cardsug row" >
-                <div className="comentario-usuario col-sm-2">
-                    <img className= "img_com img-fluid" src={mujerPosando} alt="Usuario"/>
-                </div>
-                <div className="comentario-usuario col-sm-10">
-                    <p className= "texto-sug-date">24/10/2022</p>
-                    <p className= "texto-sug">Nombre usuario</p>
-                    <p className= "texto-sug">Esta es una sugerencia que ya fue revisada, se cambia el boton de revisar sugerencia a sugerencia revisada.</p>
-                    <p className= "texto-sug-rev">Sugerencia Revisada</p>
-                </div>
-            </div>
-            <div className= " cardsug row" >
-                <div className="comentario-usuario col-sm-2">
-                    <img className= "img_com img-fluid" src={mujerPosando} alt="Usuario"/>
-                </div>
-                <div className="comentario-usuario col-sm-10">
-                    <p className= "texto-sug-date">24/10/2022</p>
-                    <p className= "texto-sug">Nombre usuario</p>
-                    <p className= "texto-sug">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae animi ad minima veritatis dolore. Architecto facere dignissimos voluptate fugit ratione molestias quis quidem exercitationem voluptas.</p>
-                    <Button className= "btn-Revisado" type="Submit">
-                    Revisar Sugerencia
-                    </Button>
-                </div>
-            </div>
+                  )
+            }
+
+                  
+        })}
+
+    
         </div>
     </div>
     )
