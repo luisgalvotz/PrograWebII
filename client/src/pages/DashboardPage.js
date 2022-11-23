@@ -17,15 +17,11 @@ import {articulo_getAll} from '../services/ArticuloService';
 const DashboardPage =()=>{
 
     const { user } = useAuth0();
-    console.log(user);
-
-    const { getAccessTokenSilently } = useAuth0();
 
     const [articulos, setArticulos] = useState([]);
     useEffect(() => {
         async function fetchData() {
-            const token = await getAccessTokenSilently();
-            const res = await articulo_getAll(token);
+            const res = await articulo_getAll();
             setArticulos(res.data); //TENEMOS QUE AGREGAR EL DATA PARA QUE SEPA DE DONDE SACAR LA INFO
         }
     fetchData();
@@ -201,7 +197,7 @@ const DashboardPage =()=>{
     )
 }
 
-//export default DashboardPage
-export default withAuthenticationRequired(DashboardPage, {
+export default DashboardPage
+/* export default withAuthenticationRequired(DashboardPage, {
     onRedirecting: () => <Loading/>,
-});
+}); */

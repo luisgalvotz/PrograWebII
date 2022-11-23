@@ -9,12 +9,12 @@ const UsuarioSchema = mongoose.Schema({
     nombre: {
         type: String,
         required: [true, 'Falta llenar campo nombre'],
-        minlength: [4, 'Favor de usar minimo 4 caracteres -nombre'],
+        minlength: [1, 'Favor de usar minimo 4 caracteres -nombre'],
         maxlenght: [80, 'Favor de usar maximo 80 caracteres -nombre']
     },
     telefono: {
         type: Number,
-        required: [true, 'Falta llenar campo telefono'],
+        //required: [true, 'Falta llenar campo telefono'],
         length: [10,'Se necesitan 10 caracteres'],
         validate: {
             validator: function(v) {
@@ -25,7 +25,7 @@ const UsuarioSchema = mongoose.Schema({
     },
     fecha_nac: {
         type: String,
-        required: [true, 'Favor de ingresar la fecha de nacimiento']
+        //required: [true, 'Favor de ingresar la fecha de nacimiento']
     },
     email: {
         type: String,
@@ -36,13 +36,13 @@ const UsuarioSchema = mongoose.Schema({
     },
     contrasena: {
         type: String,
-        required: true,
+        //required: true,
         minlength: [4, 'Favor de usar minimo 4 caracteres -contraseña'],
         maxlenght: [20, 'Favor de usar maximo 20 caracteres -contraseña'],
     },
     fotografia: {
         type: String,
-        required:[true, 'Favor de ingresar la fotografia']
+        //required:[true, 'Favor de ingresar la fotografia']
     },
     estatus: {
         type: String,

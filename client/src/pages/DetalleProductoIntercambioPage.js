@@ -12,12 +12,16 @@ import Button from "react-bootstrap/Button";
 import "./Styles/DetalleProducto.css";
 // import { validas } from'./Scripts/Script'
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 import { useEffect, useState } from "react";
 import {articuloIntercambio_getById} from '../services/ArticuloService';
 import {usuario_getById} from '../services/UsuarioService';
 
 
 const DetalleProductoIntercambioPage =()=>{
+
+  const { user } = useAuth0();
 
   let {id} = useParams();
   const [articulo, setArticulo] = useState([]);
@@ -141,65 +145,79 @@ const DetalleProductoIntercambioPage =()=>{
               <p className="product-description descripcionExtra">
               {subnivel.descripcion}
               </p>
-              <p className="product-description ">{subnivel.notas}</p>
-              <div className="btn-groups">
-                <button type="button" className="add-cart-btn">
-                  Ofrecer intercambio
-                </button>
-                <button type="button" className="buy-now-btn">
-                  <img src={heart} alt="Bootstrap" className="btnLikeDetalle" />
-                </button>
-                <button type="button" className="like-item-btn">
-                  <img src={like} alt="Bootstrap" className="btnLikeDetalle" />12 likes
-                </button>
-              </div>
+              <p className="product-description ">Notas: {subnivel.notas}</p>
 
-              <div className="contendorCAS">
-                <h5 className="letraFooter alinearIzquier">
-                  Ingrese la información de su artículo a sugerir
-                </h5>
-                <InputGroup className="mb-3">
-                  <InputGroup.Text
-                    className="inputArticuloSugerido"
-                    id="basic-addon1"
-                  >
-                    Título
-                  </InputGroup.Text>
-                  <Form.Control
-                    placeholder="Título"
-                    className="inputArticuloSugeridoTexto"
-                    aria-describedby="basic-addon1"
-                  />
-                </InputGroup>
-                <InputGroup>
-                  <InputGroup.Text className="inputArticuloSugerido">
-                    Descripción
-                  </InputGroup.Text>
-                  <Form.Control
-                    className="inputArticuloSugeridoTexto"
-                    as="textarea"
-                    placeholder="Descripción"
-                    aria-label="With textarea"
-                  />
-                </InputGroup>
-                <Button className="btnAgregarImagenCAS" variant="dark">
-                  Agregar Imágenes
-                </Button>{" "}
-                <br></br>
-                <div className="divOpcionesDetalle imgOpcionExtra">
-                  <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
-                </div>
-                <div className="divOpcionesDetalle imgOpcionExtra">
-                  <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
-                </div>
-                <div className="divOpcionesDetalle imgOpcionExtra">
-                  <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
-                </div>
-                <br></br>
-                <Link className="linkNavBar" to="/EscribirResena">
-                <Button className="btnEnviarCAS" variant="dark">Enviar oferta</Button>
-              </Link>
-              </div>
+              {(() => {
+              if (user){
+                return(
+                  <div className="btn-groups">
+                    {/* <button type="button" className="add-cart-btn">
+                      Ofrecer intercambio
+                    </button> */}
+                    <button type="button" className="buy-now-btn">
+                      <img src={heart} alt="Bootstrap" className="btnLikeDetalle" />
+                    </button>
+                    <button type="button" className="like-item-btn">
+                      <img src={like} alt="Bootstrap" className="btnLikeDetalle" />12 likes
+                    </button>
+                  </div>
+                )
+              }
+            })()}
+
+              {(() => {
+              if (user){
+                return(
+                  <div className="contendorCAS">
+                    <h5 className="letraFooter alinearIzquier">
+                      Ingrese la información de su artículo a sugerir
+                    </h5>
+                    <InputGroup className="mb-3">
+                      <InputGroup.Text
+                        className="inputArticuloSugerido"
+                        id="basic-addon1"
+                      >
+                        Título
+                      </InputGroup.Text>
+                      <Form.Control
+                        placeholder="Título"
+                        className="inputArticuloSugeridoTexto"
+                        aria-describedby="basic-addon1"
+                      />
+                    </InputGroup>
+                    <InputGroup>
+                      <InputGroup.Text className="inputArticuloSugerido">
+                        Descripción
+                      </InputGroup.Text>
+                      <Form.Control
+                        className="inputArticuloSugeridoTexto"
+                        as="textarea"
+                        placeholder="Descripción"
+                        aria-label="With textarea"
+                      />
+                    </InputGroup>
+                    <Button className="btnAgregarImagenCAS" variant="dark">
+                      Agregar Imágenes
+                    </Button>{" "}
+                    <br></br>
+                    <div className="divOpcionesDetalle imgOpcionExtra">
+                      <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
+                    </div>
+                    <div className="divOpcionesDetalle imgOpcionExtra">
+                      <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
+                    </div>
+                    <div className="divOpcionesDetalle imgOpcionExtra">
+                      <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
+                    </div>
+                    <br></br>
+                    <Link className="linkNavBar" to="/EscribirResena">
+                    <Button className="btnEnviarCAS" variant="dark">Enviar oferta</Button>
+                  </Link>
+                  </div>
+                )
+              }
+            })()}
+
             </div>
           </div>
         </div>

@@ -9,11 +9,15 @@ import like from "../img/like.png";
 import "./Styles/DetalleProducto.css";
 // import { validas } from'./Scripts/Script'
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 import { useEffect, useState } from "react";
 import {articuloVenta_getById} from '../services/ArticuloService';
 import {usuario_getById} from '../services/UsuarioService';
 
 const DetalleProductoVentaPage =()=>{
+
+  const { user } = useAuth0();
 
   let {id} = useParams(); //AQUI SE RECIBE EL PARAMETRO DE LA URL
   const [articulo, setArticulo] = useState([]);
@@ -26,8 +30,8 @@ const DetalleProductoVentaPage =()=>{
             setSub(res.id_articulo);
 
             //AQUI IRA LA INFORMACION DEL USUARIO QUE ESTA VENDIENDO EL ARTICULO
-            const res2 = await usuario_getById(res.id_articulo.id_usuario);
-            setUsuario(res2);
+            const us = await usuario_getById(res.id_articulo.id_usuario);
+            setUsuario(us);
         }
     fetchData();
     }, [])
@@ -61,7 +65,7 @@ const DetalleProductoVentaPage =()=>{
               </div>
               <span className="product-description ofrecidoPor">Ofrecido por:</span>
               <div className="parrafo">
-              <Link className="linkNavBar" to="/PerfilResenas">
+              <Link className="linkNavBar" to={`/PerfilResenas/${usuario._id}`}>
                 <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
               </Link>                
               <span className="product-description descripcionExtra nombreVendedorDetalle">{usuario.nombre}</span>{" "}<br></br>
@@ -89,18 +93,26 @@ const DetalleProductoVentaPage =()=>{
                 <Link className="linkNavBar" to="/"><span>#Etiqueta2</span></Link>
               </div>
               <p className="product-description descripcionExtra">{subnivel.descripcion}</p>
-              <p className="product-description ">Nota: {subnivel.notas}</p>
-              <div className="btn-groups">
-              <Link className="linkNavBar"  to={`/EscribirResena/${subnivel._id}`}>
-                <button type="button" className="add-cart-btn">Comprar ahora</button>
-              </Link>
-                <button type="button" className="buy-now-btn">
-                  <img src={heart} alt="Bootstrap" className="btnLikeDetalle" />
-                </button>
-                <button type="button" className="like-item-btn">
-                  <img src={like} alt="Bootstrap" className="btnLikeDetalle" /> 12 Likes
-                </button>
-              </div>
+              <p className="product-description ">Notas: {subnivel.notas}</p>
+
+              {(() => {
+              if (user){
+                return(
+                  <div className="btn-groups">
+                    <Link className="linkNavBar"  to={`/EscribirResena/${subnivel._id}`}>
+                      <button type="button" className="add-cart-btn">Comprar ahora</button>
+                    </Link>
+                    <button type="button" className="buy-now-btn">
+                      <img src={heart} alt="Bootstrap" className="btnLikeDetalle" />
+                    </button>
+                    <button type="button" className="like-item-btn">
+                      <img src={like} alt="Bootstrap" className="btnLikeDetalle" /> 12 Likes
+                    </button>
+                  </div>
+                )
+              }
+            })()}
+              
             </div>
           </div>
         </div>

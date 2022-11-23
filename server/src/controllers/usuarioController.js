@@ -91,3 +91,16 @@ exports.usuario_getById = async (req, res) => {
     }
   };
   
+  exports.usuario_getByEmail = async (req, res) => {
+    const { params: { email }} = req; //AQUI SACA EL PARAMETRO DEL REQUEST
+  
+    try {
+        const data = await Usuario.findOne({ email: email, estatus : "activo" });
+        res.send(data);
+
+    }catch(err){
+        res.send('No se encontro al usuario');
+    }
+  
+    
+  };

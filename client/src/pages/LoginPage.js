@@ -13,7 +13,31 @@ import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import './Styles/Login.css'
 
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import Loading from '../components/Loading';
+
+import { useEffect } from "react";
+import { usuario_crear, usuario_getByEmail } from '../services/UsuarioService';
+
 const LoginPage =()=>{
+
+    const { user, getAccessTokenSilently } = useAuth0();
+
+    const usuario = ({ nombre: '', email: '' })
+    useEffect(() => {
+        async function fetchData() {
+            const token = await getAccessTokenSilently();
+            const us = await usuario_getByEmail(user.email, token);
+            if (!us) {
+                usuario.nombre = user.nickname;
+                usuario.email = user.email;
+                const res = await usuario_crear(usuario, token);
+            }
+            window.location.href = "http://localhost:3000";
+        }
+    fetchData();
+    }, [])
+
     return(
         <div className= "container-login">
         <div className= "row" >
@@ -52,4 +76,7 @@ const LoginPage =()=>{
     )
 }
 
-export default LoginPage
+//export default LoginPage
+export default withAuthenticationRequired(LoginPage, {
+    onRedirecting: () => <Loading/>,
+});

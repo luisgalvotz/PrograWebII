@@ -10,7 +10,7 @@ import Form from "react-bootstrap/Form";
 //PARA DAR DE BAJA EL ARTICULO POR SER COMPRADO Y ENVIAR TAMBIEN UN COMENTARIO AL PERFIL DE USUARIO
 import React, { useState } from "react";
 import {articulo_baja,articuloVenta_getById} from '../services/ArticuloService';
-import {resenas_crear} from '../services/RenenasService';
+import {resenas_crear} from '../services/ResenasService';
 
 const EscribirResenaPage =()=>{
   let {id} = useParams();

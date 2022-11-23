@@ -15,9 +15,25 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import { useAuth0 } from "@auth0/auth0-react";
 
+import { useEffect, useState } from "react";
+import { usuario_getByEmail } from '../services/UsuarioService';
+
 function NavScrollExample() {
 
-  const { logout } = useAuth0();
+  const { user, getAccessTokenSilently, logout } = useAuth0();
+  
+  const [usuario, setUsuario] = useState([]);
+  useEffect(() => {
+      async function fetchData() {
+        if (user) {
+          const token = await getAccessTokenSilently();
+          const us = await usuario_getByEmail(user.email, token);
+          setUsuario(us);
+        }
+      }
+  fetchData();
+  }, [])
+  
   const logoutWithRedirect = () =>
     logout({
       returnTo: window.location.origin,
@@ -38,9 +54,16 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Link className="linkNavBar" to="/CrearArticulo">
-              <Nav.Link href="#action2"  className="textoNavBar">Publicar</Nav.Link>
-            </Link>
+            {(() => {
+              if (user){
+                return(
+                  <Link className="linkNavBar" to="/CrearArticulo">
+                    <Nav.Link href="#action2"  className="textoNavBar">Publicar</Nav.Link>
+                  </Link>
+                )
+              }
+            })()}
+
             <NavDropdown title="Productos"  id="navbarScrollingDropdown">
               <Link className="linkNavBar" to="/ListaProductosVenta">
                 <NavDropdown.Item className="textoNavBarDrop" href="#CreateNote">En venta</NavDropdown.Item>
@@ -50,38 +73,67 @@ function NavScrollExample() {
               </Link>
             </NavDropdown>
 
-            <NavDropdown title="Usuario"  id="navbarScrollingDropdown">
-              <Link className="linkNavBar" to="/Perfil">
-                <NavDropdown.Item className="textoNavBarDrop" href="#action2">Editar perfil</NavDropdown.Item>
-              </Link>
-              <Link className="linkNavBar" to="/ProductosDeseados">
-                <NavDropdown.Item className="textoNavBarDrop" href="#action3">Wishlist</NavDropdown.Item>
-              </Link>
-              {/* <Link className="linkNavBar" to="/ProductosAdquiridos">
-                <NavDropdown.Item className="textoNavBarDrop" href="#action4">Tus compras e intercambios</NavDropdown.Item>
-              </Link> */}
-              <Link className="linkNavBar" to="/AdministrarIntercambios">
-                <NavDropdown.Item className="textoNavBarDrop" href="#action4">Administrar intercambios</NavDropdown.Item>
-              </Link>
-            </NavDropdown>
-            <NavDropdown title="Administrador"  id="navbarScrollingDropdown">
-              <Link className="linkNavBar" to="/Reports">
-                <NavDropdown.Item className="textoNavBarDrop" href="#action3">Reportes</NavDropdown.Item>
-              </Link>
-              <Link className="linkNavBar" to="/Sugerencias">
-                <NavDropdown.Item className="textoNavBarDrop" href="#action4">Sugerencias de usuarios</NavDropdown.Item>
-              </Link>
-              <Link className="linkNavBar" to="/ListaEtiquetas">
-                <NavDropdown.Item className="textoNavBarDrop" href="#action4">Administrar etiquetas</NavDropdown.Item>
-              </Link>
-            </NavDropdown>
-            <Link className="linkNavBar" to="/Register">
+            {(() => {
+              if (user){
+                return(
+                  <NavDropdown title="Usuario"  id="navbarScrollingDropdown">
+                    <Link className="linkNavBar" to={`/PerfilResenas/${usuario._id}`}>
+                      <NavDropdown.Item className="textoNavBarDrop" href="#action2">Perfil</NavDropdown.Item>
+                    </Link>
+                    <Link className="linkNavBar" to="/ProductosDeseados">
+                      <NavDropdown.Item className="textoNavBarDrop" href="#action3">Wishlist</NavDropdown.Item>
+                    </Link>
+                    {/* <Link className="linkNavBar" to="/ProductosAdquiridos">
+                      <NavDropdown.Item className="textoNavBarDrop" href="#action4">Tus compras e intercambios</NavDropdown.Item>
+                    </Link> */}
+                    <Link className="linkNavBar" to="/AdministrarIntercambios">
+                      <NavDropdown.Item className="textoNavBarDrop" href="#action4">Administrar intercambios</NavDropdown.Item>
+                    </Link>
+                  </NavDropdown>
+                )
+              }
+            })()}
+
+            {(() => {
+              if (user && usuario.tipo == "A"){
+                return(
+                  <NavDropdown title="Administrador"  id="navbarScrollingDropdown">
+                    <Link className="linkNavBar" to="/Reports">
+                      <NavDropdown.Item className="textoNavBarDrop" href="#action3">Reportes</NavDropdown.Item>
+                    </Link>
+                    <Link className="linkNavBar" to="/Sugerencias">
+                      <NavDropdown.Item className="textoNavBarDrop" href="#action4">Sugerencias de usuarios</NavDropdown.Item>
+                    </Link>
+                    <Link className="linkNavBar" to="/ListaEtiquetas">
+                      <NavDropdown.Item className="textoNavBarDrop" href="#action4">Administrar etiquetas</NavDropdown.Item>
+                    </Link>
+                  </NavDropdown>
+                )
+              }
+            })()}
+
+            {/* <Link className="linkNavBar" to="/Register">
               <Nav.Link href="#action2"  className="textoNavBar">Registrarse</Nav.Link>
-            </Link>
-            <Link className="linkNavBar" to="/Login">
-              <Nav.Link href="#action1"  className="textoNavBar">Iniciar sesión</Nav.Link>
-            </Link>
-            <Nav.Link href="#action2" className="textoNavBar" onClick={logoutWithRedirect}>Salir</Nav.Link>
+            </Link> */}
+
+            {(() => {
+              if (!user){
+                return(
+                  <Link className="linkNavBar" to="/Login">
+                  <Nav.Link href="#action1"  className="textoNavBar">Iniciar sesión</Nav.Link>
+                </Link>
+                )
+              }
+            })()}
+
+            {(() => {
+              if (user){
+                return(
+                  <Nav.Link href="#action2" className="textoNavBar" onClick={logoutWithRedirect}>Cerrar sesión</Nav.Link>
+                )
+              }
+            })()}
+            
             {/* <Nav.Link href="#" disabled>
               Link
             </Nav.Link> 

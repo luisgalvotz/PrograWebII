@@ -2,12 +2,14 @@ import { AxiosConfig as axios } from "./AxiosConfig";
 
 //CREAR USUARIO 
 
-export const usuario_crear = async (usuario) => {
+export const usuario_crear = async (usuario, token) => {
     try {
-      const response = await axios.post("/usuario/crearUsuario", usuario);
-      
-      return "Creado con éxito";
-  
+      const response = await axios.post("/usuario/crearUsuario", usuario, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
     } catch (err) {
       console.error(err);
       return "Ocurrió un error inesperado";
@@ -50,4 +52,19 @@ export const usuario_actualizar = async (usuario) => {
         console.error(err);
         return [];
     }
+};
+
+//TRAER INFO DEL USUARIO A SU PAGINA DE PERFIL
+export const usuario_getByEmail = async (email, token) => {
+  try {
+      const response = await axios.get(`/usuario/obtener/${email}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+  } catch (err) {
+      console.error(err);
+      return [];
+  }
 };

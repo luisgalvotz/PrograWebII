@@ -107,7 +107,7 @@ function App() {
             aun no revisa */}
             <Route exact path="/CrearArticulo" element={<CrearArticuloPage/>} />
             {/* Se crea el articulo con toda la información y fotos necesarias para su venta o intercambio */}
-            <Route exact path="/PerfilResenas" element={<PerfilResenasPage/>} />
+            <Route exact path="/PerfilResenas/:id" element={<PerfilResenasPage/>} />
             {/* Aqui el administrador puede ver todas las sugerencias de los usuarios, puede ver los que ya reviso y los que
             aun no revisa */}
           </Routes>
