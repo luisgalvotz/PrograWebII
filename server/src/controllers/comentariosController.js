@@ -49,7 +49,7 @@ exports.comentarios_revisar = async(req, res) => {
     const {body : id} = req;
     console.log(id)
     const data = await Comentarios.updateOne(
-        {_id : id._id}, 
+        {_id : id.id}, 
         {estatus: "revisado"}
     );
 

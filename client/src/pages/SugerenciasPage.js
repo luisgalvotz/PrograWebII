@@ -30,6 +30,8 @@ const SugerenciasPage =()=>{
         //const inputDOM =document.getElementById('id');
         //setDatos.id = inputDOM.value;
         await comentarios_revisar(datos);
+        window.location.href = "http://localhost:3000/Sugerencias";
+        console.log(datos)
       }
 
     const [sugerencias, setSugerencias] = useState([]);

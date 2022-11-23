@@ -11,6 +11,8 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import {articulo_baja,articuloVenta_getById} from '../services/ArticuloService';
 import {resenas_crear} from '../services/ResenasService';
+import { useAuth0 } from "@auth0/auth0-react";
+import { usuario_getByEmail } from '../services/UsuarioService';
 
 const EscribirResenaPage =()=>{
   let {id} = useParams();
@@ -21,7 +23,7 @@ const EscribirResenaPage =()=>{
     id_usuario: '',
     id_articulo : id
   })
-
+  const { user, getAccessTokenSilently} = useAuth0();
   
 
   const handleChange = (event) => {
@@ -33,15 +35,18 @@ const EscribirResenaPage =()=>{
 
   const enviarDatos = async (event) =>{
     event.preventDefault();
-    
-  
+    const token = await getAccessTokenSilently();
+    const us2 = await usuario_getByEmail(user.email, token);
+    datos.id_usuario = us2._id;
+
      //SACAR ID DEL VENDEDOR DEL ARTICULO
      const us = await articuloVenta_getById (id);
     //DAR DE BAJA ARTICULO POR HABERLO COMPRADO
     const art = await articulo_baja(datos); //YA LO DA DE BAJA
     //ENVIAR UNA RESEÑA PARA EL USUARIO 
+    //
     datos.id_vendedor = us.id_articulo.id_usuario;
-    datos.id_usuario = '6328ad04cbbbf05941a81c58';
+    //datos.id_usuario = '6328ad04cbbbf05941a81c58';
     const art2 = await resenas_crear(datos); //YA LO DA DE BAJA
 
   }

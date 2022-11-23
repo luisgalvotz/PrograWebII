@@ -17,17 +17,55 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useState } from "react";
 import {articuloIntercambio_getById} from '../services/ArticuloService';
 import {usuario_getById,usuario_getByEmail} from '../services/UsuarioService';
+import { oferta_agregar } from "../services/OfertasService";
 
 
 const DetalleProductoIntercambioPage =()=>{
 
-  const { user, getAccessTokenSilently} = useAuth0();
-
+ 
   let {id} = useParams();
   const [articulo, setArticulo] = useState([]);
   const [subnivel, setSub] = useState([]);
   const [usuario, setUsuario] = useState([]);
   const [usuario2, setUsuario2] = useState([]);
+
+
+  //AQUI VA TODO ACERCA DE HACER UNA OFERTA DE INTERCAMBIO
+  const [datos,setDatos] = useState ( {
+    titulo: '',
+    descripcion: '',
+    id_usuario: '',
+    id_articulo: id,
+    id_ofertante: ''
+  })
+  const { user, getAccessTokenSilently} = useAuth0();
+  
+  const handleChange = (event) => {
+    setDatos({
+        ...datos,
+        [event.target.name] : event.target.value
+      })
+  };
+  const enviarDatos = async (event) =>{
+    event.preventDefault();
+
+    //ID DEL USUARIO QUE QUIERE HACER LA OFERTA
+    const token = await getAccessTokenSilently();
+    const us2 = await usuario_getByEmail(user.email, token);
+    datos.id_ofertante = us2._id;
+    //SACAR ID DEL VENDEDOR DEL ARTICULO
+    const us = await articuloIntercambio_getById (id);
+    datos.id_usuario = us.id_articulo.id_usuario;
+    //CREAR OFERTA
+    const ofer = await oferta_agregar(datos);
+    window.location.href = "http://localhost:3000/ListaProductosIntercambio";
+
+  }
+
+
+
+
+  //
     useEffect(() => {
         async function fetchData() {
             const res = await articuloIntercambio_getById(id);
@@ -184,6 +222,7 @@ const DetalleProductoIntercambioPage =()=>{
                     <h5 className="letraFooter alinearIzquier">
                       Ingrese la información de su artículo a sugerir
                     </h5>
+                    <Form onSubmit={enviarDatos}>
                     <InputGroup className="mb-3">
                       <InputGroup.Text
                         className="inputArticuloSugerido"
@@ -195,10 +234,13 @@ const DetalleProductoIntercambioPage =()=>{
                         placeholder="Título"
                         className="inputArticuloSugeridoTexto"
                         aria-describedby="basic-addon1"
+                        
+                        name = "titulo"
+                        onChange={handleChange}
                       />
                     </InputGroup>
                     <InputGroup>
-                      <InputGroup.Text className="inputArticuloSugerido">
+                      <InputGroup.Text className="inputArticuloSugerido" >
                         Descripción
                       </InputGroup.Text>
                       <Form.Control
@@ -206,6 +248,7 @@ const DetalleProductoIntercambioPage =()=>{
                         as="textarea"
                         placeholder="Descripción"
                         aria-label="With textarea"
+                        name="descripcion" onChange={handleChange}
                       />
                     </InputGroup>
                     <Button className="btnAgregarImagenCAS" variant="dark">
@@ -222,9 +265,10 @@ const DetalleProductoIntercambioPage =()=>{
                       <img className="imgOpcionesDetalle " src={taylor1} alt="Imagen"/>
                     </div>
                     <br></br>
-                    <Link className="linkNavBar" to="/EscribirResena">
-                    <Button className="btnEnviarCAS" variant="dark">Enviar oferta</Button>
-                  </Link>
+                    
+                    <Button className="btnEnviarCAS" variant="dark" type="submit">Enviar oferta</Button>
+                  
+                  </Form>
                   </div>
                 )
               }

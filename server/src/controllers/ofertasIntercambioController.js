@@ -7,6 +7,7 @@ const ArticuloIntercambio = require('../models/articulosIntercambioSchema');
 
 exports.oferta_agregar = async (req, res) => {
     const {body : oferta} = req;
+    console.log(oferta);
 
     const ofertaDB = new Oferta(oferta);
 
@@ -20,6 +21,7 @@ exports.oferta_agregar = async (req, res) => {
 
     } catch(err) {
         res.send("No se pudo crear la articula");
+        console.log("error")
     }
 
 };
@@ -93,10 +95,14 @@ exports.oferta_aceptar = async (req, res) => {
   //MOSTRAR TODAS LAS OFERTAS DE TRUEQUE QUE TENGA EL USUARIO CONECTADO
 
   exports.oferta_getAll = async (req, res) => {
-    const {params: {id}} = req; //id del usuario logueado
+    //const {params: {id}} = req; //id del usuario logueado
+    const {
+      body: usuario
+  } = req;
+  console.log(req.body)
  
     try {                   
-      const data = await Oferta.find({id_usuario : id , estatus : "pendiente"}  ) //FILTRAR POR USUARIO LOGUEADO Y SUS OFERTAS
+      const data = await Oferta.find({id_usuario : usuario._id , estatus : "pendiente"}  ) //FILTRAR POR USUARIO LOGUEADO Y SUS OFERTAS
         .populate({path : "id_usuario"});
 
       if (data){

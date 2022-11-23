@@ -14,8 +14,7 @@ const OfertasIntercambioSchema = mongoose.Schema({
         maxlenght: [400, 'Favor de usar maximo 400 caracteres']
     },
     imagenes: {
-        type: Array,
-        required: true
+        type: Array
     },
     estatus: {
         type: String,
