@@ -7,10 +7,10 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import InputGroup from 'react-bootstrap/InputGroup';
-
+import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState } from "react";
 import {articulo_crear, articuloVenta_agregar, articuloIntercambio_agregar} from '../services/ArticuloService';
-
+import { usuario_getByEmail } from '../services/UsuarioService';
 import './Styles/CrearArticulo.css'
 
 
@@ -25,10 +25,11 @@ const [datos,setDatos] = useState ( {
     notas: '',
     imagenes: [],
     etiquetas: [],
-    id_usuario: '6328acf2cbbbf05941a81c56',
+    id_usuario: '',
     tipo: ''
   })
-
+  const { user, getAccessTokenSilently} = useAuth0();
+ 
   const handleChange = (event) => {
     setDatos({
         ...datos,
@@ -37,21 +38,28 @@ const [datos,setDatos] = useState ( {
   };
 
   const enviarDatosVenta = async (event) =>{
+    
     event.preventDefault();
+    const token = await getAccessTokenSilently();
+    const us = await usuario_getByEmail(user.email, token);
+    datos.id_usuario = us._id;
     datos.tipo = "venta"
     const art = await articulo_crear(datos);
-    console.log(art);
     datos.id_articulo = art.data._id;
     const artv = await articuloVenta_agregar(datos);
-    console.log(artv);
+    window.location.href = `http://localhost:3000/DetalleProductoVenta/${artv.data.id_articulo}`;
   }
 
   const enviarDatosInter = async (event) =>{
     event.preventDefault();
+    const token = await getAccessTokenSilently();
+    const us = await usuario_getByEmail(user.email, token);
+    datos.id_usuario = us._id;
     datos.tipo = "inter"
     const art = await articulo_crear(datos);
     datos.id_articulo = art.data._id;
     const artv = await articuloIntercambio_agregar(datos);
+    window.location.href = `http://localhost:3000/DetalleProductoIntercambio/${artv.data.id_articulo}`;
   }
 
     return(
