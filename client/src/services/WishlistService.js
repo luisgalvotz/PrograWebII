@@ -14,10 +14,30 @@ export const wishlist_crear = async (wishlist) => {
   };
 
   //AGREGAR PRODUCTO A WISHLIST
-  //aqui no se como ponerlo porque dice put 
+  export const wishlist_agregar = async (wishlist) => {
+    try {
+      const response = await axios.put("/wishlist/agregar", wishlist);
+      
+      return "Creado con éxito";
+  
+    } catch (err) {
+      console.error(err);
+      return "Ocurrió un error inesperado";
+    }
+  };
 
    //ELIMINAR PRODUCTO A WISHLIST
-  //aqui no se como ponerlo porque dice put
+   export const wishlist_eliminar = async (wishlist) => {
+    try {
+      const response = await axios.put("/wishlist/eliminar", wishlist);
+      
+      return "Creado con éxito";
+  
+    } catch (err) {
+      console.error(err);
+      return "Ocurrió un error inesperado";
+    }
+  };
 
 
   //VER WISHLIST DE USUARIO
