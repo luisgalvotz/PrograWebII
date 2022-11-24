@@ -42,7 +42,7 @@ const SugerenciasPage =()=>{
         }
     fetchData();
     }, [])
-
+    console.log(sugerencias)
 
     return(
         <div className= "container-sug">
@@ -57,6 +57,7 @@ const SugerenciasPage =()=>{
                         <img className= "img_com img-fluid" src={mujerPosando} alt="Usuario"/>
                     </div>
                     <div className="comentario-usuario col-sm-10">
+                        <p className= "texto-sug-date">{comentario.fecha.substr(0, 10)}</p>
                         <p className= "texto-sug">{comentario.contenido}</p>
                         <p className= "texto-sug-rev">Sugerencia Revisada</p>
                     </div>
@@ -69,6 +70,7 @@ const SugerenciasPage =()=>{
                     <img className= "img_com img-fluid" src={mujerPosando} alt="Usuario"/>
                 </div>
                 <div className="comentario-usuario col-sm-10">
+                <p className= "texto-sug-date">{comentario.fecha.substr(0, 10)}</p>
                     <p className= "texto-sug">{comentario.contenido}</p>
                     <Form onSubmit={enviarDatos}>
                     <Button className= "btn-Revisado" type="Submit" value={comentario._id} name="id" id="id" onClick={handleChange}>

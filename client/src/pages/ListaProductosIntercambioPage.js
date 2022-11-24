@@ -30,7 +30,6 @@ const ListaProductosIntercambioPage =()=>{
                      <img src={taylor1} alt="Imagen"/>
                      </Link>
                      <h4 className="tituloListaProductoVenta">{articulo.id_articulo.titulo}</h4>
-                    <h6 className="tituloListaProductoVenta">Producto para intercambio</h6>
                     <div className= "moverLinkIzq">
                         <Link className="linkNavBar moverLinkIzq" to="/">
                         <span>#Etiqueta1</span>

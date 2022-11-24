@@ -32,7 +32,8 @@ exports.comentarios_ver = async (req, res) => {
     }, {
         "contenido": 1,
         "estatus" :1,
-        "_id": 1
+        "_id": 1,
+        "fecha": 1
     });
     if (data) {
         res.send({

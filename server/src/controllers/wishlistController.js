@@ -51,8 +51,8 @@ exports.wishlist_eliminar = async(req, res) => {
 exports.wishlist_ver = async(req, res) => {
     const {params: {id}} = req;
 
-    const data = await Wishlist.find({id_usuario : id})
-        .populate({path : "id_usuario", select: "nombre"});
+    const data = await Wishlist.findOne({id_usuario : id})
+        .populate({path: "articulos", populate: {path: "id_usuario"}});
 
     res.send(data);
 };
