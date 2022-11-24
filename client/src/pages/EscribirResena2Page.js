@@ -13,15 +13,17 @@ import {articulo_baja,articuloVenta_getById} from '../services/ArticuloService';
 import {resenas_crear} from '../services/ResenasService';
 import { useAuth0 } from "@auth0/auth0-react";
 import { usuario_getByEmail } from '../services/UsuarioService';
+import {oferta_getById,oferta_aceptar} from '../services/OfertasService';
 
-const EscribirResenaPage =()=>{
+const EscribirResena2Page =()=>{
   let {id} = useParams();
   const [datos,setDatos] = useState ( {
     contenido: '',
     estrellas: 0,
     id_vendedor: '',
     id_usuario: '',
-    id_articulo : id
+    id_articulo : '',
+    _id : ''
   })
   const { user, getAccessTokenSilently} = useAuth0();
   
@@ -32,23 +34,28 @@ const EscribirResenaPage =()=>{
         [event.target.name] : event.target.value
       })
   };
-
+  const [ofertas, setOfertas] = useState([]);
   const enviarDatos = async (event) =>{
     event.preventDefault();
+    //SACAR QUIEN ES EL USUARIO EN ESTE CASO QUE HACE LA RESEÑA
     const token = await getAccessTokenSilently();
     const us2 = await usuario_getByEmail(user.email, token);
-    datos.id_usuario = us2._id;
+    datos.id_usuario = us2._id; //ESTE ES QUIEN HACE LA RESEÑA
 
-     //SACAR ID DEL VENDEDOR DEL ARTICULO
-     const us = await articuloVenta_getById (id);
-    //DAR DE BAJA ARTICULO POR HABERLO COMPRADO
-    const art = await articulo_baja(datos); //YA LO DA DE BAJA
-    //ENVIAR UNA RESEÑA PARA EL USUARIO 
-    //
-    datos.id_vendedor = us.id_articulo.id_usuario;
-    //datos.id_usuario = '6328ad04cbbbf05941a81c58';
-    const art2 = await resenas_crear(datos); //YA LO DA DE BAJA
-    window.location.href = "http://localhost:3000/ListaProductosVenta";
+        //AQUI SACARE EL ID DEL OFERTANTE 
+        const res = await oferta_getById(id);
+        datos.id_vendedor = res.id_ofertante;
+        console.log(datos.id_vendedor)
+
+        //ARTICULO QUE SE DARA DE BAJA
+        datos._id =res.id_articulo;
+        console.log (datos._id)
+
+        //DAR DE BAJA LA OFERTA 
+        await resenas_crear(datos) 
+        await oferta_aceptar(res)
+        window.location.href = "http://localhost:3000/AdministrarIntercambios";
+        //YA LO DA DE BAJA
 
   }
 
@@ -93,4 +100,4 @@ const EscribirResenaPage =()=>{
     )
 }
 
-export default EscribirResenaPage
+export default EscribirResena2Page

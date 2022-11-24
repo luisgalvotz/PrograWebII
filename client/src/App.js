@@ -14,6 +14,7 @@ import AdministrarIntercambiosPage from "./pages/AdministrarIntercambiosPage.js"
 import DetalleProductoSugeridoPage from "./pages/DetalleProductoSugeridoPage";
 import ListaEtiquetasPage from "./pages/ListaEtiquetasPage";
 import EscribirResenaPage from "./pages/EscribirResenaPage";
+import EscribirResena2Page from "./pages/EscribirResena2Page";
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import PerfilPage from './pages/PerfilPage'
@@ -79,7 +80,7 @@ function App() {
             */}
             <Route exact path="/AdministrarIntercambios" element={<AdministrarIntercambiosPage />}/>
             {/* Se ve una lista de todas las ofertas que haya recibido el usuario especifico */}
-            <Route exact path="/DetalleProductoSugerido" element={<DetalleProductoSugeridoPage />}/>
+            <Route exact path="/DetalleProductoSugerido/:id" element={<DetalleProductoSugeridoPage />}/>
             {/* Se puede ver la información del producto ofrecido para intercambiar en especifico
             Se puede ver el promedio de calificación de reseñas del usuario que está ofreciendo la oferta
             Se puede aceptar la oferta
@@ -88,6 +89,7 @@ function App() {
             {/* El administrador puede visualizar todas las etiquetas activas 
             Se puede eliminar cada etiqueta que siga activa*/}
             <Route exact path="/EscribirResena/:id" element={<EscribirResenaPage />}/>
+            <Route exact path="/EscribirResena2/:id" element={<EscribirResena2Page />}/>
             {/* Se puede crear una reseña hecha de acuerdo al usuario con el que se haya comprado o intercambiado */}
             <Route exact path="/Login" element={<LoginPage/>} />
             {/* El usuario puede ingresar a la pagina con su cuenta */}
