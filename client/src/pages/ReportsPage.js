@@ -8,10 +8,34 @@ import Row from 'react-bootstrap/Row';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
-
+import { useEffect, useState } from "react";
+import {articuloVenta_reporte,articuloIntercambio_reporte,comentarios_reporte,
+    etiquetas_reporte,resenas_reporte,likes_reporte} from '../services/ReportesService';
 import './Styles/Reportes.css'
 
 const ReportsPage =()=>{
+    const [ventas, setVentas] = useState([]);
+    const [intercambios, setIntercambios] = useState([]);
+    const [comentarios, setComentarios] = useState([]);
+    
+    const [etiquetas, setEtiquetas] = useState([]);
+    const [resenas, setResenas] = useState([]);
+    const [likes, setLikes] = useState([]);
+
+    var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    useEffect(() => {
+        
+        async function fetchData() {
+            const res = await articuloVenta_reporte();
+            setVentas(res); 
+            const res2 = await articuloIntercambio_reporte();
+            setIntercambios(res2); 
+            const res3 = await comentarios_reporte();
+            setComentarios(res3); 
+        }
+    fetchData();
+    }, [])
+
     return(
         <div className= "container-perfil">
         <div className="reporte-filtrado row">
@@ -76,167 +100,160 @@ const ReportsPage =()=>{
             <div className= "reporte-listo row" >
                 <h2 className= "reporte-nombre">Reporte Ventas</h2>
                 <div className="reporte-name col-sm-4">
-                    <h3 className= "info-v">Artículo</h3>
+                    <h3 className= "info-v">Cantidad</h3>
+                    
                     <div className= "datos row" >
-                        <p className= "datos-reporte">Pulsera</p>
-                        <p className= "datos-reporte">Blusa</p>
+                    {ventas.map((venta) => {
+            return (
+                        <p className= "datos-reporte">{venta.cantidad}</p>
+                        )
+                    })}
                     </div>
+                   
+
                 </div>
                 <div className="reporte-name col-sm-4">
                     <h3 className= "info-v">Mes</h3>
                     <div className= "datos row" >
-                        <p className= "datos-reporte">junio</p>
-                        <p className= "datos-reporte">enero</p>
+                    {ventas.map((venta) => {
+            return (
+                        
+                        <p className= "datos-reporte">{venta._id.month}</p>
+                        )
+                    })}
                     </div>
                 </div>
                 <div className="reporte-name col-sm-4">
                     <h3 className= "info-v">Año</h3>
                     <div className= "datos row" >
-                        <p className= "datos-reporte">2022</p>
-                        <p className= "datos-reporte">2021</p>
+                    {ventas.map((venta) => {
+            return (
+                        <p className= "datos-reporte">{venta._id.year}</p>
+                        )
+                    })}
                     </div>
                 </div>
             </div>
             <div className= "reporte-listo row" >
                 <h2 className= "reporte-nombre">Reporte Intercambios</h2>
                 <div className="reporte-name col-sm-4">
-                    <h3 className= "info-v">Artículo</h3>
+                    <h3 className= "info-v">Cantidad</h3>
                     <div className= "datos row" >
-                        <p className= "datos-reporte">Pulsera</p>
-                        <p className= "datos-reporte">Blusa</p>
+                    {intercambios.map((intercambio) => {
+            return (
+                        <p className= "datos-reporte">{intercambio.cantidad}</p>
+                        )
+                    })}
                     </div>
                 </div>
                 <div className="reporte-name col-sm-4">
                     <h3 className= "info-v">Mes</h3>
                     <div className= "datos row" >
-                        <p className= "datos-reporte">junio</p>
-                        <p className= "datos-reporte">enero</p>
+                    {intercambios.map((intercambio) => {
+            return (
+                        <p className= "datos-reporte">{intercambio._id.month}</p>
+                        )
+                    })}
                     </div>
                 </div>
                 <div className="reporte-name col-sm-4">
                     <h3 className= "info-v">Año</h3>
                     <div className= "datos row" >
-                        <p className= "datos-reporte">2022</p>
-                        <p className= "datos-reporte">2021</p>
+                    {intercambios.map((intercambio) => {
+            return (
+                    
+                        <p className= "datos-reporte">{intercambio._id.year}</p>
+                        )
+                    })}
                     </div>
                 </div>
             </div>
             <div className= "reporte-listo row" >
                 <h2 className= "reporte-nombre">Etiquetas</h2>
-                <div className="reporte-name col-sm-3">
+                <div className="reporte-name col-sm-6">
                     <h3 className= "info-v">Etiqueta</h3>
                     <div className= "datos row" >
                         <p className= "datos-reporte">Pam</p>
                         <p className= "datos-reporte">Astrid</p>
                     </div>
                 </div>
-                <div className="reporte-name col-sm-3">
+                <div className="reporte-name col-sm-6">
                     <h3 className= "info-v">Uso</h3>
                     <div className= "datos row" >
                         <p className= "datos-reporte">34 veces</p>
                         <p className= "datos-reporte">21 veces</p>
                     </div>
                 </div>
-                <div className="reporte-name col-sm-3">
-                    <h3 className= "info-v">Desde</h3>
-                    <div className= "datos row" >
-                        <p className= "datos-reporte">fecha uno</p>
-                        <p className= "datos-reporte">fecha uno</p>
-                    </div>
-                </div>
-                <div className="reporte-name col-sm-3">
-                    <h3 className= "info-v">Hasta</h3>
-                    <div className= "datos row" >
-                        <p className= "datos-reporte">fecha dos</p>
-                        <p className= "datos-reporte">fecha dos</p>
-                    </div>
-                </div>
+               
             </div>
             <div className= "reporte-listo row" >
                 <h2 className= "reporte-nombre">Comentarios</h2>
                 <div className="reporte-name col-sm-4">
                     <h3 className= "info-v">Cantidad</h3>
                     <div className= "datos row" >
-                        <p className= "datos-reporte">25</p>
-                        <p className= "datos-reporte">14</p>
+                    {comentarios.map((comentario) => {
+            return (
+                        <p className= "datos-reporte">{comentario.cantidad}</p>
+                        )
+                    })}
                     </div>
                 </div>
                 <div className="reporte-name col-sm-4">
                     <h3 className= "info-v">Mes</h3>
                     <div className= "datos row" >
-                        <p className= "datos-reporte">mayo</p>
-                        <p className= "datos-reporte">enero</p>
+                    {comentarios.map((comentario) => {
+            return (
+                        <p className= "datos-reporte">{comentario._id.month}</p>
+                        )
+                    })}
                     </div>
                 </div>
                 <div className="reporte-name col-sm-4">
                     <h3 className= "info-v">Año</h3>
                     <div className= "datos row" >
-                        <p className= "datos-reporte">2020</p>
-                        <p className= "datos-reporte">2022</p>
+                    {comentarios.map((comentario) => {
+            return (
+                        <p className= "datos-reporte">{comentario._id.year}</p>
+                        )
+                    })}
                     </div>
                 </div>
             </div>
             <div className= "reporte-listo row" >
                 <h2 className= "reporte-nombre">Mejores reseñas</h2>
-                <div className="reporte-name col-sm-3">
+                <div className="reporte-name col-sm-6">
                     <h3 className= "info-v">Usuario</h3>
                     <div className= "datos row" >
                         <p className= "datos-reporte">Pam</p>
                         <p className= "datos-reporte">Astrid</p>
                     </div>
                 </div>
-                <div className="reporte-name col-sm-3">
+                <div className="reporte-name col-sm-6">
                     <h3 className= "info-v">Estrellas</h3>
                     <div className= "datos row" >
                         <p className= "datos-reporte">5</p>
                         <p className= "datos-reporte">4</p>
                     </div>
                 </div>
-                <div className="reporte-name col-sm-3">
-                    <h3 className= "info-v">Desde</h3>
-                    <div className= "datos row" >
-                        <p className= "datos-reporte">fecha uno</p>
-                        <p className= "datos-reporte">fecha uno</p>
-                    </div>
-                </div>
-                <div className="reporte-name col-sm-3">
-                    <h3 className= "info-v">Hasta</h3>
-                    <div className= "datos row" >
-                        <p className= "datos-reporte">fecha dos</p>
-                        <p className= "datos-reporte">fecha dos</p>
-                    </div>
-                </div>
+                
             </div>
             <div className= "reporte-listo row" >
                 <h2 className= "reporte-nombre">Más likes</h2>
-                <div className="reporte-name col-sm-3">
+                <div className="reporte-name col-sm-6">
                     <h3 className= "info-v">Artículo</h3>
                     <div className= "datos row" >
                         <p className= "datos-reporte">Playera</p>
                         <p className= "datos-reporte">Gorra</p>
                     </div>
                 </div>
-                <div className="reporte-name col-sm-3">
+                <div className="reporte-name col-sm-6">
                     <h3 className= "info-v">Likes</h3>
                     <div className= "datos row" >
                         <p className= "datos-reporte">50</p>
                         <p className= "datos-reporte">45</p>
                     </div>
                 </div>
-                <div className="reporte-name col-sm-3">
-                    <h3 className= "info-v">Desde</h3>
-                    <div className= "datos row" >
-                        <p className= "datos-reporte">fecha uno</p>
-                        <p className= "datos-reporte">fecha uno</p>
-                    </div>
-                </div>
-                <div className="reporte-name col-sm-3">
-                    <h3 className= "info-v">Hasta</h3>
-                    <div className= "datos row" >
-                        <p className= "datos-reporte">fecha dos</p>
-                        <p className= "datos-reporte">fecha dos</p>
-                    </div>
-                </div>
+                
             </div>
     </div>
     )
