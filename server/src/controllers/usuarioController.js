@@ -7,13 +7,17 @@ exports.usuario_crear = async(req, res) => {
     //en este caso es lo que vamos a pedir para llenar el usuario
 
     const usuarioDB = new Usuario(usuario); //crear un usuario con todos los parametros del schema
-  
+    
     try {
-        await usuarioDB.save();
-        res.send({
-            message: "Usuario creado",
-            data: usuarioDB
-        });
+        const existe = await Usuario.exists({ email: usuarioDB.email });
+        
+        if (!existe) {
+          await usuarioDB.save();
+          res.send({
+              message: "Usuario creado",
+              data: usuarioDB
+          });
+        }
 
     }catch(err){
         res.send('No se creo el usuario');

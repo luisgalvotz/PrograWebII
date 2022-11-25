@@ -29,6 +29,7 @@ const UsuarioSchema = mongoose.Schema({
     },
     email: {
         type: String,
+        unique: true,
         required: [true,'Favor de ingresar el email'],
         minlength: [4, 'Favor de usar minimo 4 caracteres -email'],
         maxlenght: [80, 'Favor de usar maximo 8 caracteres -email'],

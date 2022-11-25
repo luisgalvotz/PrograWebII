@@ -53,7 +53,7 @@ const ListaEtiquetasPage =()=>{
                 </Form>
               </div>
             )
-        })}
+          })}
 
           </div>
         </div>

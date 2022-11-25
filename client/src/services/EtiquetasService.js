@@ -4,9 +4,7 @@ import { AxiosConfig as axios } from "./AxiosConfig";
 export const etiquetas_crear = async (etiqueta) => {
     try {
       const response = await axios.post("/etiquetas/crear", etiqueta);
-      
-      return "Creado con éxito";
-  
+      return response.data;
     } catch (err) {
       console.error(err);
       return "Ocurrió un error inesperado";
