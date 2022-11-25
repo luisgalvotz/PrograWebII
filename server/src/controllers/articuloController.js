@@ -52,18 +52,13 @@ exports.articulo_getAll = async (req, res) => {
 exports.busqueda = async (req, res) => {
     const {
         params: {
-            etiquetas
+            busqueda
         }
     } = req;
-    //OBTENER EL PARAMETRO DEL REQUEST
-
-    //EN EL PRIMER ESPACIO VA LAS ETIQUETAS QUE QUEREMOS COMPARAR
-
-    const data = await Articulo.find({
-        etiquetas: {
-            $in: etiquetas
-        }
-    }); //GUARDA TODOS LOS ARTICULOS
+    //OBTENER EL PARAMETRO
+    const data = await Articulo.find(
+        {titulo : {$regex : new RegExp(busqueda, "i")} , estatus: "activo"}
+    ); //GUARDA TODOS LOS ARTICULOS
     if (data) {
         res.send({
             message: "todos los articulos",

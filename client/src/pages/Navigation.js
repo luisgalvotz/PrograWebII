@@ -20,6 +20,20 @@ import { usuario_getByEmail } from '../services/UsuarioService';
 
 function NavScrollExample() {
 
+  //VALOR DEL INPUT DE BUSQUEDA
+  const [input,setInput] = useState ( {
+    busqueda: ''
+  })
+
+  const handleChange = (event) => {
+    setInput({
+        ...input,
+        [event.target.name] : event.target.value
+      })
+  };
+
+  //
+
   const { user, getAccessTokenSilently, logout } = useAuth0();
   
   const [usuario, setUsuario] = useState([]);
@@ -150,8 +164,11 @@ function NavScrollExample() {
               placeholder="Buscar producto"
               className="me-2 inputNavBar"
               aria-label="Search"
+              name="busqueda"
+              id ="busqueda"
+              onChange={handleChange}
             />            
-            <Link className="linkNavBar" to="/ListaProductosBusqueda">
+            <Link className="linkNavBar" to={`/ListaProductosBusqueda/${input.busqueda}`}>
               <Button variant="outline-success" className="btnBuscarOutside">  
                 <img src={Lupa} alt="Bootstrap" className='btnBuscar'/> 
               </Button>

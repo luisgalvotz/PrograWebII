@@ -94,9 +94,9 @@ export const articulo_crear = async (articulo) => {
 
   //CHECAR BIEN AQUI QUE ONDA
   //BUSCA EL ARTICULO POR ETIQUETAS
-  export const busqueda = async (etiqueta) => {
+  export const busqueda2 = async (busqueda) => {
     try {
-        const response = await axios.get(`/articulo/busqueda/${etiqueta}`);
+        const response = await axios.get(`/articulo/busqueda/${busqueda}`);
         return response.data;
     } catch (err) {
         console.error(err);

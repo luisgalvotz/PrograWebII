@@ -153,7 +153,7 @@ const DashboardPage =()=>{
                         </Card.Body>
                         </Card>
                     )}
-                else {
+                    if(articulo.tipo === "inter"){
                     return (
                         <Card className="dashcardsInter">
                         <Link className="linkNavBar" to={`/DetalleProductoIntercambio/${articulo._id}`}>

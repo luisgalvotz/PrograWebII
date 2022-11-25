@@ -50,7 +50,7 @@ function App() {
             {/* Se trae la lista de todos los artículos disponibles que esten a la venta */}
             <Route exact path="/ListaProductosIntercambio" element={<ListaProductosIntercambioPage />}/>
             {/* Se trae la lista de todos los artículos disponibles para ser intercambiados */}
-            <Route exact path="/ListaProductosBusqueda" element={<ListaProductosBusquedaPage />}/>
+            <Route exact path="/ListaProductosBusqueda/:busqueda" element={<ListaProductosBusquedaPage />}/>
             {/* Se trae el resultado de las etiquetas ingresadas en el navbar, busqueda por etiquetas */}
             <Route exact path="/DetalleProductoVenta/:id" element={<DetalleProductoVentaPage />}/>
             {/* Se muestra la información de un producto en venta especifico
