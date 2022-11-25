@@ -67,7 +67,7 @@ const DashboardPage =()=>{
             </Carousel.Caption>
         </Carousel.Item>
     </Carousel>
-    <div className= "container-newmerch">
+    {/* <div className= "container-newmerch">
         <p className= "titulo-merch">MERCANCIA NUEVA</p>
         <div className= "row" >
             <div className="dashcardsrow col-sm-3">
@@ -132,7 +132,7 @@ const DashboardPage =()=>{
                 </Card>
             </div>
         </div>
-    </div>
+    </div> */}
     <div className= "container-newmerch">
     <p className= "titulo-merch">TODOS LOS ARTICULOS</p>
     <div className= "row" >
@@ -172,7 +172,7 @@ const DashboardPage =()=>{
         })}
     </div>
     </div>
-    <div className= "container-newmerch">
+    {/* <div className= "container-newmerch">
     <p className= "titulo-merch">¡NO ESPERES MAS!</p>
         <div className= "row" >
             <div className="dashcardsrow col-sm-6">
@@ -192,7 +192,7 @@ const DashboardPage =()=>{
                 </Card>
             </div>
         </div>
-    </div>
+    </div> */}
 </div>    
     )
 }

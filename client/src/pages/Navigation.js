@@ -32,7 +32,10 @@ function NavScrollExample() {
       })
   };
 
-  //
+  const limpiarBusqueda = async (event) => {
+    var input = document.getElementById('busqueda');
+    input.value = '';
+  };
 
   const { user, getAccessTokenSilently, logout } = useAuth0();
   
@@ -169,7 +172,7 @@ function NavScrollExample() {
               onChange={handleChange}
             />            
             <Link className="linkNavBar" to={`/ListaProductosBusqueda/${input.busqueda}`}>
-              <Button variant="outline-success" className="btnBuscarOutside">  
+              <Button variant="outline-success" className="btnBuscarOutside" onClick={limpiarBusqueda}>  
                 <img src={Lupa} alt="Bootstrap" className='btnBuscar'/> 
               </Button>
             </Link>

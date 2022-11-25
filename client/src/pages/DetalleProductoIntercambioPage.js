@@ -143,7 +143,7 @@ const DetalleProductoIntercambioPage =()=>{
                   />{" "}
                 </div>
               </div>
-              <div className="hover-container">
+              {/* <div className="hover-container">
                 <div className="divOpcionesDetalle">
                   {" "}
                   <img
@@ -184,7 +184,7 @@ const DetalleProductoIntercambioPage =()=>{
                     alt="Imagen"
                   />{" "}
                 </div>
-              </div>
+              </div> */}
               <span className="product-description ofrecidoPor">
                 Ofrecido por:
               </span>

@@ -104,7 +104,7 @@ const DetalleProductoVentaPage =()=>{
                   <img className="imgDetalleProducto" src={taylor1} alt="Imagen"/>{" "}
                 </div>
               </div>
-              <div className="hover-container">
+              {/* <div className="hover-container">
                 <div className="divOpcionesDetalle">{" "}
                   <img className="imgOpcionesDetalle" src={taylor2} alt="Imagen"/>{" "}
                 </div>
@@ -120,7 +120,7 @@ const DetalleProductoVentaPage =()=>{
                 <div className="divOpcionesDetalle">{" "}
                   <img className="imgOpcionesDetalle" src={taylor1} alt="Imagen"/>{" "}
                 </div>
-              </div>
+              </div> */}
               <span className="product-description ofrecidoPor">Ofrecido por:</span>
               <div className="parrafo">
               <Link className="linkNavBar" to={`/PerfilResenas/${usuario._id}`}>

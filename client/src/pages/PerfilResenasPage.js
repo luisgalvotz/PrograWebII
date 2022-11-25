@@ -43,18 +43,42 @@ const PerfilResenasPage =()=>{
             <img className= "img_perfil img-fluid" src={mujerPosando} alt="Usuario"/>
             <p className= "rating-perfil">{usuario.nombre}</p>
             <form className="estrellasOutP">
-            <p className="clasificacion">
-                    <input id="estrella1" type="radio" className="estrellasOutP" value="5"/>
-                    <label className="estIndividualP" htmlFor="radio1">★</label>
-                    <input id="estrella2" type="radio" className="estrellasOutP" value="4"/>
-                    <label className="estIndividualP" htmlFor="radio2">★</label>
-                    <input id="estrella3" type="radio" className="estrellasOutP" value="3"/>
-                    <label className="estIndividualP" htmlFor="radio3">★</label>
-                    <input id="estrella4" type="radio" className="estrellasOutP" value="2"/>
-                    <label className="estIndividualP" htmlFor="radio4">★</label>
+                <p className="clasificacion">
+                    {(() => {
+                        if(promedio.promedio >= 5){
+                            return(
+                              <><input id="estrella1" type="radio" className="estrellasOutP" value="5"/>
+                              <label className="estIndividualP" htmlFor="radio1">★</label></>
+                            )
+                        }
+                    })()}
+                    {(() => {
+                        if(promedio.promedio >= 4){
+                            return(
+                              <><input id="estrella2" type="radio" className="estrellasOutP" value="4"/>
+                              <label className="estIndividualP" htmlFor="radio2">★</label></>
+                            )
+                        }
+                    })()}
+                    {(() => {
+                        if(promedio.promedio >= 3){
+                            return(
+                              <><input id="estrella3" type="radio" className="estrellasOutP" value="3"/>
+                              <label className="estIndividualP" htmlFor="radio3">★</label></>
+                            )
+                        }
+                    })()}
+                    {(() => {
+                        if(promedio.promedio >= 2){
+                            return(
+                              <><input id="estrella4" type="radio" className="estrellasOutP" value="2"/>
+                              <label className="estIndividualP" htmlFor="radio4">★</label></>
+                            )
+                        }
+                    })()}
                     <input id="estrella5" type="radio" className="estrellasOutP" value="1"/>
                     <label className="estIndividualP" htmlFor="radio5">★</label>
-                  </p>
+                </p>
             </form>
             {/* <Form.Group className="btn-perfil mb-3">
                     <Form.Label className= "user-perfil">Editar foto de perfil</Form.Label>
@@ -70,9 +94,7 @@ const PerfilResenasPage =()=>{
             {resenas.map((resena) => {
               return(
                 <div className="contendorCAS2">
-                <Link className="linkNavBar" to="/PerfilResenas">
                 <img className="imgResena" src={markUwu} alt="Imagen"/>
-                  </Link>
                   <h5 className="letraFooter alinearIzquier whiteTe">{resena.id_usuario.nombre}</h5>
                   <p className="notaListaProductoAdquirido whiteTe">{resena.contenido}</p>
                   <br></br>

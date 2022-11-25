@@ -4,7 +4,7 @@ import logincaja from '../img/logincaja.jpg'
 import truefanlogo from '../img/truefanlogo.png'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import mujerPosando from '../img/mujerPosando.jpg'
+import cajaLogo from '../img/cajaLogo.png'
 import './Styles/Sugerencia.css'
 
 import { useEffect, useState } from "react";
@@ -52,7 +52,7 @@ const SugerenciasPage =()=>{
                 return (
                     <div className= "cardsug row" >
                     <div className="comentario-usuario col-sm-2">
-                        <img className= "img_com img-fluid" src={mujerPosando} alt="Usuario"/>
+                        <img className= "img_com img-fluid" src={cajaLogo} alt="Usuario"/>
                     </div>
                     <div className="comentario-usuario col-sm-10">
                         <p className= "texto-sug-date">{comentario.fecha.substr(0, 10)}</p>
@@ -65,7 +65,7 @@ const SugerenciasPage =()=>{
                   return (
             <div className= "cardsug row" >
                 <div className="comentario-usuario col-sm-2">
-                    <img className= "img_com img-fluid" src={mujerPosando} alt="Usuario"/>
+                    <img className= "img_com img-fluid" src={cajaLogo} alt="Usuario"/>
                 </div>
                 <div className="comentario-usuario col-sm-10">
                 <p className= "texto-sug-date">{comentario.fecha.substr(0, 10)}</p>
