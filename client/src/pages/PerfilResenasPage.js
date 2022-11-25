@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import mujerPosando from '../img/mujerPosando.jpg'
+import userImg from "../img/user.png";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import heart from "../img/heart.png";
@@ -40,7 +41,7 @@ const PerfilResenasPage =()=>{
         <div className= "container-perfil">
         <div className= "row" >
             <div className="img-izqperfil col-sm-4">
-            <img className= "img_perfil img-fluid" src={mujerPosando} alt="Usuario"/>
+            <img className= "img_perfil img-fluid" src={userImg} alt="Usuario"/>
             <p className= "rating-perfil">{usuario.nombre}</p>
             <form className="estrellasOutP">
                 <p className="clasificacion">
@@ -94,7 +95,7 @@ const PerfilResenasPage =()=>{
             {resenas.map((resena) => {
               return(
                 <div className="contendorCAS2">
-                <img className="imgResena" src={markUwu} alt="Imagen"/>
+                <img className="imgResena" src={userImg} alt="Imagen"/>
                   <h5 className="letraFooter alinearIzquier whiteTe">{resena.id_usuario.nombre}</h5>
                   <p className="notaListaProductoAdquirido whiteTe">{resena.contenido}</p>
                   <br></br>

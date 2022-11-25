@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, useParams } from "react-router-dom";
 import markUwu from "../img/markUwu.jpg";
+import userImg from "../img/user.png";
 import taylor2 from "../img/taylor2.png";
 import taylor1 from "../img/taylor1.jpg";
 import heart from "../img/heart.png";
@@ -124,7 +125,7 @@ const DetalleProductoVentaPage =()=>{
               <span className="product-description ofrecidoPor">Ofrecido por:</span>
               <div className="parrafo">
               <Link className="linkNavBar" to={`/PerfilResenas/${usuario._id}`}>
-                <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
+                <img className="imgVendedorDetalle" src={userImg} alt="Imagen"/>
               </Link>                
               <span className="product-description descripcionExtra nombreVendedorDetalle">{usuario.nombre}</span>{" "}<br></br>
                 <form className="estrellasOut">

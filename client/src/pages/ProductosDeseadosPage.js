@@ -1,6 +1,7 @@
 import React, {Component } from 'react'
 import taylor1 from '../img/taylor1.jpg'
 import markUwu from '../img/markUwu.jpg'
+import userImg from "../img/user.png";
 import './Styles/ProductosAdquridos.css'
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
@@ -74,7 +75,7 @@ const ProductosDeseadosPage =()=>{
                             </div>
                             {/* Column2 */}
                             <div className="col columna1">
-                              <img className= "imgVendedorDetalleAdquirido" src={markUwu} alt="Imagen"/>
+                              <img className= "imgVendedorDetalleAdquirido" src={userImg} alt="Imagen"/>
                               <ui className="list-unstyled">
                                 <h4 className="tituloListaProductoAdquirido">Ofrecido por</h4>
                                 <li className="notaListaProductoAdquirido">{deseo.id_usuario.nombre}</li>
