@@ -4,6 +4,7 @@ import markUwu from '../img/markUwu.jpg'
 import './Styles/ProductosAdquridos.css'
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -28,6 +29,25 @@ const ProductosDeseadosPage =()=>{
         }
     fetchData();
     }, [])
+
+    const [datos, setDatos] = useState({
+      id_usuario: '',
+      id_articulo: ''
+    });
+
+    const handleChange = (event) => {
+      setDatos({
+          ...datos,
+          [event.target.name] : event.target.value
+        })
+    };
+
+    const enviarDatos = async (event) => {
+      event.preventDefault();
+      datos.id_usuario = usuario._id;
+      const res = await wishlist_eliminar(datos);
+      window.location.href = "http://localhost:3000/ProductosDeseados";
+    };
    
     return(
         <div className= "main-wrapperThree">
@@ -67,7 +87,11 @@ const ProductosDeseadosPage =()=>{
                                 <Link className="linkNavBar" to={`/DetalleProductoVenta/${deseo._id}`}>
                                   <Button className="btnProdAdqVer" variant="dark">Ver producto</Button>&nbsp;&nbsp;&nbsp;
                                 </Link>
-                                <Button className="btnProdResena" variant="dark">Eliminar de lista</Button>  
+                                <Form onSubmit={enviarDatos}>
+                                  <Button className="btnProdResena" variant="dark" type="Submit" value={deseo._id} name="id_articulo" id="id_articulo" onClick={handleChange}>
+                                    Eliminar de lista
+                                  </Button>  
+                                </Form>
                               </ui> 
                             </div> 
                           </div>
@@ -102,7 +126,11 @@ const ProductosDeseadosPage =()=>{
                                 <Link className="linkNavBar" to={`/DetalleProductoIntercambio/${deseo._id}`}>
                                   <Button className="btnProdAdqVer" variant="dark">Ver producto</Button>&nbsp;&nbsp;&nbsp;
                                 </Link>
-                                <Button className="btnProdResena" variant="dark">Eliminar de lista</Button>  
+                                <Form onSubmit={enviarDatos}>
+                                  <Button className="btnProdResena" variant="dark" type="Submit" value={deseo._id} name="id_articulo" id="id_articulo" onClick={handleChange}>
+                                    Eliminar de lista
+                                  </Button>  
+                                </Form>
                               </ui> 
                             </div> 
                           </div>

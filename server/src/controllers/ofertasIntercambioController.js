@@ -7,7 +7,6 @@ const ArticuloIntercambio = require('../models/articulosIntercambioSchema');
 
 exports.oferta_agregar = async (req, res) => {
     const {body : oferta} = req;
-    console.log(oferta);
 
     const ofertaDB = new Oferta(oferta);
 
@@ -99,7 +98,6 @@ exports.oferta_aceptar = async (req, res) => {
     const {
       body: usuario
   } = req;
-  console.log(req.body)
  
     try {                   
       const data = await Oferta.find({id_usuario : usuario._id , estatus : "pendiente"}  ) //FILTRAR POR USUARIO LOGUEADO Y SUS OFERTAS

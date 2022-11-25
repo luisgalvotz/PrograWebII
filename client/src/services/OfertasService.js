@@ -42,7 +42,6 @@ export const oferta_agregar = async (oferta) => {
   //TRAER TODAS LAS OFERTAS DE UN USUARIO EN ESPECIFICO
   export const oferta_getAll = async (usuario) => {
     try {
-      console.log(usuario)
         const response = await axios.post("/oferta/mostrarOfertas",usuario);
         return response.data;
     } catch (err) {

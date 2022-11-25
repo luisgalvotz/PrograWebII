@@ -5,6 +5,7 @@ import taylor2 from "../img/taylor2.png";
 import taylor1 from "../img/taylor1.jpg";
 import heart from "../img/heart.png";
 import like from "../img/like.png";
+import Form from 'react-bootstrap/Form';
 
 import "./Styles/DetalleProducto.css";
 // import { validas } from'./Scripts/Script'
@@ -12,8 +13,10 @@ import "./Styles/DetalleProducto.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import { useEffect, useState } from "react";
-import {articuloVenta_getById} from '../services/ArticuloService';
-import {usuario_getById,usuario_getByEmail} from '../services/UsuarioService';
+import { articuloVenta_getById } from '../services/ArticuloService';
+import { usuario_getById,usuario_getByEmail } from '../services/UsuarioService';
+import { wishlist_ver, wishlist_crear, wishlist_agregar } from '../services/WishlistService';
+import { likes_actualizar, likes_ver, likes_estatus } from '../services/LikesService';
 
 const DetalleProductoVentaPage =()=>{
 
@@ -24,6 +27,9 @@ const DetalleProductoVentaPage =()=>{
   const [subnivel, setSub] = useState([]);
   const [usuario, setUsuario] = useState([]);
   const [usuario2, setUsuario2] = useState([]);
+  const [deseos, setDeseos] = useState([]);
+  const [likes, setLikes] = useState([]);
+  const [estatus, setEstatus] = useState([]);
   
     useEffect(() => {
         async function fetchData() {
@@ -40,9 +46,51 @@ const DetalleProductoVentaPage =()=>{
             const us2 = await usuario_getByEmail(user.email, token);
             setUsuario2(us2);
 
+            const des = await wishlist_ver(us2._id);
+            setDeseos(des.articulos);
+
+            const lik = await likes_ver(id);
+            setLikes(lik);
+
+            const est = await likes_estatus(us2._id, id);
+            setEstatus(est.data);
         }
     fetchData();
     }, [])
+
+    const [deseo, setDeseo] = useState({
+      id_usuario: '',
+      id_articulo: ''
+    });
+
+    const enviarDeseo = async (event) => {
+      event.preventDefault();
+      deseo.id_usuario = usuario2._id;
+      deseo.id_articulo = id;
+      if (deseos) {
+        const res = await wishlist_agregar(deseo);
+      }
+      else {
+        const crea = await wishlist_crear(deseo);
+        const res = await wishlist_agregar(deseo);
+      }
+      window.location.href = `http://localhost:3000/DetalleProductoVenta/${id}`;
+    };
+
+    const [likeSN, setLikeSN] = useState({
+      id_usuario: '',
+      id_articulo: '',
+      estatus: ''
+    });
+
+    const enviarLikeSN = async (event) => {
+      event.preventDefault();
+      likeSN.id_usuario = usuario2._id;
+      likeSN.id_articulo = id;
+      console.log(likeSN)
+      const res = await likes_actualizar(likeSN);
+      window.location.href = `http://localhost:3000/DetalleProductoVenta/${id}`;
+    };
 
     return(
         <div className="main-wrapper">
@@ -103,27 +151,75 @@ const DetalleProductoVentaPage =()=>{
               <p className="product-description descripcionExtra">{subnivel.descripcion}</p>
               <p className="product-description ">Notas: {subnivel.notas}</p>
 
+              <div className="btn-groups">
               {(() => {
               if (user){
                 if (usuario2._id === usuario._id){
-                  console.log ("sin boton")
+                  //console.log ("sin boton")
                 }else{
                 return(
-                  <div className="btn-groups">
+                  <>
                     <Link className="linkNavBar"  to={`/EscribirResena/${subnivel._id}`}>
                       <button type="button" className="add-cart-btn">Comprar ahora</button>
                     </Link>
-                    <button type="button" className="buy-now-btn">
-                      <img src={heart} alt="Bootstrap" className="btnLikeDetalle" />
-                    </button>
-                    <button type="button" className="like-item-btn">
-                      <img src={like} alt="Bootstrap" className="btnLikeDetalle" /> 12 Likes
-                    </button>
-                  </div>
+                    {(() => {
+                      var fav = false;
+                      for (var i in deseos) {
+                        if (deseos[i]._id == id) {
+                          fav = true;
+                          break;
+                        }
+                      }
+                      if (!fav) {
+                        return(
+                          <button type="button" className="buy-now-btn" onClick={enviarDeseo}>
+                            <img src={heart} alt="Bootstrap" className="btnLikeDetalle" />
+                          </button>  
+                        )
+                      }
+                    })()}
+                  </>
                 )
               }
               }
             })()}
+
+            {(() => {
+              if (estatus) {
+                if (estatus.estatus === "si") {
+                  likeSN.estatus = "no";
+                  return(
+                    <>
+                    <button type="button" className="like-item-btn-dark" onClick={enviarLikeSN}>
+                      <img src={like} alt="Bootstrap" className="btnLikeDetalle" /> {likes.suma} Likes
+                    </button>
+                    </>
+                  )
+                }
+                else {
+                  likeSN.estatus = "si";
+                  return(
+                    <>
+                    <button type="button" className="like-item-btn" onClick={enviarLikeSN}>
+                      <img src={like} alt="Bootstrap" className="btnLikeDetalle" /> {likes.suma} Likes
+                    </button>
+                    </>
+                  )
+                }
+              }
+              else {
+                likeSN.estatus = "si";
+                return(
+                  <>
+                  <button type="button" className="like-item-btn" onClick={enviarLikeSN}>
+                    <img src={like} alt="Bootstrap" className="btnLikeDetalle" /> {likes.suma} Likes
+                  </button>
+                  </>
+                )
+              }
+            })()}
+            
+            </div>
               
             </div>
           </div>

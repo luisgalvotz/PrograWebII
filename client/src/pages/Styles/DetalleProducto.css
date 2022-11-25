@@ -187,6 +187,14 @@ img{
     background-color:var(--like-hover);
 }
 
+.like-item-btn-dark{
+    border-radius: 15px;
+    background-color:var(--like-hover);
+    border: 0px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
 .add-cart-btn{
     border-radius: 15px;
     background-color:var(--buy);

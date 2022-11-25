@@ -15,20 +15,85 @@ import "./Styles/DetalleProducto.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import { useEffect, useState } from "react";
-import {articuloIntercambio_getById} from '../services/ArticuloService';
-import {usuario_getById,usuario_getByEmail} from '../services/UsuarioService';
+import { articuloIntercambio_getById  } from '../services/ArticuloService';
+import { usuario_getById,usuario_getByEmail } from '../services/UsuarioService';
 import { oferta_agregar } from "../services/OfertasService";
-
+import { wishlist_ver, wishlist_crear, wishlist_agregar } from '../services/WishlistService';
+import { likes_actualizar, likes_ver, likes_estatus } from '../services/LikesService';
 
 const DetalleProductoIntercambioPage =()=>{
 
- 
+  const { user, getAccessTokenSilently} = useAuth0();
+
   let {id} = useParams();
   const [articulo, setArticulo] = useState([]);
   const [subnivel, setSub] = useState([]);
   const [usuario, setUsuario] = useState([]);
   const [usuario2, setUsuario2] = useState([]);
+  const [deseos, setDeseos] = useState([]);
+  const [likes, setLikes] = useState([]);
+  const [estatus, setEstatus] = useState([]);
 
+    useEffect(() => {
+        async function fetchData() {
+            const res = await articuloIntercambio_getById(id);
+            setArticulo(res); 
+            setSub(res.id_articulo);
+
+            //AQUI IRA LA INFORMACION DEL USUARIO QUE ESTA VENDIENDO EL ARTICULO
+            const res2 = await usuario_getById(res.id_articulo.id_usuario);
+            setUsuario(res2);
+
+            //APARTADO PARA COMPARACION DE SI EL USUARIO ES QUIEN LO PUBLICO
+            const token = await getAccessTokenSilently();
+            const us2 = await usuario_getByEmail(user.email, token);
+            setUsuario2(us2);
+
+            const des = await wishlist_ver(us2._id);
+            setDeseos(des.articulos);
+
+            const lik = await likes_ver(id);
+            setLikes(lik);
+
+            const est = await likes_estatus(us2._id, id);
+            setEstatus(est.data);
+        }
+    fetchData();
+    }, [])
+
+    const [deseo, setDeseo] = useState({
+      id_usuario: '',
+      id_articulo: ''
+    });
+
+    const enviarDeseo = async (event) => {
+      event.preventDefault();
+      deseo.id_usuario = usuario2._id;
+      deseo.id_articulo = id;
+      if (deseos) {
+        const res = await wishlist_agregar(deseo);
+      }
+      else {
+        const crea = await wishlist_crear(deseo);
+        const res = await wishlist_agregar(deseo);
+      }
+      window.location.href = `http://localhost:3000/DetalleProductoIntercambio/${id}`;
+    };
+
+    const [likeSN, setLikeSN] = useState({
+      id_usuario: '',
+      id_articulo: '',
+      estatus: ''
+    });
+
+    const enviarLikeSN = async (event) => {
+      event.preventDefault();
+      likeSN.id_usuario = usuario2._id;
+      likeSN.id_articulo = id;
+      console.log(likeSN)
+      const res = await likes_actualizar(likeSN);
+      window.location.href = `http://localhost:3000/DetalleProductoIntercambio/${id}`;
+    };
 
   //AQUI VA TODO ACERCA DE HACER UNA OFERTA DE INTERCAMBIO
   const [datos,setDatos] = useState ( {
@@ -37,15 +102,15 @@ const DetalleProductoIntercambioPage =()=>{
     id_usuario: '',
     id_articulo: id,
     id_ofertante: ''
-  })
-  const { user, getAccessTokenSilently} = useAuth0();
-  
+  });
+
   const handleChange = (event) => {
     setDatos({
         ...datos,
         [event.target.name] : event.target.value
       })
   };
+
   const enviarDatos = async (event) =>{
     event.preventDefault();
 
@@ -59,28 +124,7 @@ const DetalleProductoIntercambioPage =()=>{
     //CREAR OFERTA
     const ofer = await oferta_agregar(datos);
     window.location.href = "http://localhost:3000/ListaProductosIntercambio";
-
-  }
-
-
-
-
-  //
-    useEffect(() => {
-        async function fetchData() {
-            const res = await articuloIntercambio_getById(id);
-            setArticulo(res); 
-            setSub(res.id_articulo);
-            //AQUI IRA LA INFORMACION DEL USUARIO QUE ESTA VENDIENDO EL ARTICULO
-            const res2 = await usuario_getById(res.id_articulo.id_usuario);
-            setUsuario(res2);
-            //APARTADO PARA COMPARACION DE SI EL USUARIO ES QUIEN LO PUBLICO
-            const token = await getAccessTokenSilently();
-            const us2 = await usuario_getByEmail(user.email, token);
-            setUsuario2(us2);
-        }
-    fetchData();
-    }, [])
+  };
 
     return(
         <div className="main-wrapper">
@@ -143,7 +187,7 @@ const DetalleProductoIntercambioPage =()=>{
                 Ofrecido por:
               </span>
               <div className="parrafo">
-              <Link className="linkNavBar" to="/PerfilResenas">
+              <Link className="linkNavBar" to={`/PerfilResenas/${usuario._id}`}>
                 <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
               </Link>
                 <span className="product-description descripcionExtra nombreVendedorDetalle">
@@ -169,7 +213,7 @@ const DetalleProductoIntercambioPage =()=>{
             <div className="product-div-right">
               <span className="product-name">{subnivel.titulo}</span>
               <span className="product-price"> 
-              {articulo.sugerencias}
+                {articulo.sugerencias}
               </span>
               <div className="product-rating">
                 {/* <span><i className= "fas fa-star"></i></span>
@@ -190,32 +234,80 @@ const DetalleProductoIntercambioPage =()=>{
               </p>
               <p className="product-description ">Notas: {subnivel.notas}</p>
 
+              <div className="btn-groups">
               {(() => {
               if (user){
                 if (usuario2._id === usuario._id){
-                  console.log ("sin boton")
+                  //console.log ("sin boton")
                 }else{
                 return(
-                  <div className="btn-groups">
+                  <>
                     {/* <button type="button" className="add-cart-btn">
                       Ofrecer intercambio
                     </button> */}
-                    <button type="button" className="buy-now-btn">
-                      <img src={heart} alt="Bootstrap" className="btnLikeDetalle" />
-                    </button>
-                    <button type="button" className="like-item-btn">
-                      <img src={like} alt="Bootstrap" className="btnLikeDetalle" />12 likes
-                    </button>
-                  </div>
+                    {(() => {
+                      var fav = false;
+                      for (var i in deseos) {
+                        if (deseos[i]._id == id) {
+                          fav = true;
+                          break;
+                        }
+                      }  
+                      if (!fav) {
+                        return(
+                          <button type="button" className="buy-now-btn" onClick={enviarDeseo}>
+                            <img src={heart} alt="Bootstrap" className="btnLikeDetalle" />
+                          </button>
+                        )
+                      }
+                    })()}
+                  </>
                 )
               }
               }
             })()}
 
+            {(() => {
+              if (estatus) {
+                if (estatus.estatus === "si") {
+                  likeSN.estatus = "no";
+                  return(
+                    <>
+                    <button type="button" className="like-item-btn-dark" onClick={enviarLikeSN}>
+                      <img src={like} alt="Bootstrap" className="btnLikeDetalle" /> {likes.suma} Likes
+                    </button>
+                    </>
+                  )
+                }
+                else {
+                  likeSN.estatus = "si";
+                  return(
+                    <>
+                    <button type="button" className="like-item-btn" onClick={enviarLikeSN}>
+                      <img src={like} alt="Bootstrap" className="btnLikeDetalle" /> {likes.suma} Likes
+                    </button>
+                    </>
+                  )
+                }
+              }
+              else {
+                likeSN.estatus = "si";
+                return(
+                  <>
+                  <button type="button" className="like-item-btn" onClick={enviarLikeSN}>
+                    <img src={like} alt="Bootstrap" className="btnLikeDetalle" /> {likes.suma} Likes
+                  </button>
+                  </>
+                )
+              }
+            })()}
+
+            </div>
+
               {(() => {
               if (user){
                 if (usuario2._id === usuario._id){
-                  console.log ("sin boton")
+                  //console.log ("sin boton")
                 }else{
                 return(
                   <div className="contendorCAS">

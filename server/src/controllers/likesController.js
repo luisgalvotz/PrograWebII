@@ -38,7 +38,7 @@ exports.likes_actualizar = async(req, res) => {
 
 exports.likes_ver = async(req, res) => {
     const {params: {id}} = req;
-    console.log(req.params);
+    
     const data = await Likes.find({id_articulo: id, estatus: "si"});
 
     let suma = 0;
@@ -55,7 +55,7 @@ exports.likes_estatus = async(req, res) => {
     const existe = await Likes.exists({id_usuario, id_articulo});
 
     if (existe) {
-        const data = await Likes.find({id_usuario, id_articulo});
+        const data = await Likes.findOne({id_usuario, id_articulo});
         res.send({
             message: "Like existente",
             data: data

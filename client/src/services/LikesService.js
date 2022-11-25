@@ -1,9 +1,9 @@
 import { AxiosConfig as axios } from "./AxiosConfig";
 
 //DAR LIKE O QUITAR A UN ARTICULO
-export const likes_actualizar = async (id) => {
+export const likes_actualizar = async (like) => {
     try {
-        const response = await axios.post("/likes/actualizar",id);
+        const response = await axios.post("/likes/actualizar",like);
         return response.data;
     } catch (err) {
         console.error(err);
@@ -25,9 +25,9 @@ export const likes_ver = async (id) => {
 
 //VER ESTATUS DE USUARIO-ARTICULO
 
-export const likes_estatus = async (id,estatus) => {
+export const likes_estatus = async (id_usuario, id_articulo) => {
     try {
-        const response = await axios.get(`/likes/${id}/${estatus}`);
+        const response = await axios.get(`/likes/estatus/${id_usuario}/${id_articulo}`);
         return response.data;
     } catch (err) {
         console.error(err);
