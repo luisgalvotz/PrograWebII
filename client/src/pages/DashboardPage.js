@@ -26,7 +26,7 @@ const DashboardPage =()=>{
         }
     fetchData();
     }, [])
-
+    
     return(
         
     <div className= "container-dash">
@@ -148,7 +148,7 @@ const DashboardPage =()=>{
                         </Link>
                         <Card.Body >
                             <Card.Title>{articulo.titulo}</Card.Title>
-                            <Card.Text>#TaylorSwift</Card.Text>
+                            <Card.Text>#{articulo.etiquetas.nombre}</Card.Text>
                             <Card.Text>Producto en venta</Card.Text>
                         </Card.Body>
                         </Card>
@@ -161,7 +161,7 @@ const DashboardPage =()=>{
                         </Link>
                         <Card.Body >
                             <Card.Title>{articulo.titulo}</Card.Title>
-                            <Card.Text>#TaylorSwift</Card.Text>
+                            <Card.Text>#{articulo.etiquetas.nombre}</Card.Text>
                             <Card.Text>Producto para intercambio</Card.Text>
                         </Card.Body>
                         </Card>

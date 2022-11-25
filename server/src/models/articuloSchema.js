@@ -18,14 +18,13 @@ const ArticuloSchema = mongoose.Schema({
         required: [true, 'Favor llenar campo notas'],
         maxlenght: [400, 'Favor de usar maximo 400 caracteres -notas']
     },
-    imagenes: [{
+    imagenes: {
         type: String
-    }],
-    etiquetas: [{
+    },
+    etiquetas: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "etiquetas",
-        required: [true, 'Favor llenar campo etiquetas']
-    }],
+        ref: "etiquetas"
+    },
     estatus: {
         type: String,
         default: "activo"

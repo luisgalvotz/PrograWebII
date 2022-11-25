@@ -31,11 +31,8 @@ const ListaProductosVentaPage =()=>{
                         </Link>
                         <h4 className="tituloListaProductoVenta">{articulo.id_articulo.titulo}</h4>
                         <div className= "moverLinkIzq">
-                            <Link className="linkNavBar moverLinkIzq" to="/">
-                            <span>#Etiqueta1</span>
-                            </Link>
-                            <Link className="linkNavBar moverLinkIzq" to="/">
-                            <span>#Etiqueta2</span>
+                            <Link className="linkNavBar moverLinkIzq" to="">
+                            <span>#{articulo.id_articulo.etiquetas.nombre}</span>
                             </Link>
                         </div>
                     </div>

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import "./Styles/Etiquetas.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import Form from 'react-bootstrap/Form';
 
 import { useEffect, useState } from "react";
-import {etiquetas_ver} from '../services/EtiquetasService';
+import { etiquetas_ver, etiquetas_eliminar } from '../services/EtiquetasService';
 
 const ListaEtiquetasPage =()=>{
 
@@ -17,6 +18,23 @@ const ListaEtiquetasPage =()=>{
     fetchData();
     }, [])
 
+    const [datos, setDatos] = useState({
+      _id: ''
+    });
+
+    const handleChange = (event) => {
+      setDatos({
+        ...datos,
+        [event.target.name] : event.target.value
+      })
+    };
+
+    const enviarDatos = async (event) => {
+      event.preventDefault();
+      const res = await etiquetas_eliminar(datos);
+      window.location.href = "http://localhost:3000/ListaEtiquetas";
+    };
+
     return(
         <div className="main-wrapperFour">
         <div className="pEtiquetasContainer">
@@ -26,11 +44,14 @@ const ListaEtiquetasPage =()=>{
           <div className="pEtiquetas-div quitarBackgroundProductoAdquirido">
           {etiquetas.map((etiqueta) => {
             return (
-             
-            <div className="contendorCAS3">
-              <h5 className="letraFooter alinearIzquier">{etiqueta.nombre}</h5>
-              <Button className="btnProdResena3" variant="dark">Eliminar etiqueta</Button>  
-            </div>
+              <div className="contendorCAS3">
+                <h5 className="letraFooter alinearIzquier">{etiqueta.nombre}</h5>
+                <Form onSubmit={enviarDatos}>
+                  <Button className="btnProdResena3" variant="dark" type="Submit" value={etiqueta._id} name="_id" id="_id" onClick={handleChange}>
+                    Eliminar etiqueta
+                  </Button> 
+                </Form>
+              </div>
             )
         })}
 

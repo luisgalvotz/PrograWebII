@@ -25,6 +25,7 @@ const DetalleProductoVentaPage =()=>{
   let {id} = useParams(); //AQUI SE RECIBE EL PARAMETRO DE LA URL
   const [articulo, setArticulo] = useState([]);
   const [subnivel, setSub] = useState([]);
+  const [etiqueta, setEtiqueta] = useState([]);
   const [usuario, setUsuario] = useState([]);
   const [usuario2, setUsuario2] = useState([]);
   const [deseos, setDeseos] = useState([]);
@@ -36,6 +37,7 @@ const DetalleProductoVentaPage =()=>{
             const res = await articuloVenta_getById(id);
             setArticulo(res); //AQUI NO USAMOS EL .DATA PORQUE EN EL RESPONSE NO LO USAMOS
             setSub(res.id_articulo);
+            setEtiqueta(res.id_articulo.etiquetas);
 
             //AQUI IRA LA INFORMACION DEL USUARIO QUE ESTA VENDIENDO EL ARTICULO
             const us = await usuario_getById(res.id_articulo.id_usuario);
@@ -145,8 +147,7 @@ const DetalleProductoVentaPage =()=>{
               <span className="product-name">{subnivel.titulo}</span>
               <span className="product-price">${articulo.precio}</span>
               <div className="product-rating">
-                <Link className="linkNavBar" to="/"><span>#Etiqueta1</span></Link>
-                <Link className="linkNavBar" to="/"><span>#Etiqueta2</span></Link>
+                <Link className="linkNavBar" to=""><span>#{etiqueta.nombre}</span></Link>
               </div>
               <p className="product-description descripcionExtra">{subnivel.descripcion}</p>
               <p className="product-description ">Notas: {subnivel.notas}</p>

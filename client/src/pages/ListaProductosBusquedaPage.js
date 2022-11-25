@@ -22,7 +22,6 @@ const ListaProductosBusquedaPage =()=>{
     }, [])
 
 
-
     return(
         <div className= "main-wrapperTwo">
         <div className= "listaVentaContainer">
@@ -41,7 +40,7 @@ const ListaProductosBusquedaPage =()=>{
                         </Link>
                         <Card.Body >
                             <Card.Title>{articulo.titulo}</Card.Title>
-                            <Card.Text>#TaylorSwift</Card.Text>
+                            <Card.Text>#{articulo.etiquetas.nombre}</Card.Text>
                             <Card.Text>Producto en venta</Card.Text>
                         </Card.Body>
                         </Card>

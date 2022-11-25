@@ -28,6 +28,7 @@ const DetalleProductoIntercambioPage =()=>{
   let {id} = useParams();
   const [articulo, setArticulo] = useState([]);
   const [subnivel, setSub] = useState([]);
+  const [etiqueta, setEtiqueta] = useState([]);
   const [usuario, setUsuario] = useState([]);
   const [usuario2, setUsuario2] = useState([]);
   const [deseos, setDeseos] = useState([]);
@@ -39,6 +40,7 @@ const DetalleProductoIntercambioPage =()=>{
             const res = await articuloIntercambio_getById(id);
             setArticulo(res); 
             setSub(res.id_articulo);
+            setEtiqueta(res.id_articulo.etiquetas);
 
             //AQUI IRA LA INFORMACION DEL USUARIO QUE ESTA VENDIENDO EL ARTICULO
             const res2 = await usuario_getById(res.id_articulo.id_usuario);
@@ -222,11 +224,8 @@ const DetalleProductoIntercambioPage =()=>{
                         <span><i className= "fas fa-star"></i></span>
                         <span><i className= "fas fa-star-half-alt"></i></span> */}
 
-                <Link className="linkNavBar" to="/">
-                  <span>#Etiqueta1</span>
-                </Link>
-                <Link className="linkNavBar" to="/">
-                  <span>#Etiqueta2</span>
+                <Link className="linkNavBar" to="">
+                  <span>#{etiqueta.nombre}</span>
                 </Link>
               </div>
               <p className="product-description descripcionExtra">

@@ -35,7 +35,12 @@ exports.articulo_getAll = async (req, res) => {
     }, {
         "titulo": 1,
         "imagenes": 1,
-        "tipo": 1
+        "tipo": 1,
+        "etiquetas": 1
+    })
+    .populate({
+        path: "etiquetas",
+        select: "nombre"
     });
     if (data) {
         res.send({
@@ -58,7 +63,12 @@ exports.busqueda = async (req, res) => {
     //OBTENER EL PARAMETRO
     const data = await Articulo.find(
         {titulo : {$regex : new RegExp(busqueda, "i")} , estatus: "activo"}
-    ); //GUARDA TODOS LOS ARTICULOS
+    )
+    .populate({
+        path: "etiquetas",
+        select: "nombre"
+    }); 
+    //GUARDA TODOS LOS ARTICULOS
     if (data) {
         res.send({
             message: "todos los articulos",
@@ -157,10 +167,11 @@ exports.articuloVenta_getAll = async (req, res) => {
 
     const data = await ArticuloVenta.find({
         estatus: "activo"
-    }).
-    populate({
+    })
+    .populate({
         path: "id_articulo",
-        select: "titulo"
+        select: {"titulo": 1, "etiquetas": 1},
+        populate: {path: "etiquetas", select: "nombre"}
     });
 
     if (data) {
@@ -188,7 +199,8 @@ exports.articuloVenta_getById = async (req, res) => {
                 estatus: "activo",
             })
             .populate({
-                path: "id_articulo"
+                path: "id_articulo",
+                populate: {path: "etiquetas", select: "nombre"}
             });
         res.send(data);
 
@@ -230,7 +242,8 @@ exports.articuloIntercambio_getAll = async (req, res) => {
         })
         .populate({
             path: "id_articulo",
-            select: "titulo"
+            select: {"titulo": 1, "etiquetas": 1},
+            populate: {path: "etiquetas", select: "nombre"}
         });
 
 
@@ -261,7 +274,8 @@ exports.articuloIntercambio_getById = async (req, res) => {
                 estatus: "activo",
             })
             .populate({
-                path: "id_articulo"
+                path: "id_articulo",
+                populate: {path: "etiquetas", select: "nombre"}
             });
         res.send(data);
 
