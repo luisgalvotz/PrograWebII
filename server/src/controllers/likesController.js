@@ -80,7 +80,15 @@ exports.likes_reporte = async(req, res) => {
                 _id: "$id_articulo",
                 cantidad: { $count: {} }
             }
-        }, 
+        },
+        {
+            $lookup: {
+                from: 'articulos',
+                localField: '_id',
+                foreignField: '_id',
+                as: 'articulo'
+            }
+        },
         { 
             $sort : {
                 "cantidad" : -1

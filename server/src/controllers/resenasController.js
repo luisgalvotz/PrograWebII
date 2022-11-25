@@ -50,7 +50,15 @@ exports.resenas_reporte = async(req, res) => {
                 cantidad: { $count: {} },
                 promedio: { $avg: "$estrellas" }
             }
-        }, 
+        },
+        {
+            $lookup: {
+                from: 'usuarios',
+                localField: '_id',
+                foreignField: '_id',
+                as: 'usuario'
+            }
+        },
         { 
             $sort : {
                 "promedio" : -1

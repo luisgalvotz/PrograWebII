@@ -127,7 +127,7 @@ const CrearArticuloPage =()=>{
     <h2 className="texto-ph2">Publicaciones de tus artículos</h2>
     </div>
     <div className= "container-tipo">
-        <Form.Select className= "sel-etiqueta" aria-label="Default select example" name="num" onChange={handleOpc}>
+        <Form.Select className= "sel-etiqueta" aria-label="Default select example" onChange={handleOpc}>
             <option value="1">Publicar artículo en forma de venta</option>
             <option value="2">Publicar artículo en forma de intercambio</option>
         </Form.Select>
