@@ -3,6 +3,7 @@ import { Form, Link, useParams } from "react-router-dom";
 import markUwu from "../img/markUwu.jpg";
 import taylor2 from "../img/taylor2.png";
 import taylor1 from "../img/taylor1.jpg";
+import userImg from "../img/user.png";
 
 import "./Styles/DetalleProducto.css";
 // import { validas } from'./Scripts/Script'
@@ -34,7 +35,6 @@ const DetalleProductoSugeridoPage =()=>{
         setOfertas3(res3);
         setOfertas4(res3.id_articulo)
 
-
     }
 fetchData();
 }, [])
@@ -61,10 +61,10 @@ const enviarDatos = async (event) =>{
             <div className="product-div-left">
               <div className="img-container">
                 <div>{" "}
-                  <img className="imgDetalleProducto" src={taylor1} alt="Imagen"/>{" "}
+                  <img className="imgDetalleProducto" src={ofertas.imagenes} alt="Imagen"/>{" "}
                 </div>
               </div>
-              <div className="hover-container">
+              {/* <div className="hover-container">
                 <div className="divOpcionesDetalle">{" "}
                   <img className="imgOpcionesDetalle" src={taylor2} alt="Imagen"/>{" "}
                 </div>
@@ -80,7 +80,7 @@ const enviarDatos = async (event) =>{
                 <div className="divOpcionesDetalle">{" "}
                   <img className="imgOpcionesDetalle" src={taylor1} alt="Imagen"/>{" "}
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="product-div-right">
             <span className="product-name">Producto ofertado: {ofertas4.titulo}</span>
@@ -95,11 +95,11 @@ const enviarDatos = async (event) =>{
               </span>
               <div className="parrafo">
               <Link className="linkNavBar" to={`/PerfilResenas/${ofertas.id_ofertante}`}>
-                <img className="imgVendedorDetalle" src={markUwu} alt="Imagen"/>
-              </Link>                <span className=" descripcionExtra nombreVendedorDetalle">
+                <img className="imgVendedorDetalle" src={userImg} alt="Imagen"/>
+              </Link>                <span className="product-description2 descripcionExtra nombreVendedorDetalle">
               {ofertas2.nombre}
-                </span>
-                <form className="estrellasOut">
+                </span><br></br>
+                {/* <form className="estrellasOut">
                   <p className="clasificacion">
                     <input id="radio1" type="radio" className="estrellasOut" value="5"/>
                     <label className="estIndividual" htmlFor="radio1">★</label>
@@ -112,7 +112,7 @@ const enviarDatos = async (event) =>{
                     <input id="radio5" type="radio" className="estrellasOut" value="1"/>
                     <label className="estIndividual" htmlFor="radio5">★</label>
                   </p>
-                </form>
+                </form> */}
               </div>
               <div className="btn-groups">
                 

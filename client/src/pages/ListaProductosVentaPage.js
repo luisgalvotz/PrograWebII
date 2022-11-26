@@ -27,7 +27,7 @@ const ListaProductosVentaPage =()=>{
                 <div>
                     <div className="cartaListaProductoVenta">
                         <Link className="linkNavBar" to={`/DetalleProductoVenta/${articulo.id_articulo._id}`}>
-                        <img src={taylor1} alt="Imagen"/>
+                        <img src={articulo.id_articulo.imagenes} alt="Imagen"/>
                         </Link>
                         <h4 className="tituloListaProductoVenta">{articulo.id_articulo.titulo}</h4>
                         <div className= "moverLinkIzq">

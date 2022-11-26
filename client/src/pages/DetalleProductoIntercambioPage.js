@@ -139,7 +139,7 @@ const DetalleProductoIntercambioPage =()=>{
                   {" "}
                   <img
                     className="imgDetalleProducto"
-                    src={taylor1}
+                    src={subnivel.imagenes}
                     alt="Imagen"
                   />{" "}
                 </div>
@@ -193,11 +193,12 @@ const DetalleProductoIntercambioPage =()=>{
               <Link className="linkNavBar" to={`/PerfilResenas/${usuario._id}`}>
                 <img className="imgVendedorDetalle" src={userImg} alt="Imagen"/>
               </Link>
-                <span className="product-description descripcionExtra nombreVendedorDetalle">
+              <br></br>
+                <span className="product-description2 descripcionExtra nombreVendedorDetalle">
                 {usuario.nombre}
                 </span>{" "}
-                <br></br>
-                <form className="estrellasOut">
+                <br></br><br></br>
+                {/* <form className="estrellasOut">
                   <p className="clasificacion">
                     <input id="radio1" type="radio" className="estrellasOut" value="5"/>
                     <label className="estIndividual" htmlFor="radio1">★</label>
@@ -210,7 +211,7 @@ const DetalleProductoIntercambioPage =()=>{
                     <input id="radio5" type="radio" className="estrellasOut" value="1"/>
                     <label className="estIndividual" htmlFor="radio5">★</label>
                   </p>
-                </form>
+                </form> */}
               </div>
             </div>
             <div className="product-div-right">

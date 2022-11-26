@@ -49,7 +49,7 @@ const ProductosDeseadosPage =()=>{
       const res = await wishlist_eliminar(datos);
       window.location.href = "http://localhost:3000/ProductosDeseados";
     };
-   
+    
     return(
         <div className= "main-wrapperThree">
         <div className= "productosAdquiridosContainer">
@@ -66,8 +66,8 @@ const ProductosDeseadosPage =()=>{
                         <div className="">
                           <div className="row">
                             {/* Column1 */}
-                            <div className="col columna1">
-                              <img className= "imgVendedorDetalleAdquirido" src={taylor1} alt="Imagen"/>
+                            <div className="col-4 columna1">
+                              <img className= "imgVendedorDetalleAdquirido" src={deseo.imagenes} alt="Imagen"/>
                               <ui className="list-unstyled">
                                 <h4 className="tituloListaProductoAdquirido">{deseo.titulo}</h4>
                                 <li className="notaListaProductoAdquirido">Producto para vender</li>
@@ -105,8 +105,8 @@ const ProductosDeseadosPage =()=>{
                         <div className="">
                           <div className="row">
                             {/* Column1 */}
-                            <div className="col columna1">
-                              <img className= "imgVendedorDetalleAdquirido" src={taylor1} alt="Imagen"/>
+                            <div className="col-4 columna1">
+                              <img className= "imgVendedorDetalleAdquirido" src={deseo.imagenes} alt="Imagen"/>
                               <ui className="list-unstyled">
                                 <h4 className="tituloListaProductoAdquirido">{deseo.titulo}</h4>
                                 <li className="notaListaProductoAdquirido">Producto para intercambio</li>
@@ -114,7 +114,7 @@ const ProductosDeseadosPage =()=>{
                             </div>
                             {/* Column2 */}
                             <div className="col columna1">
-                              <img className= "imgVendedorDetalleAdquirido" src={markUwu} alt="Imagen"/>
+                              <img className= "imgVendedorDetalleAdquirido" src={userImg} alt="Imagen"/>
                               <ui className="list-unstyled">
                                 <h4 className="tituloListaProductoAdquirido">Ofrecido por</h4>
                                 <li className="notaListaProductoAdquirido">{deseo.id_usuario.nombre}</li>

@@ -14,7 +14,7 @@ const OfertasIntercambioSchema = mongoose.Schema({
         maxlenght: [400, 'Favor de usar maximo 400 caracteres']
     },
     imagenes: {
-        type: Array
+        type: String
     },
     estatus: {
         type: String,
@@ -37,6 +37,10 @@ const OfertasIntercambioSchema = mongoose.Schema({
         ref: "usuarios"
     }
 });
+
+OfertasIntercambioSchema.methods.setImgUrl = function setImgUrl (filename) {
+    this.imagenes = `http://localhost:3001/public/${filename}`
+}
 
 const OfertasIntercambio = mongoose.model("ofertasIntercambio", OfertasIntercambioSchema);
 

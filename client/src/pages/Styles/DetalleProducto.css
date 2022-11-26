@@ -144,9 +144,17 @@ img{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .product-description{
-    font-weight: 18px;
+    font-weight: 30px;
     line-height: 1.6;
     font-weight: 300;
+    opacity: 0.9;
+    margin-top: 18px;
+}
+.product-description2{
+    font-weight: 30px;
+    line-height: 1.6;
+    font-weight: 300;
+    font-size: 20px;
     opacity: 0.9;
     margin-top: 18px;
 }

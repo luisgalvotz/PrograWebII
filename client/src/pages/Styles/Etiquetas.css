@@ -7,6 +7,7 @@
 
 /* tituloListaAdquiridos */
 .tituloListaEtiquetas{
+    color: var(--text-base);
     margin-top: 30px;
     margin-bottom: 20px;
 }

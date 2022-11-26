@@ -10,6 +10,11 @@ exports.oferta_agregar = async (req, res) => {
 
     const ofertaDB = new Oferta(oferta);
 
+    if (req.file) {
+      const { filename } = req.file;
+      ofertaDB.setImgUrl(filename);
+  }
+
     try {
         await ofertaDB.save();
 

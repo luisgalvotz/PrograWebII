@@ -103,6 +103,7 @@ const CrearArticuloPage =()=>{
         datos.id_usuario = us._id;
         datos.tipo = "venta"
         const art = await articulo_crear(datos);
+        console.log(art)
         datos.id_articulo = art.data._id;
         const artv = await articuloVenta_agregar(datos);
         window.location.href = `http://localhost:3000/DetalleProductoVenta/${artv.data.id_articulo}`;
@@ -135,9 +136,9 @@ const CrearArticuloPage =()=>{
 
     <div className= "row">
 
-        <div className="publicar-venta col-sm-6" id="cuadroVenta">
+        <div className="publicar-venta col-sm-12" id="cuadroVenta">
         <h2 className="texto-ph2">Venta de tu artículo</h2>
-        <Form onSubmit={enviarDatosVenta}>
+        <Form enctype="multipart/form-data" onSubmit={enviarDatosVenta}>
             <FloatingLabel  label="Ingrese el título de artículo" className="mb-3">
                 <Form.Control type="text" placeholder="Título" name="titulo" onChange={handleChange}/>
             </FloatingLabel>
@@ -152,6 +153,7 @@ const CrearArticuloPage =()=>{
             </FloatingLabel>
             <p className="texto-p">Selecciona la etiqueta del artículo</p>
             <Form.Select className= "sel-etiqueta" aria-label="Default select example" id="etiquetasV" name="etiquetas" onChange={handleChange}>
+                <option value="null">-- Selecciona una etiqueta --</option>
                 {etiquetas.map((etiqueta) => {
                     return (
                         <option value={etiqueta._id}>#{etiqueta.nombre}</option>
@@ -168,7 +170,7 @@ const CrearArticuloPage =()=>{
 
             <Form.Group className="mb-3">
                 <p className="texto-p">Ingresa las fotos de tu artículo</p>
-                <Form.Control type="file" multiple  name="imagenes" onChange={handleChange}/>
+                <Form.Control type="file" name="imagenes" id="inputImg" onChange={handleChange}/>
             </Form.Group>
 
             <Button className= "btn-publicar" type="submit">
@@ -177,7 +179,7 @@ const CrearArticuloPage =()=>{
         </Form>
         </div>
 
-        <div className="publicar-inter col-sm-6" id="cuadroInter" style={{display: 'none'}}>
+        <div className="publicar-inter col-sm-12" id="cuadroInter" style={{display: 'none'}}>
         <h2 className="texto-ph2">Intercambio de tu artículo</h2>
         <Form onSubmit={enviarDatosInter}>
             <FloatingLabel  label="Ingrese el título de artículo" className="mb-3">
@@ -194,6 +196,7 @@ const CrearArticuloPage =()=>{
             </FloatingLabel>
             <p className="texto-p">Selecciona la etiqueta del artículo</p>
             <Form.Select className= "sel-etiqueta" aria-label="Default select example" onChange={handleChange} id="etiquetasI" name="etiquetas">
+                <option value="null">-- Selecciona una etiqueta --</option>
                 {etiquetas.map((etiqueta) => {
                     return (
                         <option value={etiqueta._id}>#{etiqueta.nombre}</option>
@@ -210,7 +213,7 @@ const CrearArticuloPage =()=>{
 
             <Form.Group className="mb-3">
                 <p className="texto-p">Ingresa las fotos de tu artículo</p>
-                <Form.Control type="file" multiple onChange={handleChange} name="imagenes"/>
+                <input class="form-control" type="file" onChange={handleChange} id="input-img" name="imagenes"/>
             </Form.Group>
             
             <Button className= "btn-publicar" type="submit">

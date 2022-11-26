@@ -11,6 +11,11 @@ exports.articulo_crear = async (req, res) => {
 
     const articuloDB = new Articulo(articulo);
 
+    if (req.file) {
+        const { filename } = req.file;
+        articuloDB.setImgUrl(filename);
+    }
+
     try {
         await articuloDB.save();
 
@@ -170,7 +175,7 @@ exports.articuloVenta_getAll = async (req, res) => {
     })
     .populate({
         path: "id_articulo",
-        select: {"titulo": 1, "etiquetas": 1},
+        select: {"titulo": 1, "etiquetas": 1, "imagenes": 1},
         populate: {path: "etiquetas", select: "nombre"}
     });
 
@@ -242,7 +247,7 @@ exports.articuloIntercambio_getAll = async (req, res) => {
         })
         .populate({
             path: "id_articulo",
-            select: {"titulo": 1, "etiquetas": 1},
+            select: {"titulo": 1, "etiquetas": 1, "imagenes": 1},
             populate: {path: "etiquetas", select: "nombre"}
         });
 

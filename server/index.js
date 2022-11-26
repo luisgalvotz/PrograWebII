@@ -34,6 +34,9 @@ app.use('/articulo',articulo_router);
 app.use('/articuloVenta',articuloVenta_router);
 app.use('/articuloIntercambio',articuloIntercambio_router);
 
+//RUTA DE IMAGENES
+app.use('/public', express.static(`${__dirname}/src/storage/imgs`));
+
 //OFERTAS
 app.use('/oferta',ofertaIntercambio_router);
 

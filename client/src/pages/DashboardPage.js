@@ -144,7 +144,7 @@ const DashboardPage =()=>{
                     return(
                         <Card className="dashcards">
                         <Link className="linkNavBar" to={`/DetalleProductoVenta/${articulo._id}`}>
-                            <Card.Img variant="top" src={taylor1} />
+                            <Card.Img variant="top" src={articulo.imagenes} />
                         </Link>
                         <Card.Body >
                             <Card.Title>{articulo.titulo}</Card.Title>
@@ -157,7 +157,7 @@ const DashboardPage =()=>{
                     return (
                         <Card className="dashcardsInter">
                         <Link className="linkNavBar" to={`/DetalleProductoIntercambio/${articulo._id}`}>
-                            <Card.Img variant="top" src={taylor1} />
+                            <Card.Img variant="top" src={articulo.imagenes} />
                         </Link>
                         <Card.Body >
                             <Card.Title>{articulo.titulo}</Card.Title>

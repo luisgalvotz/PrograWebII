@@ -38,6 +38,10 @@ const ArticuloSchema = mongoose.Schema({
     }
 });
 
+ArticuloSchema.methods.setImgUrl = function setImgUrl (filename) {
+    this.imagenes = `http://localhost:3001/public/${filename}`
+}
+
 const Articulo = mongoose.model("articulos", ArticuloSchema);
 
 module.exports = Articulo;

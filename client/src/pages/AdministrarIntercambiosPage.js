@@ -32,13 +32,13 @@ const AdministrarIntercambiosPage =()=>{
     return(
         <div className= "main-wrapperFour">
         <div className= "productosPublicadosContainer">
-        <h3 className="tituloListaAdquiridos">Tus productos publicados:</h3>
+        <h3 className="tituloListaAdquiridos">Ofertas que tienes pendientes:</h3>
            <div className= "productPublicad-div quitarBackgroundProductoPublicado">
             {/* DESDE AQUI EMPEZAR A IMPRIMIR EL PRODUCTO QUE TIENE EN OFERTA Y LOS PRODUCTOS QUE OFRECEN POR ELLA */}
-     <div className="parrafo cartaExtr2 cartaListaProductoIntercambioPublicado">
+     {/* <div className="parrafo cartaExtr2 cartaListaProductoIntercambioPublicado">
            <div className="">
        <div className="row">
-         {/* Column1 */}
+         
          <div className="col columna2">
          <img className= "imgVendedorDetallePublicado" src={taylor1} alt="Imagen"/>
            <ui className="list-unstyled">
@@ -47,27 +47,28 @@ const AdministrarIntercambiosPage =()=>{
            </ui>
          </div>
 
-         {/* Column3 */}
+         
          <div className="col columna2">
          <h4 className="tituloListaProductoPublicado">Producto disponible</h4>
            <ui className="list-unstyled">
              <Link className="linkNavBar" to="/DetalleProductoIntercambio">
              <Button className="btnProdPublicadoVer" variant="dark">Ver producto</Button>&nbsp;&nbsp;&nbsp;
              </Link>
-             {/* <Button className="btnProdResena2" variant="dark">Eliminar producto</Button>   */}
+             {/* <Button className="btnProdResena2" variant="dark">Eliminar producto</Button>   
            </ui> 
          </div> 
          </div>
        </div>
-     </div>
+     </div> */}
 
 
      {ofertas.map((oferta) => {
+      
             return (  
-     <div className="contendorCAS2 contExtra">
+     <div className="contendorCAS">
            <h5 className="letraFooter alinearIzquier">¡OFERTA!</h5>
             
-           <img className= "imgProductoSugerido" src={taylor1} alt="Imagen"/>
+           <img className= "imgProductoSugerido" src={oferta.imagenes} alt="Imagen"/>
            <ui className="list-unstyled">
            <h4 className="tituloListaProductoAdquirido">{oferta.titulo}</h4>
            </ui>
